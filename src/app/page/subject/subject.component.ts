@@ -6,12 +6,13 @@ import { EditButtonComponent } from '../../component/button/edit-button/edit-but
 import { SaveButtonComponent } from '../../component/button/save-button/save-button.component';
 import { HomeButtonComponent } from '../../component/button/home-button/home-button.component';
 import { AcceptButtonComponent } from '../../component/button/accept-button/accept-button.component';
+import { CloseButtonComponent } from '../../component/button/close-button/close-button.component';
 
 
 @Component({
   selector: 'app-subject',
   standalone: true,
-  imports: [AddButtonComponent, DeleteButtonComponent, EditButtonComponent, SaveButtonComponent,HomeButtonComponent, AcceptButtonComponent],
+  imports: [AddButtonComponent, DeleteButtonComponent, EditButtonComponent, SaveButtonComponent,HomeButtonComponent, AcceptButtonComponent, CloseButtonComponent],
   templateUrl: './subject.component.html',
   styleUrl: './subject.component.scss'
 })
