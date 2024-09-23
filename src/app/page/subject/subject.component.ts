@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { subject } from '../../interface/interface';
 import { AddButtonComponent } from '../../component/button/add-button/add-button.component';
 import { DeleteButtonComponent } from '../../component/button/delete-button/delete-button.component';
+import { EditButtonComponent } from '../../component/button/edit-button/edit-button.component';
 
 
 @Component({
   selector: 'app-subject',
   standalone: true,
-  imports: [AddButtonComponent, DeleteButtonComponent],
+  imports: [AddButtonComponent, DeleteButtonComponent, EditButtonComponent],
   templateUrl: './subject.component.html',
   styleUrl: './subject.component.scss'
 })
