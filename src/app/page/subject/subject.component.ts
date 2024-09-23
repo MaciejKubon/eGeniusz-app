@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { subject } from '../../interface/interface';
+import { AddButtonComponent } from '../../component/button/add-button/add-button.component';
 
 
 @Component({
   selector: 'app-subject',
   standalone: true,
-  imports: [],
+  imports: [AddButtonComponent],
   templateUrl: './subject.component.html',
   styleUrl: './subject.component.scss'
 })
