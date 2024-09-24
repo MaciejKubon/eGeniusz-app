@@ -13,8 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
 export class ArrowDropButtonComponent {
   position:string = "arrowDown";
   changPostition(){
-    console.log(this.position);
-    
     if(this.position=="arrowDown")
       this.position = "arrowUp";
     else
