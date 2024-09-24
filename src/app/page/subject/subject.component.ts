@@ -7,12 +7,13 @@ import { SaveButtonComponent } from '../../component/button/save-button/save-but
 import { HomeButtonComponent } from '../../component/button/home-button/home-button.component';
 import { AcceptButtonComponent } from '../../component/button/accept-button/accept-button.component';
 import { CloseButtonComponent } from '../../component/button/close-button/close-button.component';
+import { ArrowDropButtonComponent } from '../../component/button/arrow-drop-button/arrow-drop-button.component';
 
 
 @Component({
   selector: 'app-subject',
   standalone: true,
-  imports: [AddButtonComponent, DeleteButtonComponent, EditButtonComponent, SaveButtonComponent,HomeButtonComponent, AcceptButtonComponent, CloseButtonComponent],
+  imports: [AddButtonComponent, DeleteButtonComponent, EditButtonComponent, SaveButtonComponent,HomeButtonComponent, AcceptButtonComponent, CloseButtonComponent, ArrowDropButtonComponent],
   templateUrl: './subject.component.html',
   styleUrl: './subject.component.scss'
 })
