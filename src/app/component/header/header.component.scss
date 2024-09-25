@@ -1,0 +1,24 @@
+@import '../../../styles.scss';
+
+header{
+    background-color: $navBarColor;
+    min-height: 75px;
+    padding: 0px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+span{
+    display: flex;
+    height: 100%;
+    font-size: $headerFontSize;
+    font-weight: bold;
+}
+app-home-button{
+    display: none;
+}
+@media only screen and (max-width: 900px) {
+    app-home-button{
+        display: block;
+    }
+}
