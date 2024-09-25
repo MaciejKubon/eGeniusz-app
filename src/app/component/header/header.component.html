@@ -1,0 +1,11 @@
+<header>
+   <span>eGeniusz</span>
+   @if(!activeMenu){
+    <app-home-button (click)="menu()"/>
+   }
+   @else{
+    <app-close-button (click)="menu()"/>
+   }
+   
+
+</header>
