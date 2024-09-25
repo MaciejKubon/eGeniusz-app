@@ -1,0 +1,14 @@
+@import '../../../styles.scss';
+
+nav{
+    background-color: $navBarColor;
+    width: 200px;
+    height: calc(100vh - 75px);
+    padding: 50px 0px;
+}
+.rolledUpNav{
+    width: 50px;
+    transition-duration: 500ms;
+}
+
+
