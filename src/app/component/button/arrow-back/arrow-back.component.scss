@@ -1,8 +1,8 @@
-.front{
+.back{
     transition-duration: 500ms;
     transform: rotate(180deg);
 }
-.back{
+.front{
     transition-duration: 500ms;
     transform: rotate(0deg);
 }

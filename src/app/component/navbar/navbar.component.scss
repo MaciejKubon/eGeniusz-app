@@ -1,14 +1,39 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-nav{
-    background-color: $navBarColor;
-    width: 200px;
-    height: calc(100vh - 75px);
-    padding: 50px 0px;
+nav {
+  background-color: $navBarColor;
+  height: calc(100vh - 75px);
+  padding: 10px 0px;
 }
-.rolledUpNav{
-    width: 50px;
-    transition-duration: 500ms;
+.colapseNav {
+  width: 50px;
+  transition-duration: 500ms;
+}
+.expandNav {
+  width: 200px;
+  transition-duration: 500ms;
 }
 
+.arrowBox {
+  width: 100%;
+  background-color: beige;
+  display: flex;
+  justify-content: end;
+}
 
+@media only screen and (max-width: 900px) {
+  app-arrow-back {
+    display: none;
+  }
+  nav {
+    position: fixed;
+  }
+  .colapseNav {
+    width: 100%;
+    left: -100%;
+  }
+  .expandNav {
+    left: 0;
+    width: 100%;
+  }
+}

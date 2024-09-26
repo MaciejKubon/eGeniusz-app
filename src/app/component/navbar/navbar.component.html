@@ -1,5 +1,5 @@
-<nav class="rolledUpNav">
-<div> ></div>
-
-
+<nav [ngClass]="{ colapseNav: navPosition == 'back', expandNav: navPosition == 'front' }">
+  <div class="arrowBox">
+    <app-arrow-back [position]="navPosition" (click)="rollNav()"/>
+  </div>
 </nav>
