@@ -14,11 +14,11 @@ span{
     font-size: $headerFontSize;
     font-weight: bold;
 }
-app-home-button{
+app-home-button, app-close-button{
     display: none;
 }
 @media only screen and (max-width: 900px) {
-    app-home-button{
+    app-home-button, app-close-button{
         display: block;
     }
 }

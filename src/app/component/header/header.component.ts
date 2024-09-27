@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { HomeButtonComponent } from '../button/home-button/home-button.component';
 import { CommonModule } from '@angular/common';
 import { CloseButtonComponent } from '../button/close-button/close-button.component';
@@ -11,15 +11,22 @@ import { CloseButtonComponent } from '../button/close-button/close-button.compon
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  activeMenu:boolean;
+  @Output() position = new EventEmitter<string>();
+  navPosition:string = "back";
+
   constructor(){
-    this.activeMenu=false;
   }
   menu(){
-    if(this.activeMenu)
-      this.activeMenu=false;
-    else
-    this.activeMenu=true;
+    if(this.navPosition=="back")
+    {
+      this.navPosition = "front"
+    }
+    else{
+      this.navPosition="back";
+    }
+    this.position.emit(this.navPosition);
+
+    
   }
 
 }
