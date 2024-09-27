@@ -11,6 +11,8 @@ import { NavbarComponent } from '../../component/navbar/navbar.component';
   styleUrl: './subject.component.scss'
 })
 export class SubjectComponent {
+  
+  navPosition:string = "back";
 
   subjects:subject[]=[{ 
     "id": 1,
@@ -19,6 +21,9 @@ export class SubjectComponent {
         "id": 2,
     "name":"geography"
   }];
+  changeNavPosition(position:string){
+    this.navPosition=position;
+  }
 
 
 

@@ -1,5 +1,5 @@
 <section>
-    <app-header/>
-    <app-navbar/>
+    <app-header (position)="changeNavPosition($event)"/>
+    <app-navbar [navPosition]="navPosition"/>
 </section>
 

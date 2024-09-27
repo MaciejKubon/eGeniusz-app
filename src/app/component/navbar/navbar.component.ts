@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ArrowBackComponent } from '../button/arrow-back/arrow-back.component';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  navPosition="front";
+  @Input() navPosition:string="";
 
   rollNav(){
     if(this.navPosition=="back")

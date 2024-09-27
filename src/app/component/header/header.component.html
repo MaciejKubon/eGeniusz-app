@@ -1,6 +1,6 @@
 <header>
    <span>eGeniusz</span>
-   @if(!activeMenu){
+   @if(navPosition == "back"){
     <app-home-button (click)="menu()"/>
    }
    @else{
