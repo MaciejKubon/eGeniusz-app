@@ -1,4 +1,4 @@
-<nav [ngClass]="{ colapseNav: navPosition == 'back', expandNav: navPosition == 'front' }">
+<nav [ngClass]="navPosition ? 'expandNav' : 'colapseNav'">
   <div class="arrowBox">
     <app-arrow-back [position]="navPosition" (click)="rollNav()"/>
   </div>

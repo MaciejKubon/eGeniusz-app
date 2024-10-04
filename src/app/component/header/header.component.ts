@@ -11,22 +11,13 @@ import { CloseButtonComponent } from '../button/close-button/close-button.compon
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @Output() position = new EventEmitter<string>();
-  navPosition:string = "back";
-
+  @Output() position = new EventEmitter<boolean>();
+  navPosition:boolean = false;
   constructor(){
   }
   menu(){
-    if(this.navPosition=="back")
-    {
-      this.navPosition = "front"
-    }
-    else{
-      this.navPosition="back";
-    }
-    this.position.emit(this.navPosition);
-
-    
+    this.navPosition=!this.navPosition;
+    this.position.emit(this.navPosition); 
   }
 
 }
