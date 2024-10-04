@@ -12,16 +12,9 @@ import { NavbarComponent } from '../../component/navbar/navbar.component';
 })
 export class SubjectComponent {
   
-  navPosition:string = "back";
+  navPosition:boolean = false;
 
-  subjects:subject[]=[{ 
-    "id": 1,
-    "name":"math"
-  },{
-        "id": 2,
-    "name":"geography"
-  }];
-  changeNavPosition(position:string){
+  changeNavPosition(position:boolean){
     this.navPosition=position;
   }
 

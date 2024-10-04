@@ -10,12 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  @Input() navPosition:string="";
+  //@Input() navPosition:string="";
+
+  @Input() navPosition:boolean=false;
 
   rollNav(){
-    if(this.navPosition=="back")
-      this.navPosition="front"
-    else
-    this.navPosition="back";
+    this.navPosition=!this.navPosition;
   }
 }

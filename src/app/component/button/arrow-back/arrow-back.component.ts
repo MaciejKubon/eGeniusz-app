@@ -11,7 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './arrow-back.component.scss'
 })
 export class ArrowBackComponent {
-  @Input() position:string="back";
-
+  @Input() position:boolean=true;
 
 }
