@@ -1,1 +1,12 @@
-<p>link-nav-bar works!</p>
+<div class="example-button-row">
+  <a
+    mat-fab
+    extended
+    routerLink="/{{navigation.path}}"
+    [ngClass]="navigation.path == link ? 'active' : 'deActive'"
+    ><span>
+      <mat-icon>favorite</mat-icon>
+      <span class="text" *ngIf="navigation.navPosition">{{ navigation.path | uppercase }}</span></span
+    >
+  </a>
+</div>

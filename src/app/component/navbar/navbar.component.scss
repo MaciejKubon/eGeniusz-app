@@ -2,7 +2,7 @@
 
 nav {
   background-color: $navBarColor;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 95px);
   padding: 10px 0px;
 }
 .colapseNav {
@@ -16,9 +16,18 @@ nav {
 
 .arrowBox {
   width: 100%;
-  background-color: beige;
+
   display: flex;
   justify-content: end;
+}
+.navigationBox {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+app-link-nav-bar {
+  width: 90%;
+  margin-top: 10px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -35,5 +44,9 @@ nav {
   .expandNav {
     left: 0;
     width: 100%;
+  }
+  app-link-nav-bar {
+    width: 100%;
+    margin-top: 0px;
   }
 }

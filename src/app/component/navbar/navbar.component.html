@@ -2,4 +2,7 @@
   <div class="arrowBox">
     <app-arrow-back [position]="navPosition" (click)="rollNav()"/>
   </div>
+  <div class="navigationBox" >
+    <app-link-nav-bar *ngFor="let nav of navigation" [navigation]="nav"/>
+  </div>
 </nav>
