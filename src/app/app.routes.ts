@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { SubjectComponent } from './page/subject/subject.component';
-import { AppComponent } from './app.component';
+import { NotFoundPageComponent } from './page/not-found-page/not-found-page.component';
 
 export const routes: Routes = [
     { path: 'subject', component: SubjectComponent },
-    {path: '**', component:AppComponent}
-
+    {path: '404', component:NotFoundPageComponent},
+    {path: '**', component:NotFoundPageComponent}
 ];
