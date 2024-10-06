@@ -1,0 +1,19 @@
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+app-header {
+  width: 100%;
+}
+div {
+  width: 100%;
+  display: flex;
+}
+app-subject-table {
+  margin: 40px;
+  width: 100%;
+}
+app-navbar{
+  z-index: 2;
+ 
+}
