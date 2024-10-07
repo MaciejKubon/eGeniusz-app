@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { subject } from '../../../interface/interface';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { EditButtonComponent } from '../../button/edit-button/edit-button.component';
@@ -6,26 +6,9 @@ import { DeleteButtonComponent } from '../../button/delete-button/delete-button.
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-
-const subject: subject[] = [
-  { id: 0, name: 'a' },
-  { id: 1, name: 'a' },
-  { id: 2, name: 'a' },
-  { id: 3, name: 'a' },
-  { id: 4, name: 'a' },
-  { id: 5, name: 'a' },
-  { id: 6, name: 'a' },
-  { id: 7, name: 'a' },
-  { id: 8, name: 'a' },
-  { id: 9, name: 'a' },
-  { id: 10, name: 'a' },
-  { id: 0, name: 'a' },
-  { id: 0, name: 'a' },
-  { id: 0, name: 'a' },
-  { id: 0, name: 'a' },
-  { id: 0, name: 'a' },
-];
+import { MatInputModule } from '@angular/material/input';
+import { SubjectHttpService } from '../../../service/http/subject-http.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-subject-table',
@@ -38,23 +21,30 @@ const subject: subject[] = [
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './subject-table.component.html',
   styleUrl: './subject-table.component.scss',
 })
-export class SubjectTableComponent {
+export class SubjectTableComponent implements OnInit {
   dataSubject: MatTableDataSource<subject>;
-
+  displayedColumns: string[] = ['id', 'name', 'action'];
+  isLoadingResults = true;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor() {
-    this.dataSubject = new MatTableDataSource(subject);
-  }
 
-  displayedColumns: string[] = ['id', 'name', 'action'];
+  constructor(private httpSubject: SubjectHttpService) {
+    this.dataSubject = new MatTableDataSource([{ id: 0, name: '' }]);
+  }
+  ngOnInit() {
+    this.httpSubject.getSubjects().subscribe((config) => {
+      this.dataSubject = new MatTableDataSource(config);
+      this.isLoadingResults = false;
+    });
+  }
 
   ngAfterViewInit() {
     this.dataSubject.paginator = this.paginator;
