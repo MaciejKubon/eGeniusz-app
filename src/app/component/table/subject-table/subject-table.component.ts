@@ -35,41 +35,46 @@ export class SubjectTableComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
+  destroy$: any;
 
   constructor(private httpSubject: SubjectHttpService) {
     this.dataSubject = new MatTableDataSource([{ id: 0, name: '' }]);
   }
   ngOnInit() {
-    this.httpSubject.getSubjects().subscribe((config) => {
-      this.dataSubject = new MatTableDataSource(config);
+    this.httpSubject.getSubjects().subscribe((data) => {
+      this.dataSubject = new MatTableDataSource(data);
       this.isLoadingResults = false;
     });
   }
 
   ngAfterViewInit() {
-    this.dataSubject.paginator
+    this.dataSubject.paginator;
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSubject.filter = filterValue.trim().toLowerCase();
 
-    this.dataSubject.filter
-    
+    this.dataSubject.filter;
 
     if (this.dataSubject.paginator) {
       this.dataSubject.paginator.firstPage();
     }
   }
-  columnSort(){
+  columnSort() {
     this.dataSubject.sort = this.sort;
   }
-  pagination(){
+  pagination() {
     console.log('aa');
-    
+
     this.dataSubject.paginator = this.paginator;
   }
   removeElement(id: number) {
-    console.log(id);
-    
+    this.isLoadingResults = true;
+    this.httpSubject.delateSubject(id).subscribe(() => {
+      this.httpSubject.getSubjects().subscribe((data) => {
+        this.dataSubject = new MatTableDataSource(data);
+        this.isLoadingResults = false;
+      });
+    });
   }
 }

@@ -15,4 +15,8 @@ export class SubjectHttpService {
   getSubjects(){
     return this.http.get<any>(this.apiUrl);
   }
+  
+  delateSubject(id:number){
+    return this.http.delete<any>(this.apiUrl+'/'+id)
+  }
 }
