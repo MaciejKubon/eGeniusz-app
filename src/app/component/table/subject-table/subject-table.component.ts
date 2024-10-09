@@ -47,17 +47,29 @@ export class SubjectTableComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.dataSubject.paginator = this.paginator;
-    this.dataSubject.sort = this.sort;
+    this.dataSubject.paginator
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSubject.filter = filterValue.trim().toLowerCase();
 
+    this.dataSubject.filter
+    
+
     if (this.dataSubject.paginator) {
       this.dataSubject.paginator.firstPage();
     }
   }
-
-  removeElement(id: number) {}
+  columnSort(){
+    this.dataSubject.sort = this.sort;
+  }
+  pagination(){
+    console.log('aa');
+    
+    this.dataSubject.paginator = this.paginator;
+  }
+  removeElement(id: number) {
+    console.log(id);
+    
+  }
 }
