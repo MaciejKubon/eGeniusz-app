@@ -10,21 +10,22 @@ import { MatInputModule } from '@angular/material/input';
 import { SubjectHttpService } from '../../../service/http/subject-http.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { NewSubjectComponent } from '../../form/subject/new-subject/new-subject.component';
 
 @Component({
   selector: 'app-subject-table',
   standalone: true,
-  imports: [
+  imports: [ 
     MatTableModule,
     EditButtonComponent,
     DeleteButtonComponent,
     MatSortModule,
     MatPaginatorModule,
-    MatFormFieldModule,
     MatInputModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    NewSubjectComponent
   ],
   templateUrl: './subject-table.component.html',
   styleUrl: './subject-table.component.scss',
@@ -38,7 +39,6 @@ export class SubjectTableComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
   destroy$: any;
-  subjectName:string = '';
   myForm = new FormGroup({
     subject: new FormControl(''),
   });
@@ -84,11 +84,9 @@ export class SubjectTableComponent implements OnInit {
       });
     });
   }
-  onSubmit() {
+  addSubject(subjectName:string) {
     this.isLoadingResults = true;
-    if(typeof(this.myForm.value.subject)=== "string")
-      this.subjectName = this.myForm.value.subject;
-    this.httpSubject.addSubject(this.subjectName).subscribe(() => {
+    this.httpSubject.addSubject(subjectName).subscribe(() => {
       this.httpSubject.getSubjects().subscribe((data) => {
         this.dataSubject = new MatTableDataSource(data);
         this.isLoadingResults = false;
