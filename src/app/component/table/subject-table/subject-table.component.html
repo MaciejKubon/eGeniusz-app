@@ -1,16 +1,25 @@
-<div class="addDataBox">
-  <app-new-subject (subject)="addSubject($event)" />
-</div>
-<div class="filterBox">
-  <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      placeholder="Ex. Mia"
-      #input
-    />
-  </mat-form-field>
+<div class="formBox">
+  <div class="filterBox">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. Mia"
+        #input
+      />
+    </mat-form-field>
+  </div>
+  @if(visableAddData){
+    <app-close-button (click)="showAddData()"/>
+  }
+  @else{
+    <app-add-button (click)="showAddData()"/>
+   
+  }
+  <div class="addDataBox" [ngClass]="visableAddData ? 'showAddData' : 'hideAddData'">
+    <app-new-subject (subject)="addSubject($event)" />
+  </div>
 </div>
 
 <div class="tableBox">
