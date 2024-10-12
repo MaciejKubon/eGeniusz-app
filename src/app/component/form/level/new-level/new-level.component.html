@@ -1,0 +1,7 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="level" formControlName="level"/>
+    </mat-form-field>
+    <button mat-raised-button color="primary" 
+   type="submit">Wyślij</button>
+  </form>
