@@ -14,12 +14,16 @@ import { NewSubjectComponent } from '../../form/subject/new-subject/new-subject.
 import { CloseButtonComponent } from '../../button/close-button/close-button.component';
 import { SaveButtonComponent } from '../../button/save-button/save-button.component';
 import { MatIconModule } from '@angular/material/icon';
+import { AddButtonComponent } from '../../button/add-button/add-button.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-subject-table',
   standalone: true,
   imports: [ 
+    CommonModule,
     MatIconModule,
+    AddButtonComponent,
     MatTableModule,
     EditButtonComponent,
     DeleteButtonComponent,
@@ -31,7 +35,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     NewSubjectComponent,
     CloseButtonComponent,
-    SaveButtonComponent
+    SaveButtonComponent,
+    CloseButtonComponent
   ],
   templateUrl: './subject-table.component.html',
   styleUrl: './subject-table.component.scss',
@@ -46,6 +51,7 @@ export class SubjectTableComponent implements OnInit {
   sort!: MatSort;
   destroy$: any;
   activeForm:number|null=null;
+  visableAddData:boolean=false;
   myForm = new FormGroup({
     subject: new FormControl(''),
   });
@@ -82,7 +88,11 @@ export class SubjectTableComponent implements OnInit {
 
     this.dataSubject.paginator = this.paginator;
   }
+  showAddData(){
+    this.visableAddData = !this.visableAddData;
 
+    
+  }
   onSubmit(){
     console.log('aa');
     

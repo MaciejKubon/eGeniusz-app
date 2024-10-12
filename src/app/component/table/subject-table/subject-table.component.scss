@@ -1,3 +1,22 @@
+.formBox{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.filterBox{
+  width: 80%;
+}
+.hideAddData{
+  height: 0px;
+  display: none;
+  transition-duration: 500ms;
+}
+.showAddData{
+  height: 100%;
+  display: block;
+  transition-duration: 500ms;
+}
 .tableBox {
   width: 100%;
 }
