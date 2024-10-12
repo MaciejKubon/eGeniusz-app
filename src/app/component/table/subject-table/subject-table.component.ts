@@ -11,11 +11,15 @@ import { SubjectHttpService } from '../../../service/http/subject-http.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NewSubjectComponent } from '../../form/subject/new-subject/new-subject.component';
+import { CloseButtonComponent } from '../../button/close-button/close-button.component';
+import { SaveButtonComponent } from '../../button/save-button/save-button.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-subject-table',
   standalone: true,
   imports: [ 
+    MatIconModule,
     MatTableModule,
     EditButtonComponent,
     DeleteButtonComponent,
@@ -25,7 +29,9 @@ import { NewSubjectComponent } from '../../form/subject/new-subject/new-subject.
     MatFormFieldModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    NewSubjectComponent
+    NewSubjectComponent,
+    CloseButtonComponent,
+    SaveButtonComponent
   ],
   templateUrl: './subject-table.component.html',
   styleUrl: './subject-table.component.scss',
@@ -39,6 +45,7 @@ export class SubjectTableComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
   destroy$: any;
+  activeForm:number|null=null;
   myForm = new FormGroup({
     subject: new FormControl(''),
   });
@@ -75,6 +82,11 @@ export class SubjectTableComponent implements OnInit {
 
     this.dataSubject.paginator = this.paginator;
   }
+
+  onSubmit(){
+    console.log('aa');
+    
+  }
   removeElement(id: number) {
     this.isLoadingResults = true;
     this.httpSubject.delateSubject(id).subscribe(() => {
@@ -83,6 +95,29 @@ export class SubjectTableComponent implements OnInit {
         this.isLoadingResults = false;
       });
     });
+  }
+  editElement(id:number){
+    this.activeForm = id;
+  }
+  closeElement(){
+    this.activeForm = null;
+    this.myForm.value.subject='';
+  }
+  saveElement(id:number){
+    if(typeof(this.myForm.value.subject)==="string")
+    {
+      this.isLoadingResults = true;
+      this.httpSubject.editSubject(id,this.myForm.value.subject).subscribe(
+        () => {
+          this.httpSubject.getSubjects().subscribe((data) => {
+            this.dataSubject = new MatTableDataSource(data);
+            this.closeElement()
+            this.isLoadingResults = false;
+          });}
+      )
+    }
+      
+    
   }
   addSubject(subjectName:string) {
     this.isLoadingResults = true;
