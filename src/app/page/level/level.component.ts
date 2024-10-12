@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../component/header/header.component';
 import { NavbarComponent } from '../../component/navbar/navbar.component';
+import { LevelTableComponent } from '../../component/table/level-table/level-table.component';
 
 @Component({
-  selector: 'app-subject',
+  selector: 'app-level',
   standalone: true,
-  imports: [HeaderComponent, NavbarComponent],
+  imports: [HeaderComponent, NavbarComponent, LevelTableComponent],
   templateUrl: './level.component.html',
   styleUrl: './level.component.scss',
 })
