@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SubjectHttpService } from '../../../service/http/subject-http.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-subject-table',
@@ -23,6 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './subject-table.component.html',
   styleUrl: './subject-table.component.scss',
@@ -36,7 +38,10 @@ export class SubjectTableComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
   destroy$: any;
-
+  subjectName:string = '';
+  myForm = new FormGroup({
+    subject: new FormControl(''),
+  });
   constructor(private httpSubject: SubjectHttpService) {
     this.dataSubject = new MatTableDataSource([{ id: 0, name: '' }]);
   }
@@ -50,6 +55,8 @@ export class SubjectTableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSubject.paginator;
   }
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSubject.filter = filterValue.trim().toLowerCase();
@@ -71,6 +78,17 @@ export class SubjectTableComponent implements OnInit {
   removeElement(id: number) {
     this.isLoadingResults = true;
     this.httpSubject.delateSubject(id).subscribe(() => {
+      this.httpSubject.getSubjects().subscribe((data) => {
+        this.dataSubject = new MatTableDataSource(data);
+        this.isLoadingResults = false;
+      });
+    });
+  }
+  onSubmit() {
+    this.isLoadingResults = true;
+    if(typeof(this.myForm.value.subject)=== "string")
+      this.subjectName = this.myForm.value.subject;
+    this.httpSubject.addSubject(this.subjectName).subscribe(() => {
       this.httpSubject.getSubjects().subscribe((data) => {
         this.dataSubject = new MatTableDataSource(data);
         this.isLoadingResults = false;

@@ -19,4 +19,8 @@ export class SubjectHttpService {
   delateSubject(id:number){
     return this.http.delete<any>(this.apiUrl+'/'+id)
   }
+  addSubject(name:string){
+    return this.http.post<any>(this.apiUrl, {'name': name});
+
+  }
 }
