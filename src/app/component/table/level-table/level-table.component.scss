@@ -1,0 +1,36 @@
+.formBox {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.filterBox {
+  width: 80%;
+}
+.hideAddData {
+  height: 0px;
+  display: none;
+  transition-duration: 500ms;
+}
+.showAddData {
+  height: 100%;
+  display: block;
+  transition-duration: 500ms;
+}
+.tableBox {
+  width: 100%;
+}
+table {
+  width: 100%;
+}
+th,
+td {
+  width: 45%;
+}
+th:last-of-type,
+td:last-of-type {
+  width: 50px;
+}
+app-edit-button {
+  margin-right: 10px;
+}

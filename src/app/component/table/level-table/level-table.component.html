@@ -1,1 +1,74 @@
-<p>level-table works!</p>
+<div class="formBox">
+    <div class="filterBox">
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Ex. Mia"
+            #input
+          />
+        </mat-form-field>
+      </div>
+      @if(visableAddData){
+        <app-close-button (click)="showAddData()"/>
+      }
+      @else{
+        <app-add-button (click)="showAddData()"/>
+      }
+      <div class="addDataBox" [ngClass]="visableAddData ? 'showAddData' : 'hideAddData'">
+        <app-new-level (level)="addLevel($event)" />
+      </div>
+</div>
+<div class="tableBox">
+    @if (isLoadingResults) {
+    <mat-spinner></mat-spinner>
+   }  @else{
+    <table mat-table [dataSource]="dataLevel" class="mat-elevation-z8" matSort>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="name">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            (click)="columnSort()"
+          >
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element">
+            @if(element.id != activeForm){
+            {{ element.level }}} @else{
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="level"
+                formControlName="level"
+              /> </mat-form-field
+            >}
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            @if(element.id != activeForm){
+            <app-edit-button (click)="editElement(element.id)" />
+            <app-delete-button (click)="removeElement(element.id)" />}
+            @else{
+            <app-save-button (click)="saveElement(element.id)" />
+            <app-close-button (click)="closeElement()" />}
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </form>
+    </table> 
+    }
+  </div>
+  
