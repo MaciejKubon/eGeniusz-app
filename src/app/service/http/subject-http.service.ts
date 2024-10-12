@@ -15,7 +15,9 @@ export class SubjectHttpService {
   getSubjects(){
     return this.http.get<any>(this.apiUrl);
   }
-  
+  editSubject(id:number, subjcet:string){
+    return this.http.put<any>(this.apiUrl+'/'+id,{'name':subjcet})
+  }
   delateSubject(id:number){
     return this.http.delete<any>(this.apiUrl+'/'+id)
   }
