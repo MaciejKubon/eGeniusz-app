@@ -4,5 +4,5 @@ export interface subject{
 }
 export interface level{
     id: number;
-    name:string;
+    level:string;
 }

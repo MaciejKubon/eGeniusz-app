@@ -8,20 +8,20 @@ export class LevelHttpService {
 
   constructor() { }
 
-  private apiUrl ='http://127.0.0.1:8000/api/level';
+  private apiUrl ='http://127.0.0.1:8000/api/subjectLevel';
 
   http = inject(HttpClient);
 
   getLevels(){
     return this.http.get<any>(this.apiUrl);
   }
-  ediLevel(id:number, subjcet:string){
-    return this.http.put<any>(this.apiUrl+'/'+id,{'name':subjcet})
+  editLevel(id:number, level:string){
+    return this.http.put<any>(this.apiUrl+'/'+id,{'level':level})
   }
   delateLevel(id:number){
     return this.http.delete<any>(this.apiUrl+'/'+id)
   }
   addLevel(name:string){
-    return this.http.post<any>(this.apiUrl, {'name': name});
+    return this.http.post<any>(this.apiUrl, {'level': name});
   }
 }

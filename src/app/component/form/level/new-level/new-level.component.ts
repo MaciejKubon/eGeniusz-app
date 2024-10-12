@@ -22,8 +22,11 @@ export class NewLevelComponent {
   
   onSubmit() {
     if(typeof(this.myForm.value.level)=== "string")
+    {
       this.levelName = this.myForm.value.level;
-    this.level.emit(this.levelName);
+      this.level.emit(this.levelName);
+    }
+      
   }
 }
  
