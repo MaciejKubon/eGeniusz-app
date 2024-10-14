@@ -1,0 +1,45 @@
+<div class="login">
+  <div class="form">
+    <h2>Studnet Login</h2>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          [formControl]="email"
+          (blur)="updateEmailErrorMessage()"
+          required
+        />
+        @if (email.invalid) {
+        <mat-error>{{ errorEmailMessage() }}</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          [type]="hide() ? 'password' : 'text'"
+          [formControl]="password"
+          required
+          (blur)="updatePasswordErrorMessage()"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()"
+        >
+          <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        @if (password.invalid) {
+        <mat-error>{{ errorPasswordMessage() }}</mat-error>
+        }
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Wyślij</button>
+    </form>
+  </div>
+</div>
