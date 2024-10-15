@@ -8,7 +8,7 @@ import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.
 
 
 export const routes: Routes = [
-    {path: 'login', component:LoginPageComponent},
+    {path: 'studentLogin', component:LoginPageComponent},
     { path: 'subject', component: SubjectComponent },
     {path:'level', component: LevelComponent},
     {path: 'forgot-password', component: ForgotPasswordComponent},

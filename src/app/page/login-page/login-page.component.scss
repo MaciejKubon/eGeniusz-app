@@ -20,3 +20,21 @@ h1{
 app-login-user{
 width: 100%;
 }
+@media only screen and (max-width: 900px) {
+    section{
+        flex-wrap: wrap;
+    }  
+    .logo, .loginForm{
+        width: 100%;
+    }
+    .logo{
+        height: 25vh;
+    }
+    .loginForm{
+        height: 55vh;
+        align-items:flex-start
+    }
+    h1{
+        font-size: 3em;
+    }
+}

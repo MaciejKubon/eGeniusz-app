@@ -8,8 +8,8 @@
 }
 .form{
     width: 60%;
-    background-color: aqua;
-    height: 70vh;
+    background-color: yellow;
+    min-height: 75vh;
     border-radius: 50px;
 }
 form{
@@ -21,7 +21,7 @@ mat-form-field{
     margin: 0px 15%;
     width: 80%;
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     border-radius: 50%;
 }
 h2{
@@ -32,3 +32,49 @@ h2{
 input{
     width: 80% !important;
 }
+.forgotPasswordLink{
+    width: 70%;
+    text-align: right;
+    button{
+        background-color: rgba(0,0,0,0);
+        border: 1px solid rgba(0,0,0,0);
+        box-shadow: none;
+        text-align: end;
+    }
+}
+.submitButtonBox{
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    button{
+        width: 200px !important;
+    }
+}
+.registerLink{
+    margin-top: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: end;
+    button{
+        background-color: rgba(0,0,0,0);
+        border: 1px solid rgba(0,0,0,0);
+        box-shadow: none;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .login{
+        height: 50vh;
+        
+    }
+    .form{
+        width: 100%;
+        min-height: 50vh;
+
+    }
+    .registerLink{
+        justify-content: center;
+
+    }
+}
+
