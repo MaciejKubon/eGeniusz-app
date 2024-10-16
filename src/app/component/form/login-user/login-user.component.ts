@@ -37,7 +37,7 @@ export class LoginUserComponent {
   myForm = new FormGroup({
     level: new FormControl(''),
   });
-  navTeacher: linkButton= { path: 'teacherLogin', text: 'Jesteś nauczycielem? Zaoguj się.' };
+  navTeacher: linkButton= { path: 'teacherLogin', text: 'Jesteś nauczycielem? Zaloguj się.' };
   navForgot:linkButton =  { path: 'forgot-password', text: 'Przypomnij hasło' };
   navRegiester:linkButton = {path:'', text:'Nie posiadasz konta? Zarejestruj się.'};
   hide = signal(true);
