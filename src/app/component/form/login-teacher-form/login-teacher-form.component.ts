@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { merge } from 'rxjs';
 import { LinkButtonComponent } from '../../button/link-button/link-button.component';
 import { linkButton } from '../../../interface/interface';
+import { LinkWithoutbackgroundButtonComponent } from '../../button/link-withoutbackground-button/link-withoutbackground-button.component';
 
 @Component({
   selector: 'app-login-teacher-form',
@@ -25,12 +26,16 @@ import { linkButton } from '../../../interface/interface';
     MatIconModule,
     MatLabel,
     LinkButtonComponent,
+    LinkWithoutbackgroundButtonComponent
+
   ],
   templateUrl: './login-teacher-form.component.html',
   styleUrl: './login-teacher-form.component.scss',
 })
 export class LoginTeacherFormComponent {
-  nav: linkButton = { path: 'studentLogin', text: 'Jesteś nauczycielem? Zaoguj się.' };
+  navStudent: linkButton= { path: 'studentLogin', text: 'Jesteś uczniem? Zaoguj się.' };
+  navForgot:linkButton =  { path: 'forgot-password', text: 'Przypomnij hasło' };
+  navRegiester:linkButton = {path:'', text:'Nie posiadasz konta? Zarejestruj się.'};  
   myForm = new FormGroup({
     level: new FormControl(''),
   });

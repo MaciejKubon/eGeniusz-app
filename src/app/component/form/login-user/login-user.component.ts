@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { merge } from 'rxjs';
 import { LinkButtonComponent } from '../../button/link-button/link-button.component';
 import { linkButton } from '../../../interface/interface';
+import { LinkWithoutbackgroundButtonComponent } from '../../button/link-withoutbackground-button/link-withoutbackground-button.component';
 
 @Component({
   selector: 'app-login-user',
@@ -26,6 +27,7 @@ import { linkButton } from '../../../interface/interface';
     MatIconModule,
     MatLabel,
     LinkButtonComponent,
+    LinkWithoutbackgroundButtonComponent
   ],
   templateUrl: './login-user.component.html',
   styleUrl: './login-user.component.scss',
@@ -35,8 +37,9 @@ export class LoginUserComponent {
   myForm = new FormGroup({
     level: new FormControl(''),
   });
-  nav: linkButton= { path: 'teacherLogin', text: 'Jesteś nauczycielem? Zaoguj się.' };
-
+  navTeacher: linkButton= { path: 'teacherLogin', text: 'Jesteś nauczycielem? Zaoguj się.' };
+  navForgot:linkButton =  { path: 'forgot-password', text: 'Przypomnij hasło' };
+  navRegiester:linkButton = {path:'', text:'Nie posiadasz konta? Zarejestruj się.'};
   hide = signal(true);
   readonly email = new FormControl('', [Validators.required, Validators.email]);
   readonly password = new FormControl('', [Validators.required]);
