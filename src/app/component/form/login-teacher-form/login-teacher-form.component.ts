@@ -1,25 +1,36 @@
 import { Component, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { merge } from 'rxjs';
+import { LinkButtonComponent } from '../../button/link-button/link-button.component';
+import { linkButton } from '../../../interface/interface';
 
 @Component({
   selector: 'app-login-teacher-form',
   standalone: true,
-  imports: [ReactiveFormsModule,
+  imports: [
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatLabel,],
+    MatLabel,
+    LinkButtonComponent,
+  ],
   templateUrl: './login-teacher-form.component.html',
-  styleUrl: './login-teacher-form.component.scss'
+  styleUrl: './login-teacher-form.component.scss',
 })
 export class LoginTeacherFormComponent {
+  nav: linkButton = { path: 'studentLogin', text: 'Jesteś nauczycielem? Zaoguj się.' };
   myForm = new FormGroup({
     level: new FormControl(''),
   });
