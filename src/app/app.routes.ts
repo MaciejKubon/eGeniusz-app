@@ -6,8 +6,10 @@ import { LevelComponent } from './page/level/level.component';
 import { LoginPageComponent } from './page/login-page/login-page.component';
 import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
 import { LoginTeacherComponent } from './page/login-teacher/login-teacher.component';
+import { MainPageComponent } from './page/main-page/main-page.component';
 
 export const routes: Routes = [
+  { path: 'mainpage', component: MainPageComponent },
   { path: 'studentLogin', component: LoginPageComponent },
   { path: 'teacherLogin', component: LoginTeacherComponent },
   { path: 'subject', component: SubjectComponent },
