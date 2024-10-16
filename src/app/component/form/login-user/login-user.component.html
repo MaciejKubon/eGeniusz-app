@@ -39,7 +39,7 @@
         }
       </mat-form-field>
       <div class="forgotPasswordLink">
-        <button mat-raised-button color="primary">Przypomnij hasło</button>
+        <app-link-withoutbackground-button [navigation]="navForgot" />
       </div>
       <div class="submitButtonBox">
         <button mat-raised-button color="primary" type="submit">
@@ -47,13 +47,11 @@
         </button>
       </div>
       <div class="registerLink">
-        <button mat-raised-button color="primary">
-          Nie posiadasz konta? Zarejestruj się.
-        </button>
+        <app-link-withoutbackground-button [navigation]="navRegiester" />
       </div>
     </form>
   </div>
   <div class="teacherLogin">
-    <app-link-button [navigation]="nav"/>
+    <app-link-button [navigation]="navTeacher"/>
   </div>
 </div>
