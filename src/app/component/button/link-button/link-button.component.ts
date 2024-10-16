@@ -13,6 +13,6 @@ import { linkButton } from '../../../interface/interface';
   styleUrl: './link-button.component.scss',
 })
 export class LinkButtonComponent {
-  @Input() navigation: linkButton = { path: '', text: '' };
+  @Input() navigation: linkButton = { path: '', text: ''};
   constructor(private route: ActivatedRoute) {}
 }
