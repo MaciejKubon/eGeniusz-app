@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
 import { merge } from 'rxjs';
+import { LinkButtonComponent } from '../../button/link-button/link-button.component';
+import { linkButton } from '../../../interface/interface';
 
 @Component({
   selector: 'app-login-user',
@@ -23,6 +25,7 @@ import { merge } from 'rxjs';
     MatButtonModule,
     MatIconModule,
     MatLabel,
+    LinkButtonComponent,
   ],
   templateUrl: './login-user.component.html',
   styleUrl: './login-user.component.scss',
@@ -32,6 +35,8 @@ export class LoginUserComponent {
   myForm = new FormGroup({
     level: new FormControl(''),
   });
+  nav: linkButton= { path: 'teacherLogin', text: 'Jesteś nauczycielem? Zaoguj się.' };
+
   hide = signal(true);
   readonly email = new FormControl('', [Validators.required, Validators.email]);
   readonly password = new FormControl('', [Validators.required]);

@@ -6,3 +6,7 @@ export interface level{
     id: number;
     level:string;
 }
+export interface linkButton{
+    path: string;
+    text: string;
+}
