@@ -33,7 +33,7 @@ import { LinkWithoutbackgroundButtonComponent } from '../../button/link-withoutb
   styleUrl: './login-teacher-form.component.scss',
 })
 export class LoginTeacherFormComponent {
-  navStudent: linkButton= { path: 'studentLogin', text: 'Jesteś uczniem? Zaoguj się.' };
+  navStudent: linkButton= { path: 'studentLogin', text: 'Jesteś uczniem? Zaloguj się.' };
   navForgot:linkButton =  { path: 'forgot-password', text: 'Przypomnij hasło' };
   navRegiester:linkButton = {path:'', text:'Nie posiadasz konta? Zarejestruj się.'};  
   myForm = new FormGroup({
