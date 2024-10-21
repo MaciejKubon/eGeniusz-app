@@ -3,12 +3,12 @@ import { LinkButtonComponent } from '../../component/button/link-button/link-but
 import { linkButton } from '../../interface/interface';
 import { ViewportScroller } from '@angular/common';
 import { Router } from '@angular/router';
-import { ArrowDropButtonComponent } from '../../component/button/arrow-drop-button/arrow-drop-button.component';
+import { ArrowDropDownComponent } from '../../component/button/arrow-drop-down/arrow-drop-down.component';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [LinkButtonComponent, ArrowDropButtonComponent],
+  imports: [LinkButtonComponent, ArrowDropDownComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'
 })
