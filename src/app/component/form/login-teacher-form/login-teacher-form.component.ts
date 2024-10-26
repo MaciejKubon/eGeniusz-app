@@ -10,10 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { merge } from 'rxjs';
+import { catchError, merge, throwError } from 'rxjs';
 import { LinkButtonComponent } from '../../button/link-button/link-button.component';
 import { linkButton } from '../../../interface/interface';
 import { LinkWithoutbackgroundButtonComponent } from '../../button/link-withoutbackground-button/link-withoutbackground-button.component';
+import { LoginHttpService } from '../../../service/http/login-http.service';
+import { AuthService } from '../../../service/session/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-teacher-form',
@@ -44,7 +47,8 @@ export class LoginTeacherFormComponent {
   readonly password = new FormControl('', [Validators.required]);
   errorEmailMessage = signal('');
   errorPasswordMessage = signal('');
-  constructor() {
+  constructor(    private LoginService: LoginHttpService,
+    private AuthSession: AuthService) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateEmailErrorMessage());
@@ -77,7 +81,22 @@ export class LoginTeacherFormComponent {
     this.updateEmailErrorMessage();
     this.updatePasswordErrorMessage();
     if (this.email.invalid && this.password.invalid)
-      console.log(this.email.invalid);
-    else console.log(this.email.invalid);
+      console.log('empty');
+    else {
+      this.LoginService.login({
+        email: this.email.value,
+        password: this.password.value,
+        accountType: 2,
+      })
+        .pipe(
+          catchError((error: HttpErrorResponse) => {
+            console.error('An error occurred:', error.error);
+            return throwError(() => new Error('Error fetching data'));
+          })
+        )
+        .subscribe((data: { token: string }) => {
+          this.AuthSession.setToken(data.token);          
+        });
+    }
   }
 }
