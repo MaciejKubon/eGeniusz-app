@@ -18,6 +18,7 @@ import { LinkWithoutbackgroundButtonComponent } from '../../button/link-withoutb
 import { LoginHttpService } from '../../../service/http/login-http.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../../../service/session/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-user',
@@ -57,7 +58,8 @@ export class LoginUserComponent {
 
   constructor(
     private LoginService: LoginHttpService,
-    private AuthSession: AuthService
+    private AuthSession: AuthService,
+    private router: Router
   ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
@@ -105,6 +107,7 @@ export class LoginUserComponent {
         )
         .subscribe((data: { token: string }) => {
           this.AuthSession.setToken(data.token);
+          this.router.navigate(['/student']);
         });
     }
   }
