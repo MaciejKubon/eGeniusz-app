@@ -7,6 +7,7 @@ import { LoginPageComponent } from './page/login-page/login-page.component';
 import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
 import { LoginTeacherComponent } from './page/login-teacher/login-teacher.component';
 import { MainPageComponent } from './page/main-page/main-page.component';
+import { StudentPageComponent } from './page/student-page/student-page.component';
 
 export const routes: Routes = [
   { path: 'mainpage', component: MainPageComponent },
@@ -15,7 +16,9 @@ export const routes: Routes = [
   { path: 'subject', component: SubjectComponent },
   { path: 'level', component: LevelComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'student', component: StudentPageComponent },
   { path: '404', component: NotFoundPageComponent },
   { path: '500', component: ServerErrorComponent },
   { path: '**', component: NotFoundPageComponent },
+
 ];

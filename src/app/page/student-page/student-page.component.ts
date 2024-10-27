@@ -1,0 +1,16 @@
+import { Component } from '@angular/core';
+import { AuthService } from '../../service/session/auth.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-student-page',
+  standalone: true,
+  imports: [],
+  templateUrl: './student-page.component.html',
+  styleUrl: './student-page.component.scss',
+})
+export class StudentPageComponent {
+  constructor(private auth: AuthService, private router: Router) {
+    if (auth.getToken() == null) this.router.navigate(['/studentLogin']);
+  }
+}
