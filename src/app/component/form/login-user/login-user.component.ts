@@ -97,7 +97,7 @@ export class LoginUserComponent {
       this.LoginService.login({
         email: this.email.value,
         password: this.password.value,
-        accountType: 1,
+        accountType: 3,
       })
         .pipe(
           catchError((error: HttpErrorResponse) => {
