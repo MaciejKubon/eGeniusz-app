@@ -10,11 +10,12 @@ export class AuthService {
   setToken(token: string) {
     sessionStorage.setItem('token', token);
   }
-
-  getToken(): string | null {
-    return sessionStorage.getItem('token');
+  getToken() :string{
+    let tokenValue:string = "";
+    if(sessionStorage.getItem('token')!=null)
+      tokenValue = sessionStorage.getItem('token')!;
+    return tokenValue;
   }
-
   removeToken() {
     sessionStorage.removeItem('token');
   }

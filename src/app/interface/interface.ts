@@ -1,3 +1,5 @@
+import { Data } from "@angular/router";
+
 export interface subject{
     id: number;
     name:string;
@@ -14,4 +16,9 @@ export interface loginData{
     email:string|null;
     password:string|null;
     accountType:number;
+}
+export interface userDetail{
+    firstName: string|null;
+    lastName: string|null;
+    birthday: string|null;
 }
