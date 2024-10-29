@@ -8,6 +8,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { catchError, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-user-details',
   standalone: true,
@@ -36,7 +38,6 @@ export class UserDetailsComponent {
   readonly lastName = new FormControl();
   readonly birthday = new FormControl();
 
-
   constructor(private httpuserDetail: UserDetailsService) {}
   ngOnInit() {
     this.httpuserDetail.getUserDetails().subscribe((data) => {
@@ -59,13 +60,25 @@ export class UserDetailsComponent {
   }
   saveEdit() {
     this.isLoadingResults = true;
+    this.userDetails = {
+      firstName: this.firstName.value,
+      lastName: this.lastName.value,
+      birthday: this.birthday.value,
+    };
+    this.httpuserDetail.setUserDetails(this.userDetails).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('An error occurred:', error.error);
+        return throwError(() => new Error('Error fetching data'));
+      })
+    ).subscribe((data)=>{
+      this.changetoDetail();
+    });
   }
   changeToEdit() {
     this.showDetail = false;
     this.firstName.setValue(this.userDetails.firstName);
     this.lastName.setValue(this.userDetails.lastName);
     this.birthday.setValue(this.userDetails.birthday);
-
   }
   changetoDetail() {
     this.showDetail = true;

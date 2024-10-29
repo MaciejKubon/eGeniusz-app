@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AuthService } from '../session/auth.service';
+import { userDetail } from '../../interface/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,8 @@ export class UserDetailsService {
   http = inject(HttpClient);
   getUserDetails(){
     return this.http.get<any>(this.apiUrl,{headers: this.headers});
+  }
+  setUserDetails(userDetail:userDetail){
+    return this.http.put<any>(this.apiUrl, userDetail, {headers:this.headers})
   }
 }

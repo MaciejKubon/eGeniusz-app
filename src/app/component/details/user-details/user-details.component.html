@@ -64,7 +64,7 @@
   <div class="buttonContainer">
     @if(showDetail){
     <app-edit-button (click)="changeToEdit()" />} @else{
-    <app-save-button />
+    <app-save-button (click)="saveEdit()"/>
     <app-close-button (click)="changetoDetail()" />
     }
   </div>
