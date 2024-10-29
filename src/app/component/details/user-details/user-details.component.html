@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="headerContainer">
+    <h2>Dane studenta</h2>
+  </div>
+  <div class="lineContainer"></div>
+  @if (isLoadingResults) {
+  <mat-spinner></mat-spinner>
+  } @else{ @if(showDetail){
+  <div class="detailsContainer">
+    <div class="dataContainer">
+      <div class="label"><span>Imie:</span></div>
+      <div class="data">
+        <span>{{ userDetails.firstName }}</span>
+      </div>
+    </div>
+    <div class="dataContainer">
+      <div class="label"><span>Nazwisko:</span></div>
+      <div class="data">
+        <span>{{ userDetails.lastName }}</span>
+      </div>
+    </div>
+    <div class="dataContainer">
+      <div class="label"><span>Data urodzenia:</span></div>
+      <div class="data">
+        <span>{{ userDetails.birthday }}</span>
+      </div>
+    </div>
+  </div>
+  } @else{
+  <div class="editContainer">
+    <div class="formContainer">
+      <mat-form-field>
+        <mat-label>Name:</mat-label>
+        <input
+          matInput
+          #input
+          value="{{userDetails.firstName}}"
+          [formControl]="firstName"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name:</mat-label>
+        <input
+          matInput
+          #input
+          value="{{userDetails.lastName}}"
+          [formControl]="lastName"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name:</mat-label>
+        <input
+        type="date"
+          matInput
+          #input
+          value="{{userDetails.birthday}}"
+          [formControl]="birthday"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  }
+
+  <div class="buttonContainer">
+    @if(showDetail){
+    <app-edit-button (click)="changeToEdit()" />} @else{
+    <app-save-button />
+    <app-close-button (click)="changetoDetail()" />
+    }
+  </div>
+  }
+</div>
