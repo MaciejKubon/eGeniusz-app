@@ -22,3 +22,9 @@ export interface userDetail{
     lastName: string|null;
     birthday: string|null;
 }
+export interface teacherDetail{
+    firstName: string|null;
+    lastName: string|null;
+    birthday: string|null;
+    description: string|null;
+}

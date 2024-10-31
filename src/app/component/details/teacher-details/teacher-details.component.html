@@ -1,11 +1,12 @@
 <div class="container">
   <div class="headerContainer">
-    <h2>Dane studenta</h2>
+    <h2>Dane nauczyciela</h2>
   </div>
   <div class="lineContainer"></div>
   @if (isLoadingResults) {
   <mat-spinner></mat-spinner>
-  } @else{ @if(showDetail){ 
+  } @else{ @if(showDetail){
+
   <div class="detailsContainer">
     <div class="dataContainer">
       <div class="label"><span>Imie:</span></div>
@@ -25,6 +26,12 @@
         <span>{{ userDetails.birthday }}</span>
       </div>
     </div>
+    <div class="dataContainer">
+        <div class="label"><span>Opis:</span></div>
+        <div class="data">
+          <span>{{ userDetails.description }}</span>
+        </div>
+      </div>
   </div>
   } @else{
   <div class="editContainer">
@@ -34,7 +41,7 @@
         <input
           matInput
           #input
-          value="{{userDetails.firstName}}"
+          value="{{ userDetails.firstName }}"
           [formControl]="firstName"
         />
       </mat-form-field>
@@ -43,18 +50,27 @@
         <input
           matInput
           #input
-          value="{{userDetails.lastName}}"
+          value="{{ userDetails.lastName }}"
           [formControl]="lastName"
         />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Name:</mat-label>
         <input
-        type="date"
+          type="date"
           matInput
           #input
-          value="{{userDetails.birthday}}"
+          value="{{ userDetails.birthday }}"
           [formControl]="birthday"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name:</mat-label>
+        <input
+          type="text"          matInput
+          #input
+          value="{{ userDetails.description }}"
+          [formControl]="description"
         />
       </mat-form-field>
     </div>
@@ -64,7 +80,7 @@
   <div class="buttonContainer">
     @if(showDetail){
     <app-edit-button (click)="changeToEdit()" />} @else{
-    <app-save-button (click)="saveEdit()"/>
+    <app-save-button (click)="saveEdit()" />
     <app-close-button (click)="changetoDetail()" />
     }
   </div>

@@ -12,13 +12,22 @@ export class UserDetailsService {
       'Authorization': `Bearer ${this.token.getToken()}`
     }); 
   }
-  private apiUrl ='http://127.0.0.1:8000/api/studentProfile';
+  private apiUrlStudent ='http://127.0.0.1:8000/api/studentProfile';
+  private apiUrlTeacher = 'http://127.0.0.1:8000/api/teacherProfile';
+
   headers: HttpHeaders; 
   http = inject(HttpClient);
   getUserDetails(){
-    return this.http.get<any>(this.apiUrl,{headers: this.headers});
+    return this.http.get<any>(this.apiUrlStudent,{headers: this.headers});
   }
   setUserDetails(userDetail:userDetail){
-    return this.http.put<any>(this.apiUrl, userDetail, {headers:this.headers})
+    return this.http.put<any>(this.apiUrlStudent, userDetail, {headers:this.headers})
   }
+  getTeacherDetails(){
+    return this.http.get<any>(this.apiUrlTeacher,{headers: this.headers});
+  }
+  setTeacherDetails(userDetail:userDetail){
+    return this.http.put<any>(this.apiUrlTeacher, userDetail, {headers:this.headers})
+  }
+
 }

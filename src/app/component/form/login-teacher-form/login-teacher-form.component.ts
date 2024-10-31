@@ -17,6 +17,7 @@ import { LinkWithoutbackgroundButtonComponent } from '../../button/link-withoutb
 import { LoginHttpService } from '../../../service/http/login-http.service';
 import { AuthService } from '../../../service/session/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-teacher-form',
@@ -29,16 +30,21 @@ import { HttpErrorResponse } from '@angular/common/http';
     MatIconModule,
     MatLabel,
     LinkButtonComponent,
-    LinkWithoutbackgroundButtonComponent
-
+    LinkWithoutbackgroundButtonComponent,
   ],
   templateUrl: './login-teacher-form.component.html',
   styleUrl: './login-teacher-form.component.scss',
 })
 export class LoginTeacherFormComponent {
-  navStudent: linkButton= { path: 'studentLogin', text: 'Jesteś uczniem? Zaloguj się.' };
-  navForgot:linkButton =  { path: 'forgot-password', text: 'Przypomnij hasło' };
-  navRegiester:linkButton = {path:'', text:'Nie posiadasz konta? Zarejestruj się.'};  
+  navStudent: linkButton = {
+    path: 'studentLogin',
+    text: 'Jesteś uczniem? Zaloguj się.',
+  };
+  navForgot: linkButton = { path: 'forgot-password', text: 'Przypomnij hasło' };
+  navRegiester: linkButton = {
+    path: '',
+    text: 'Nie posiadasz konta? Zarejestruj się.',
+  };
   myForm = new FormGroup({
     level: new FormControl(''),
   });
@@ -47,8 +53,11 @@ export class LoginTeacherFormComponent {
   readonly password = new FormControl('', [Validators.required]);
   errorEmailMessage = signal('');
   errorPasswordMessage = signal('');
-  constructor(    private LoginService: LoginHttpService,
-    private AuthSession: AuthService) {
+  constructor(
+    private LoginService: LoginHttpService,
+    private AuthSession: AuthService,
+    private router: Router
+  ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateEmailErrorMessage());
@@ -80,8 +89,7 @@ export class LoginTeacherFormComponent {
   onSubmit() {
     this.updateEmailErrorMessage();
     this.updatePasswordErrorMessage();
-    if (this.email.invalid && this.password.invalid)
-      console.log('empty');
+    if (this.email.invalid && this.password.invalid) console.log('empty');
     else {
       this.LoginService.login({
         email: this.email.value,
@@ -95,7 +103,8 @@ export class LoginTeacherFormComponent {
           })
         )
         .subscribe((data: { token: string }) => {
-          this.AuthSession.setToken(data.token);          
+          this.AuthSession.setToken(data.token);
+          this.router.navigate(['/teacher']);
         });
     }
   }
