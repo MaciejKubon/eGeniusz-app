@@ -28,3 +28,8 @@ export interface teacherDetail{
     birthday: string|null;
     description: string|null;
 }
+export interface teacherLesson{
+    lessonName: string;
+    levelName: string;
+    price: number;
+}
