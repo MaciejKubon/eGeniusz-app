@@ -1,5 +1,3 @@
-import { Data } from "@angular/router";
-
 export interface subject{
     id: number;
     name:string;
@@ -7,6 +5,10 @@ export interface subject{
 export interface level{
     id: number;
     level:string;
+}
+export interface subject_level{
+    id: number;
+    name:string;
 }
 export interface linkButton{
     path: string;
@@ -29,7 +31,11 @@ export interface teacherDetail{
     description: string|null;
 }
 export interface teacherLesson{
-    lessonName: string;
-    levelName: string;
+    id: number,
+    teacher_id: number
+    subject_id: number
+    subject_level_id: number
+    subject: subject
+    subject_level: subject_level
     price: number;
 }

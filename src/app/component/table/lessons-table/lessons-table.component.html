@@ -10,11 +10,11 @@
   >
   <ng-container matColumnDef="przedmiot">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>przedmiot</th>
-    <td mat-cell *matCellDef="let e">{{e.lessonName}}</td>
+    <td mat-cell *matCellDef="let e">{{e.subject.name}}</td>
   </ng-container>
   <ng-container matColumnDef="poziom">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>poziom</th>
-    <td mat-cell *matCellDef="let e">{{e.levelName}}</td>
+    <td mat-cell *matCellDef="let e">{{e.subject_level.name}}</td>
   </ng-container>
   <ng-container matColumnDef="cena">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>cena</th>
