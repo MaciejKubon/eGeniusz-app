@@ -1,0 +1,53 @@
+@import '../../../../styles.scss';
+
+section{
+    background-color: $navBarColor;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    transition-duration: 500ms;
+}
+.logo, .loginForm{
+    display: flex;
+    width: 50%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 500ms;
+}
+.loginForm{
+    background-color: aquamarine;
+    transition-duration: 500ms;
+}
+h1{
+    font-size: 5em;
+    transition-duration: 500ms;
+}
+app-login-user{
+width: 100%;
+}
+@media only screen and (max-width: 900px) {
+    section{
+        flex-wrap: wrap;
+        transition-duration: 500ms;
+    }  
+    .logo, .loginForm{
+        width: 100%;
+        transition-duration: 500ms;
+    }
+    .logo{
+        height: 20vh;
+        transition-duration: 500ms;
+    }
+    .loginForm{
+        height: 80vh;
+        align-items:flex-start;
+        background-color:rgba(0,0,0,0);
+        transition-duration: 500ms;
+    }
+    h1{
+        font-size: 3em;
+        transition-duration: 500ms;
+    }
+}

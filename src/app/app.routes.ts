@@ -10,12 +10,14 @@ import { MainPageComponent } from './page/main-page/main-page.component';
 import { StudentPageComponent } from './page/student-page/student-page.component';
 import { TeacherPageComponent } from './page/teacher-page/teacher-page.component';
 import { StudentComponent } from './page/regiester/student/student.component';
+import { TeacherComponent } from './page/regiester/teacher/teacher.component';
 
 export const routes: Routes = [
   { path: 'mainpage', component: MainPageComponent },
   { path: 'studentLogin', component: LoginPageComponent },
   { path: 'teacherLogin', component: LoginTeacherComponent },
   { path: 'studentRegister', component: StudentComponent },
+  { path: 'teacherRegister', component: TeacherComponent },
   { path: 'subject', component: SubjectComponent },
   { path: 'level', component: LevelComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
