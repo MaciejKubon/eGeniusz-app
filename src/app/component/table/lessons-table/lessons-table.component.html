@@ -1,13 +1,13 @@
 <div class="toggleButonContainer">
   @if(visableForm){
-    <app-close-button (click)="toggleForm()"/>
-    } @else{
-    <app-add-button (click)="toggleForm()"/>
-    }
+  <app-close-button (click)="toggleForm()" />
+  } @else{
+  <app-add-button (click)="toggleForm()" />
+  }
 </div>
 <div class="formBox">
   @if(visableForm){
-    <app-lessons-teacher-form (selectedItem)="handleSelectedItem($event)"/>
+  <app-lessons-teacher-form (selectedItem)="handleSelectedItem($event)" />
   }
 </div>
 
@@ -18,15 +18,60 @@
   <table mat-table [dataSource]="dataLessons" class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="przedmiot">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>przedmiot</th>
-      <td mat-cell *matCellDef="let e">{{ e.subject.name }}</td>
+      <td mat-cell *matCellDef="let e">
+        @if(e.id != activeForm){
+        {{ e.subject.name }}}@else{
+        <mat-form-field>
+          <mat-label>Przedmiot</mat-label>
+          <mat-select [formControl]="subjectValue">
+            <mat-option></mat-option>
+            @for (e of subject; track e) {
+            <mat-option [value]="e.id">{{ e.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        }
+      </td>
     </ng-container>
     <ng-container matColumnDef="poziom">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>poziom</th>
-      <td mat-cell *matCellDef="let e">{{ e.subject_level.name }}</td>
+      <td mat-cell *matCellDef="let e">
+        @if(e.id != activeForm){{{ e.subject_level.name
+
+        }}}@else{<mat-form-field>
+          <mat-label>Poziom</mat-label>
+          <mat-select [formControl]="levelValue">
+            <mat-option></mat-option>
+            @for (e of level; track e) {
+            <mat-option [value]="e.id">{{ e.name }}</mat-option>
+            }
+          </mat-select> </mat-form-field
+        >}
+      </td>
     </ng-container>
     <ng-container matColumnDef="cena">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>cena</th>
-      <td mat-cell *matCellDef="let e">{{ e.price }}</td>
+      <td mat-cell *matCellDef="let e">
+        @if(e.id != activeForm){ {{ e.price }}} @else{
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            placeholder="prcie"
+            [formControl]="priceValue"
+          /> </mat-form-field
+        >}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let e">
+        @if(e.id != activeForm){
+        <app-edit-button (click)="editElement(e.id)" />
+        <app-delete-button (click)="removeElement(e.id)" />} @else{
+        <app-save-button (click)="saveElement(e.id)" />
+        <app-close-button (click)="closeElement()" />}
+      </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

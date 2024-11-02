@@ -7,7 +7,7 @@
       <mat-option [value]="e.id">{{ e.name }}</mat-option>
       }
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> 
 
   <mat-form-field>
     <mat-label>Poziom</mat-label>
@@ -21,7 +21,7 @@
 
   <mat-form-field>
     <mat-label>Poziom</mat-label>
-    <input matInput [formControl]="priceValue" />
+    <input matInput [formControl]="priceValue" type="number" />
   </mat-form-field>
   <app-save-button (click)="saveLesson()"/>
 </div>

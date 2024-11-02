@@ -22,4 +22,10 @@ export class TeacherLessonsHttpService {
   setLessons(lessonTeacher:lessonSet){
     return this.http.post<any>(this.apiUrl,lessonTeacher,{headers: this.headers})
   }
+  updateLessons(lessonTeacher:lessonSet, id:number){
+    return this.http.put<any>(this.apiUrl+"/"+id,lessonTeacher,{headers: this.headers})
+  }
+  delateLevel(id:number){
+    return this.http.delete<any>(this.apiUrl+"/"+id,{headers: this.headers});
+  }
 }
