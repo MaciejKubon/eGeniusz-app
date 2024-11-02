@@ -31,11 +31,20 @@ export interface teacherDetail{
     description: string|null;
 }
 export interface teacherLesson{
-    id: number,
-    teacher_id: number
-    subject_id: number
-    subject_level_id: number
-    subject: subject
-    subject_level: subject_level
+    id: number;
+    teacher_id: number;
+    subject_id: number;
+    subject_level_id: number;
+    subject: subject;
+    subject_level: subject_level;
     price: number;
+}
+export interface lessonSet{
+    subject_id: string|null;
+    subject_level_id: string|null;
+    price: string|null;
+}
+export interface select{
+    id:number;
+    name:string;
 }

@@ -1,6 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AuthService } from '../session/auth.service';
+import { lessonSet } from '../../interface/interface';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,8 @@ export class TeacherLessonsHttpService {
   http = inject(HttpClient);
   getLessons(){
     return this.http.get<any>(this.apiUrl,{headers: this.headers});
+  }
+  setLessons(lessonTeacher:lessonSet){
+    return this.http.post<any>(this.apiUrl,lessonTeacher,{headers: this.headers})
   }
 }
