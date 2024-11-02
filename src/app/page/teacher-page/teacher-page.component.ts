@@ -4,11 +4,12 @@ import { LogoutButtonComponent } from '../../component/button/logout-button/logo
 import { UserDetailsComponent } from '../../component/details/user-details/user-details.component';
 import { AuthService } from '../../service/session/auth.service';
 import { TeacherDetailsComponent } from '../../component/details/teacher-details/teacher-details.component';
+import { LessonsComponent } from '../../component/teacher/lessons/lessons.component';
 
 @Component({
   selector: 'app-teacher-page',
   standalone: true,
-  imports: [LogoutButtonComponent, TeacherDetailsComponent],
+  imports: [LogoutButtonComponent, LessonsComponent],
   templateUrl: './teacher-page.component.html',
   styleUrl: './teacher-page.component.scss'
 })

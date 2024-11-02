@@ -36,7 +36,6 @@ import { CommonModule } from '@angular/common';
     NewSubjectComponent,
     CloseButtonComponent,
     SaveButtonComponent,
-    CloseButtonComponent
   ],
   templateUrl: './subject-table.component.html',
   styleUrl: './subject-table.component.scss',

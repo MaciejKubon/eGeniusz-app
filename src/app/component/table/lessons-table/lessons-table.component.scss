@@ -1,0 +1,22 @@
+.toggleButonContainer{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.formBox{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    app-lessons-teacher-form{
+      width: 100%;
+    }
+  }
+
+  .tableBox {
+    width: 100%;
+  }
+  table {
+    width: 100%;
+  }
