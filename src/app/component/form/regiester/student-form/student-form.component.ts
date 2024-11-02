@@ -6,14 +6,11 @@ import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { LinkNavBarComponent } from '../../../button/link-nav-bar/link-nav-bar.component';
 import { LinkWithoutbackgroundButtonComponent } from '../../../button/link-withoutbackground-button/link-withoutbackground-button.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { merge, catchError, throwError } from 'rxjs';
-
-import { AuthService } from '../../../../service/session/auth.service';
 import { RegisterHttpService } from '../../../../service/http/register-http.service';
 
 @Component({
