@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="headerContainer">
+    <h2>Nauczyciele</h2>
+  </div>
+  <div class="lineContainer"></div>
+  <div class="filterContainer">b</div>
+  <div class="teachersListContainer">
+    @if (isLoadingResults) {
+    <mat-spinner></mat-spinner>
+    }@else{ @for (item of teacherList; track item) {
+    <div class="teacherContainer">
+      <div class="teacherBox">
+        <div class="imageBox">
+          <figure>
+            <img src="./assets/image/photo.jpg" alt="photo" />
+          </figure>
+        </div>
+        <div class="nameContainer">
+          <h2>{{item.firstName}}</h2>
+          <h2>{{item.lastName}}</h2>
+        </div>
+        <div class="subjcetContainer">
+          <!-- <h3>Przedmioty: </h3> -->
+          <span>{{item.subjects}}</span>
+        </div>
+        <div class="priceContainer">
+          <h3>Cena: <span>{{item.price[0]}} - {{item.price[1]}}</span></h3>
+        </div>
+        <div class="ratingContainer">
+          <h3>Ocena: <span>4.9</span></h3>
+        </div>
+      </div>
+    </div>
+    }}
+  </div>
+</div>

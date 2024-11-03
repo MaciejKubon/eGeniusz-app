@@ -48,3 +48,10 @@ export interface select{
     id:number;
     name:string;
 }
+export interface teacherList{
+    id:number;
+    firstName:string;
+    lastName:string;
+    subjects: string[];
+    price: number[]
+}
