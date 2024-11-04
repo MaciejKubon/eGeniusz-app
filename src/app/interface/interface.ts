@@ -56,8 +56,8 @@ export interface teacherList{
     price: number[]
 }
 export interface teacherFiltr{
-        subjects_id:number[],
-        levels_id:number[],
+        subjects_id:string[],
+        levels_id:string[],
         minPrice:number,
         maxPrice:number
 }

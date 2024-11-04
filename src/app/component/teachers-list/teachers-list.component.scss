@@ -17,8 +17,12 @@
   }
   .filterContainer {
     width: 100%;
-    background-color: aquamarine;
-    height: 100px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    app-teacher-list-filter{
+      width: 100%;
+    }
   }
   .teachersListContainer {
     width: 100%;

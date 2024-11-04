@@ -3,11 +3,16 @@
     <h2>Nauczyciele</h2>
   </div>
   <div class="lineContainer"></div>
-  <div class="filterContainer">b</div>
+  <div class="filterContainer">
+    <app-teacher-list-filter (filter)="useFilter($event)" />
+  </div>
   <div class="teachersListContainer">
     @if (isLoadingResults) {
     <mat-spinner></mat-spinner>
+    }@else{ @if(emptyList){
+    <h1>Brak dopasowanych nauczycieli</h1>
     }@else{ @for (item of teacherList; track item) {
+
     <div class="teacherContainer">
       <div class="teacherBox">
         <div class="imageBox">
@@ -16,21 +21,23 @@
           </figure>
         </div>
         <div class="nameContainer">
-          <h2>{{item.firstName}}</h2>
-          <h2>{{item.lastName}}</h2>
+          <h2>{{ item.firstName }}</h2>
+          <h2>{{ item.lastName }}</h2>
         </div>
         <div class="subjcetContainer">
           <!-- <h3>Przedmioty: </h3> -->
-          <span>{{item.subjects}}</span>
+          <span>{{ item.subjects }}</span>
         </div>
         <div class="priceContainer">
-          <h3>Cena: <span>{{item.price[0]}} - {{item.price[1]}}</span></h3>
+          <h3>
+            Cena: <span>{{ item.price[0] }} - {{ item.price[1] }}</span>
+          </h3>
         </div>
         <div class="ratingContainer">
           <h3>Ocena: <span>4.9</span></h3>
         </div>
       </div>
     </div>
-    }}
+    } }}
   </div>
 </div>
