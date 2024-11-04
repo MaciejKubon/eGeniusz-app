@@ -1,0 +1,32 @@
+<div class="formContainer">
+  <mat-form-field>
+    <mat-label>Przedmiot</mat-label>
+    <mat-select [formControl]="subjectValue" multiple>
+      @for (e of subject; track e) {
+      <mat-option [value]="e.id">{{ e.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Poziom</mat-label>
+    <mat-select [formControl]="levelValue" multiple>
+      @for (e of level; track e) {
+      <mat-option [value]="e.id">{{ e.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <div class="slider">
+    <div class="minPrice">
+      <label class="example-value-label">{{ slider.value }}</label>
+    </div>
+    <mat-slider [max]="max" [min]="min" [step]="step">
+      <input matSliderStartThumb [(ngModel)]="value" #slider />
+      <input matSliderEndThumb [(ngModel)]="value2" #slider2 />
+    </mat-slider>
+    <div class="maxPrice">
+      <label class="example-value-label">{{ slider2.value }}</label>
+    </div>
+  </div>
+  <app-save-button (click)="sendFilter()" />
+</div>

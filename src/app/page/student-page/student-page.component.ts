@@ -3,11 +3,12 @@ import { AuthService } from '../../service/session/auth.service';
 import { Router } from '@angular/router';
 import { LogoutButtonComponent } from '../../component/button/logout-button/logout-button.component';
 import { UserDetailsComponent } from '../../component/details/user-details/user-details.component';
+import { TeachersListComponent } from '../../component/teachers-list/teachers-list.component';
 
 @Component({
   selector: 'app-student-page',
   standalone: true,
-  imports: [LogoutButtonComponent, UserDetailsComponent],
+  imports: [LogoutButtonComponent, UserDetailsComponent, TeachersListComponent],
   templateUrl: './student-page.component.html',
   styleUrl: './student-page.component.scss',
 })

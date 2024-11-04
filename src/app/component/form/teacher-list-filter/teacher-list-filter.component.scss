@@ -1,0 +1,20 @@
+.formContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    mat-form-field{
+        width: 25%;
+        min-width: 200px;
+    }
+    mat-slider{
+        width: 60%;
+        margin: 0px 25px;
+    }
+    .slider{
+        display: flex;
+        align-items: center;
+        width: 30%;
+    }
+}
