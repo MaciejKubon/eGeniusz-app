@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="headerContainer">
+    <h2>Kalendarz</h2>
+  </div>
+  <div class="lineContainer"></div>
+  <div class="calendatContainer">
+    <div class="hoursContainer">
+        @for(hour of hours; track hour){
+            <div class="hourBox">
+                <span>{{hour}}</span>
+            </div>
+        }
+    </div>
+    <div class="daysContainer">
+        @for(term of terms; track term){
+            <div class="dayBox">
+                <app-teacher-day-terms [terms]="term"/>
+            </div>
+        }
+    </div>
+  </div>
+</div>

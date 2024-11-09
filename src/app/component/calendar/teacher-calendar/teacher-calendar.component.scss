@@ -1,0 +1,45 @@
+@import '../../../../styles.scss';
+
+.container {
+
+    width: 90%;
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 35px 5%;
+    .headerContainer {
+      display: flex;
+      align-items: center;
+      padding: 0 10%;
+      h2 {
+        font-size: 2rem;
+      }
+    }
+    .lineContainer {
+      margin-top: 25px;
+      border-bottom: 2px solid black;
+    }
+    .calendatContainer{
+        width: 100%;
+        margin-top: 25px;
+        background-color: gray;
+        display: flex;
+        .hoursContainer{
+            margin-top: $dayBoxNameHight;
+            width: 50px;
+            background-color: aquamarine;
+            text-align: center;
+            .hourBox{
+                height: $dayBoxHight;
+                border-top: 1px solid black;
+            }
+        }
+        .daysContainer{
+            border-left: 1px solid black;
+            width: calc(100% - 50px);
+            display: flex;
+            .dayBox{
+                width: 15%;
+            }
+        }
+    }
+}

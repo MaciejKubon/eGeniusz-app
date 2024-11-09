@@ -1,0 +1,39 @@
+@import '../../../../styles.scss';
+
+.dayContainer {
+  border-right: 1px solid black;
+  .dayNameBox {
+    text-align: center;
+    height: $dayBoxNameHight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hoursContainer{
+    position: relative;
+    .hourBox{
+        border-top: 1px solid black;
+        .timeBox{
+            height: calc($dayBoxHight / 4);
+        }
+    }
+    .termsReservetrion{
+        position: absolute;
+        width: 90%;
+        left: 5%;
+        top: 100px;
+        z-index: 10;
+        border-radius: 5px;
+        background-color: red;
+    }
+    .termsFree{
+        position: absolute;
+        width: 90%;
+        left: 5%;
+        top: 100px;
+        z-index: 10;
+        border-radius: 5px;
+        background-color: green;
+    }
+  }
+}
