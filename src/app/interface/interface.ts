@@ -72,3 +72,16 @@ export interface terms {
     posTop: number|null;
   }[];
 }
+export interface dataRange{
+    start_date: string;
+    end_date: string;
+}
+export interface termRequest{
+  start_date:Date,
+  end_date: Date,
+  id: number,
+}
+export interface termsRequest{
+  dayTime:Date,
+  terms:termRequest[],
+}

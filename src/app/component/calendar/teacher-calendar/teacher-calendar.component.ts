@@ -1,104 +1,62 @@
 import { Component } from '@angular/core';
 import { TeacherDayTermsComponent } from '../teacher-day-terms/teacher-day-terms.component';
-import { terms } from '../../../interface/interface';
+import { dataRange, terms, termsRequest } from '../../../interface/interface';
+import { TeacherTermsService } from '../../../service/http/teacher-terms.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-teacher-calendar',
   standalone: true,
-  imports: [TeacherDayTermsComponent],
+  imports: [TeacherDayTermsComponent, MatProgressSpinnerModule],
   templateUrl: './teacher-calendar.component.html',
   styleUrl: './teacher-calendar.component.scss',
 })
 export class TeacherCalendarComponent {
+  isLoadingResults: boolean = true;
   hourStart: number = 10;
   hourEnd: number = 23;
   hours: string[] = [];
-
-  terms: terms[] = [
-    {
-      dayTime: new Date('2024-11-09 10:00:00'),
-      terms: [
-        {
-          id: 1,
-          startTime: new Date('2024-11-09 11:00:00'),
-          endTime: new Date('2024-11-09 12:00:00'),
-          status: true,
-          diffTime: null,
-          posTop: null,
-        },
-        {
-          id: 2,
-          startTime: new Date('2024-11-09 13:30:00'),
-          endTime: new Date('2024-11-09 15:15:00'),
-          status: false,
-          diffTime: null,
-          posTop: null,
-        },
-      ],
-    },
-    {
-      dayTime: new Date('2024-11-10 10:00:00'),
-      terms: [
-        {
-          id: 1,
-          startTime: new Date('2024-11-10 12:00:00'),
-          endTime: new Date('2024-11-10 14:00:00'),
-          status: true,
-          diffTime: null,
-          posTop: null,
-        },
-        {
-          id: 1,
-          startTime: new Date('2024-11-10 17:30:00'),
-          endTime: new Date('2024-11-10 18:30:00'),
-          status: false,
-          diffTime: null,
-          posTop: null,
-        },
-      ],
-    },
-    {
-      dayTime: new Date('2024-11-11 10:00:00'),
-      terms: [
-        {
-          id: 1,
-          startTime: new Date('2024-11-11 10:00:00'),
-          endTime: new Date('2024-11-11 10:45:00'),
-          status: true,
-          diffTime: null,
-          posTop: null,
-        },
-        {
-          id: 1,
-          startTime: new Date('2024-11-11 11:45:00'),
-          endTime: new Date('2024-11-11 12:00:00'),
-          status: false,
-          diffTime: null,
-          posTop: null,
-        },
-      ],
-    },
-    {
-      dayTime: new Date('2024-11-12 09:00:00'),
-      terms: [],
-    },
-    {
-      dayTime: new Date('2024-11-13 09:00:00'),
-      terms: [],
-    },
-    {
-      dayTime: new Date('2024-11-14 09:00:00'),
-      terms: [],
-    },
-    {
-      dayTime: new Date('2024-11-15 09:00:00'),
-      terms: [],
-    },
-  ];
-
-  constructor() {
+  terms: terms[] = [];
+  constructor(private httpTerms: TeacherTermsService) {
     for (let i = this.hourStart; i <= this.hourEnd; i++) {
       this.hours.push(i + ':00');
     }
+  }
+  dataRange: dataRange = {
+    start_date: '2024-11-09',
+    end_date: '2024-11-15',
+  };
+  terms2: terms[] = [];
+  ngOnInit() {
+    this.isLoadingResults = true;
+    this.httpTerms
+      .getTechersTerms(this.dataRange)
+      .subscribe((data: termsRequest[]) => {
+        data.forEach((e) => {
+          let term: {
+            id: number;
+            startTime: Date;
+            endTime: Date;
+            status: boolean;
+            diffTime: number | null;
+            posTop: number | null;
+          }[] = [];
+          e.terms.forEach((element) => {
+            term.push({
+              startTime: new Date(element.start_date),
+              endTime: new Date(element.end_date),
+              id: element.id,
+              status: false,
+              diffTime: null,
+              posTop: null,
+            });
+          });
+          this.terms.push({
+            dayTime: new Date(e.dayTime),
+            terms: term,
+          });
+        });
+        this.isLoadingResults = false;
+      });
   }
 }

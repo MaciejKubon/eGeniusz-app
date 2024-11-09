@@ -4,6 +4,9 @@
   </div>
   <div class="lineContainer"></div>
   <div class="calendatContainer">
+    @if (isLoadingResults) {
+      <mat-spinner></mat-spinner>
+      } @else{
     <div class="hoursContainer">
         @for(hour of hours; track hour){
             <div class="hourBox">
@@ -18,5 +21,6 @@
             </div>
         }
     </div>
+  }
   </div>
 </div>

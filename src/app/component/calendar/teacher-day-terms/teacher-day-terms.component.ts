@@ -55,8 +55,7 @@ export class TeacherDayTermsComponent {
           Math.ceil(
             Math.abs(e.startTime.getTime() - this.dayTime.getTime()) /
               (1000 * 60)
-          );
-
+          )-540;
       });
     }
   }
