@@ -17,10 +17,16 @@
     <div class="daysContainer">
         @for(term of terms; track term){
             <div class="dayBox">
-                <app-teacher-day-terms [terms]="term"/>
+                <app-teacher-day-terms [terms]="term" (times)="setNewTerm($event)"/>
             </div>
         }
     </div>
   }
   </div>
 </div>
+@if(isVisableTermForm)
+{
+  <div class="newTermForm">
+    <app-add-term (newTerm)="addNewTerm($event)" [times]="times" />
+  </div>
+}

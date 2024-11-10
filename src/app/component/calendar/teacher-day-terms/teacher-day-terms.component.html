@@ -20,7 +20,7 @@
       class="termsFree"
       [style.height.px]="term.diffTime"
       [style.top.px]="term.posTop"
-    >a</div>
+    >{{term.startTime.toString().split(' ')[4]}} - {{term.endTime.toString().split(' ')[4]}}</div>
     } }
   </div>
 </div>

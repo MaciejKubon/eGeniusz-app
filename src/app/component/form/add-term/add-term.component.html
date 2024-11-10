@@ -1,0 +1,33 @@
+<!-- <p (click)='emitNewTerm()'>add-term works!</p> -->
+
+<div class="container">
+  <div class="headerContainer">
+    <h2>Dodawanie terminu</h2>
+    <app-close-button (click)="closeForm()" />
+  </div>
+  <div class="lineContainer"></div>
+  <div class="formContainer">
+    <mat-form-field>
+        <mat-label>Czas startu</mat-label>
+        <input
+          matInput
+          type="time"
+          [formControl]="start_time"
+          required
+       
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Czas końca</mat-label>
+        <input
+          matInput
+          type="time"
+          [formControl]="end_time"
+          required
+        />
+    </mat-form-field>
+    <div class="saveButton" >
+        <app-save-button (click)="saveForm()"/>
+    </div>
+  </div>
+</div>

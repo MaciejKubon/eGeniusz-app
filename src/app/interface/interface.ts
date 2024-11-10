@@ -85,3 +85,6 @@ export interface termsRequest{
   dayTime:Date,
   terms:termRequest[],
 }
+export interface AddNewTerm{
+  isNull:boolean, times:dataRange
+}

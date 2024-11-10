@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { terms } from '../../../interface/interface';
 
 @Component({
@@ -9,6 +9,7 @@ import { terms } from '../../../interface/interface';
   styleUrl: './teacher-day-terms.component.scss',
 })
 export class TeacherDayTermsComponent {
+  @Output() times = new EventEmitter<string>();
   @Input() terms: terms = {
     dayTime: new Date('2024-11-09 10:00:00'),
     terms: [
@@ -22,6 +23,7 @@ export class TeacherDayTermsComponent {
       },
     ],
   };
+  dayNameEmit: string = '';
   dayName: string = '';
   dayTime: Date = new Date(this.dayName + ' 10:00:00');
   hourStart: number = 10;
@@ -38,12 +40,17 @@ export class TeacherDayTermsComponent {
   }
 
   ngOnInit() {
-    this.dayName =
-      this.terms.dayTime.getDate().toString() +
-      '-' +
-      this.terms.dayTime.getMonth().toString() +
-      '-' +
-      this.terms.dayTime.getFullYear().toString();
+    let day: string = '';
+    let month: string = '';
+    let year: string = this.terms.dayTime.getFullYear().toString();
+    if (this.terms.dayTime.getDate() < 10)
+      day = '0' + this.terms.dayTime.getDate().toString();
+    else day = this.terms.dayTime.getDate().toString();
+    if (this.terms.dayTime.getMonth() + 1 < 10)
+      month = '0' + (this.terms.dayTime.getMonth() + 1).toString();
+    else month = (this.terms.dayTime.getMonth() + 1).toString();
+    this.dayNameEmit = year + '-' + month + '-' + day;
+    this.dayName = day + '-' + month + '-' + year;
     this.dayTime = this.terms.dayTime;
     if (this.terms?.terms != null) {
       this.terms.terms.forEach((e) => {
@@ -55,11 +62,12 @@ export class TeacherDayTermsComponent {
           Math.ceil(
             Math.abs(e.startTime.getTime() - this.dayTime.getTime()) /
               (1000 * 60)
-          )-540;
+          ) -
+          540;
       });
     }
   }
   selectTerm(times: string) {
-    console.log(times);
+    this.times.emit(this.dayNameEmit + ' ' + times);
   }
 }
