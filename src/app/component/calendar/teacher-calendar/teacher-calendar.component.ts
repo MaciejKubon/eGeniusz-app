@@ -11,7 +11,7 @@ import { AddTermComponent } from '../../form/add-term/add-term.component';
   imports: [TeacherDayTermsComponent, MatProgressSpinnerModule, AddTermComponent],
   templateUrl: './teacher-calendar.component.html',
   styleUrl: './teacher-calendar.component.scss',
-})
+}) 
 export class TeacherCalendarComponent {
   isVisableTermForm=false;
   isLoadingResults: boolean = true;
@@ -107,4 +107,5 @@ export class TeacherCalendarComponent {
     }
 
   }
+  
 }

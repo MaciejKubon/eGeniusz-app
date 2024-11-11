@@ -1,15 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { terms } from '../../../interface/interface';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-teacher-day-terms',
   standalone: true,
-  imports: [],
+  imports: [ConfirmDeleteComponent],
   templateUrl: './teacher-day-terms.component.html',
   styleUrl: './teacher-day-terms.component.scss',
 })
 export class TeacherDayTermsComponent {
   @Output() times = new EventEmitter<string>();
+  
   @Input() terms: terms = {
     dayTime: new Date('2024-11-09 10:00:00'),
     terms: [
@@ -23,6 +25,7 @@ export class TeacherDayTermsComponent {
       },
     ],
   };
+  isVisableTermDelete=false;
   dayNameEmit: string = '';
   dayName: string = '';
   dayTime: Date = new Date(this.dayName + ' 10:00:00');

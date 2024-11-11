@@ -22,6 +22,8 @@ export class TeacherTermsService {
   }
   addTechersTerms(dateRange:dataRange){
     return this.http.post<any>(this.apiUrl, dateRange,{headers: this.headers});
-
+  }
+  deleteTeacherTerm(id:number){
+    return this.http.delete<any>(this.apiUrl+'/'+id,{headers: this.headers})
   }
 }
