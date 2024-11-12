@@ -61,16 +61,18 @@ export interface teacherFiltr {
   minPrice: number;
   maxPrice: number;
 }
+export interface term {
+  id: number;
+  startTime: Date;
+  endTime: Date;
+  status: boolean;
+  diffTime: number | null;
+  posTop: number | null;
+}
+
 export interface terms {
   dayTime: Date;
-  terms: {
-    id: number;
-    startTime: Date;
-    endTime: Date;
-    status: boolean;
-    diffTime: number|null;
-    posTop: number|null;
-  }[];
+  terms: term[];
 }
 export interface dataRange{
     start_date: string;
