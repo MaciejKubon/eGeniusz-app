@@ -1,24 +1,24 @@
 <div class="container">
   <div class="headerContainer">
     <h2>Dodawanie terminu</h2>
-    <app-close-button />
+    <app-close-button (click)="close()"/>
   </div>
   <div class="lineContainer"></div>
   <div class="deletecontainer">
     <div class="dataContainer">
         <h2>Data korepetycji:</h2>
-        <h2>13-11-2024</h2>
+        <h2>{{day}}</h2>
     </div>
     <div class="timeContainer">
-        <h2>Data korepetycji:</h2>
-        <h2>13:00 - 13:45</h2>
+        <h2>Czas korepetycji:</h2>
+        <h2>{{startTime}} - {{endTime}}</h2>
     </div>
     <div class="statusContainer">
         <h2>Status</h2>
-        <h2>Nie zarezerwowano</h2>
+        <h2>{{status}}</h2>
     </div>
     <div class="deleteButton">
-        <app-delete-button/>
+        <app-delete-button (click)="deleteTermFunction()"/>
     </div>
   </div>
 </div>

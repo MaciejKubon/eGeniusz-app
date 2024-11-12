@@ -1,11 +1,7 @@
 import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { CloseButtonComponent } from '../../button/close-button/close-button.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { SaveButtonComponent } from '../../button/save-button/save-button.component';
 import { TeacherTermsService } from '../../../service/http/teacher-terms.service';
@@ -36,33 +32,21 @@ export class AddTermComponent {
 
   constructor(private httpTerms: TeacherTermsService) {}
 
-
   closeForm() {
     this.newTerm.emit(false);
     console.log(this.start_time.value);
     console.log(this.end_time.value);
   }
   saveForm() {
-
-    
     this.dayName = this.times.split(' ')[0];
-    let startDate: string = this.dayName + ' ' + this.start_time.value+':00';
-    let endDate: string = this.dayName + ' ' + this.end_time.value+':00';
+    let startDate: string = this.dayName + ' ' + this.start_time.value + ':00';
+    let endDate: string = this.dayName + ' ' + this.end_time.value + ':00';
     let dataRange: dataRange = {
       start_date: startDate,
       end_date: endDate,
-    }
-    console.log(dataRange);
-    this.httpTerms.addTechersTerms(dataRange).subscribe((data)=>{
-      console.log(data);
+    };
+    this.httpTerms.addTechersTerms(dataRange).subscribe((data) => {
       this.newTerm.emit(true);
-    })
-
-    
-    
-
-
-
-    
+    });
   }
 }

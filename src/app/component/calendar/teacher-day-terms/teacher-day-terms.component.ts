@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { terms } from '../../../interface/interface';
+import { terms, term } from '../../../interface/interface';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
@@ -11,7 +11,6 @@ import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.compone
 })
 export class TeacherDayTermsComponent {
   @Output() times = new EventEmitter<string>();
-  
   @Input() terms: terms = {
     dayTime: new Date('2024-11-09 10:00:00'),
     terms: [
@@ -25,7 +24,15 @@ export class TeacherDayTermsComponent {
       },
     ],
   };
-  isVisableTermDelete=false;
+  isVisableTermDelete = false;
+  term: term = {
+    id: 0,
+    startTime: new Date('2024-11-09 11:00:00'),
+    endTime: new Date('2024-11-09 12:00:00'),
+    status: true,
+    diffTime: null,
+    posTop: null,
+  };
   dayNameEmit: string = '';
   dayName: string = '';
   dayTime: Date = new Date(this.dayName + ' 10:00:00');
@@ -72,5 +79,16 @@ export class TeacherDayTermsComponent {
   }
   selectTerm(times: string) {
     this.times.emit(this.dayNameEmit + ' ' + times);
+  }
+  openDetail(term: term) {
+    this.term = term;
+    this.isVisableTermDelete = true;
+  }
+  deleteTerm(isDelete: boolean) {
+    console.log(isDelete);
+    if (isDelete) {
+      this.times.emit('id:' + ' ' + this.term.id);
+      this.isVisableTermDelete = false;
+    } else this.isVisableTermDelete = false;
   }
 }
