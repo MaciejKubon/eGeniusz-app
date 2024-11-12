@@ -14,12 +14,14 @@
       class="termsReservetrion"
       [style.height.px]="term.diffTime"
       [style.top.px]="term.posTop"
+      (click)="openDetail(term)"
     ></div>
     }@else{
     <div
       class="termsFree"
       [style.height.px]="term.diffTime"
       [style.top.px]="term.posTop"
+      (click)="openDetail(term)" 
     >{{term.startTime.toString().split(' ')[4]}} - {{term.endTime.toString().split(' ')[4]}}</div>
     } }
   </div>
@@ -27,7 +29,7 @@
 
 @if(isVisableTermDelete){
   <div class="deletetTerm">
-    <app-confirm-delete/>
+    <app-confirm-delete  [term]="term" (deleteTerm)="deleteTerm($event)"/>
   </div>
 }
 
