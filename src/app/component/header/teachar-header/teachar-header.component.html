@@ -1,8 +1,23 @@
 <header>
-    <div class="logo"></div>
-    <div class="navigation">
-        <nav>
-aaa
-        </nav>
-    </div>
+  <div class="logo">.</div>
+  <div class="menuButton"> 
+    @if(activeMenu)
+    {
+        <app-close-button (click)="changeMenu()"/>
+    }@else{
+        <app-home-button (click)="changeMenu()"/>
+    }
+</div>
+ 
+  <div class="navigation">
+    <nav [ngClass]="activeMenu ? '': 'active'">
+      <ul>
+        @for(navigation of nav; track navigation) {
+        <li><app-nav-button [navigation]="navigation" /></li>
+        }
+
+        <li><app-logout-button /></li>
+      </ul>
+    </nav>
+  </div>
 </header>

@@ -11,6 +11,10 @@ import { StudentPageComponent } from './page/student-page/student-page.component
 import { TeacherPageComponent } from './page/teacher-page/teacher-page.component';
 import { StudentComponent } from './page/regiester/student/student.component';
 import { TeacherComponent } from './page/regiester/teacher/teacher.component';
+import { TeacherDetailsComponent } from './component/details/teacher-details/teacher-details.component';
+import { TeacherCalendarComponent } from './component/calendar/teacher-calendar/teacher-calendar.component';
+import { TeachersListComponent } from './component/teachers-list/teachers-list.component';
+import { LessonsComponent } from './component/teacher/lessons/lessons.component';
 
 export const routes: Routes = [
   { path: 'mainpage', component: MainPageComponent },
@@ -22,7 +26,11 @@ export const routes: Routes = [
   { path: 'level', component: LevelComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'student', component: StudentPageComponent },
-  { path: 'teacher', component: TeacherPageComponent },
+  { path: 'teacher', component: TeacherPageComponent, children: [
+    {path: 'details', component:TeacherDetailsComponent},
+    {path: 'calender', component:TeacherCalendarComponent},
+    {path: 'subject', component:LessonsComponent}
+  ]},
   { path: '404', component: NotFoundPageComponent },
   { path: '500', component: ServerErrorComponent },
   { path: '**', component: NotFoundPageComponent },

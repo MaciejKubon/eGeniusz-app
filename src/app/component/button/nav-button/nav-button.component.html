@@ -1,0 +1,8 @@
+<button
+  mat-raised-button
+  aria-label="linkButton"
+  routerLink="../{{ navigation.path }}"
+  [ngClass]="link == currentUrl ? 'active' :'deActive'"
+>
+  {{ navigation.text | uppercase }}
+</button>
