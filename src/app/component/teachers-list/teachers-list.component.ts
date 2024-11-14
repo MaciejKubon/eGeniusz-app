@@ -4,6 +4,7 @@ import { teacherFiltr, teacherList } from '../../interface/interface';
 import { TeachersListHttpService } from '../../service/http/teachers-list-http.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TeacherListFilterComponent } from '../form/teacher-list-filter/teacher-list-filter.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teachers-list',
@@ -23,7 +24,9 @@ export class TeachersListComponent {
     maxPrice: 300,
   };
 
-  constructor(private teachersList: TeachersListHttpService) {}
+  constructor(
+    private teachersList: TeachersListHttpService,
+    private router: Router  ) {}
   ngOnInit() {
     this.teachersList.getTechersList(this.teacherFiltr).subscribe((data) => {
       this.teacherList = data;
@@ -38,6 +41,8 @@ export class TeachersListComponent {
       this.teacherList = data;
       this.isLoadingResults = false;
     });
-
+  }
+  moveToTeacher(id: number) {
+    this.router.navigate(['/student/teacher/'+id]);
   }
 }

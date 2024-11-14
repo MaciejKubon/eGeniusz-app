@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="headerContainer">
+    <h2>{{ teacherData.firstName }} {{ teacherData.lastName }}</h2>
+  </div>
+  <div class="lineContainer"></div>
+  <div class="detailContainer">
+    <div class="imageBox">
+      <figure>
+        <img src="./assets/image/photo.jpg" alt="photo" />
+      </figure>
+    </div>
+    <div class="detialBox">
+      <div class="subjectContainer">
+        <h2>Przedmioty</h2>
+        <table>
+          <tr>
+            <th>Przedmiot</th>
+            <th>Poziom</th>
+            <th>Cena</th>
+          </tr>
+          @for(sub of teacherData.lesson; track sub){
+          <tr>
+            <td>{{ sub.subject.name }}</td>
+            <td>{{ sub.subject_level.name }}</td>
+            <td>{{ sub.price }}</td>
+          </tr>
+          }
+        </table>
+      </div>
+      <div class="descriptionContainer">
+        <h2>Opis</h2>
+        <p>{{ teacherData.description }}</p>
+      </div>
+      <div class="ratingContainer">
+        <h2>Ocena: <span>4.9</span></h2>
+      </div>
+    </div>
+  </div>
+</div>

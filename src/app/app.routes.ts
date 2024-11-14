@@ -16,6 +16,7 @@ import { TeacherCalendarComponent } from './component/calendar/teacher-calendar/
 import { TeachersListComponent } from './component/teachers-list/teachers-list.component';
 import { LessonsComponent } from './component/teacher/lessons/lessons.component';
 import { UserDetailsComponent } from './component/details/user-details/user-details.component';
+import { SelectTeacherComponent } from './component/select-teacher/select-teacher.component';
 
 export const routes: Routes = [
   { path: 'mainpage', component: MainPageComponent },
@@ -28,7 +29,8 @@ export const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'student', component: StudentPageComponent, children:[
     {path:'details', component: UserDetailsComponent},
-    {path:'teacher', component: TeachersListComponent}
+    {path:'teacher', component: TeachersListComponent},
+    {path: 'teacher/:id', component: SelectTeacherComponent}
   ]},
   { path: 'teacher', component: TeacherPageComponent, children: [
     {path: 'details', component:TeacherDetailsComponent},
