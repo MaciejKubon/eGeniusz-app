@@ -17,6 +17,21 @@
     margin-top: 25px;
     border-bottom: 2px solid black;
   }
+  .calenderRangeMobile {
+    display: none;
+  }
+  .calenderRange {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 100%;
+    .DataRange {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+  }
   .calendatContainer {
     width: 100%;
     margin-top: 25px;
@@ -39,6 +54,9 @@
       .dayBox {
         width: 15%;
       }
+      .dayBoxMobile {
+        display: none;
+      }
     }
   }
 }
@@ -46,8 +64,43 @@
   position: fixed;
   width: 70%;
   height: 50svh;
-  top:25svh;
+  top: 25svh;
   left: 15%;
   z-index: 200;
 }
-
+@media only screen and (max-width: 900px) {
+  .container {
+    .calenderRange {
+      display: none;
+    }
+    .calenderRangeMobile {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid black;
+      width: 100%;
+      .DataRange {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+    }
+    .calendatContainer {
+      .daysContainer {
+        .dayBox {
+          display: none;
+          app-teacher-day-terms {
+            display: none;
+          }
+        }
+        .dayBoxMobile {
+          width: 100%;
+          display: flex;
+          app-teacher-day-terms {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
