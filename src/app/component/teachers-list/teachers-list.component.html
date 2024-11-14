@@ -13,7 +13,7 @@
     <h1>Brak dopasowanych nauczycieli</h1>
     }@else{ @for (item of teacherList; track item) {
 
-    <div class="teacherContainer">
+    <div class="teacherContainer" (click)="moveToTeacher(item.id)">
       <div class="teacherBox">
         <div class="imageBox">
           <figure>
@@ -41,21 +41,6 @@
             <h3>Ocena: <span>4.9</span></h3>
           </div>
         </div>
-        <!-- <div class="nameContainer">
-          <h2>{{ item.firstName }}</h2>
-          <h2>{{ item.lastName }}</h2>
-        </div>
-        <div class="subjcetContainer">
-          <span>{{ item.subjects }}</span>
-        </div>
-        <div class="priceContainer">
-          <h3>
-            Cena: <span>{{ item.price[0] }} - {{ item.price[1] }}</span>
-          </h3>
-        </div>
-        <div class="ratingContainer">
-          <h3>Ocena: <span>4.9</span></h3>
-        </div> -->
       </div>
     </div>
     } }}
