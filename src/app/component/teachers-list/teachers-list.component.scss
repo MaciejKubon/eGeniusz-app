@@ -30,61 +30,104 @@
     display: flex;
     justify-content:space-around;
     flex-wrap: wrap;
-    .teacherContainer {
+    .teacherContainer{
       background-color: burlywood;
-      width: 26%;
-      min-height: 300px;
-      border-radius: 20px;
+      width: 45%;
       margin-bottom: 30px;
-      .teacherBox {
+      border-radius: 20px;
+      .teacherBox{
         margin: 10px 20px;
-        .imageBox {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          figure {
-            width: 60%;
-            img {
+        display: flex;
+        justify-content: space-between;
+        .imageBox{
+          width: 30%;
+          figure{
+            width: 100%;
+            img{
               width: 100%;
               border-radius: 20px;
             }
           }
         }
-        .nameContainer {
-          margin-top: 10px;
-          h2 {
-            font-size: 1.2rem;
-            text-align: center;
+        .teacherContentContainer{
+          width: 65%;
+          .nameContainer{
+            margin-top: 10px;
+            h2{
+              font-size: 1.2rem;
+              text-align: center;
+            }
           }
-        }
-        .subjcetContainer{
+          .subjectContainer, .priceContainer, .ratingContainer{
             margin-top: 10px;
             h3{
-                font-size: 1rem;
-                font-weight: 500;
+              font-size: 1rem;
+              margin-bottom: 5px;
             }
             span{
-                font-size: 0.9rem;
+              font-size: 1rem;
             }
-        }
-        .priceContainer{
-            margin-top: 10px;
-            h3{
-                font-size: 1rem;
-                font-weight: 500;
-            }
-
-        }
-        .ratingContainer{
-            margin-top: 10px;
-            h3{
-                font-size: 1rem;
-                font-weight: 500;
-            }
-
+          }
         }
       }
+
+
     }
+    // .teacherContainer {
+    //   background-color: burlywood;
+    //   width: 26%;
+    //   min-height: 300px;
+    //   border-radius: 20px;
+    //   margin-bottom: 30px;
+    //   .teacherBox {
+    //     margin: 10px 20px;
+    //     .imageBox {
+    //       width: 100%;
+    //       display: flex;
+    //       justify-content: center;
+    //       figure {
+    //         width: 60%;
+    //         img {
+    //           width: 100%;
+    //           border-radius: 20px;
+    //         }
+    //       }
+    //     }
+    //     .nameContainer {
+    //       margin-top: 10px;
+    //       h2 {
+    //         font-size: 1.2rem;
+    //         text-align: center;
+    //       }
+    //     }
+    //     .subjcetContainer{
+    //         margin-top: 10px;
+    //         h3{
+    //             font-size: 1rem;
+    //             font-weight: 500;
+    //         }
+    //         span{
+    //             font-size: 0.9rem;
+    //         }
+    //     }
+    //     .priceContainer{
+    //         margin-top: 10px;
+    //         h3{
+    //             font-size: 1rem;
+    //             font-weight: 500;
+    //         }
+
+    //     }
+    //     .ratingContainer{
+    //         margin-top: 10px;
+    //         h3{
+    //             font-size: 1rem;
+    //             font-weight: 500;
+    //         }
+
+    //     }
+    //   }
+    // }
   }
 }
 @media only screen and (max-width: 900px) {
