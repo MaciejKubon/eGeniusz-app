@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TeacherDetailService } from '../../service/http/teacher-detail.service';
+import { TeacherDetailComponent } from '../calendar/teacher-detail/teacher-detail.component';
 
 @Component({
   selector: 'app-select-teacher',
   standalone: true,
-  imports: [],
+  imports: [TeacherDetailComponent],
   templateUrl: './select-teacher.component.html',
   styleUrl: './select-teacher.component.scss',
 })

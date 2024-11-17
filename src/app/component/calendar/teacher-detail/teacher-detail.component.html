@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="headerContainer">
+    <h2>Kalendarz</h2>
+  </div>
+
+  <div class="calendatContainer">
+    @if (isLoadingResults) {
+    <mat-spinner></mat-spinner>
+    } @else{
+    <div class="hoursContainer">
+      @for(hour of hours; track hour){
+      <div class="hourBox">
+        <span>{{ hour }}</span>
+      </div>
+      }
+    </div>
+    <div class="daysContainer"></div>
+    }
+  </div>
+</div>

@@ -1,6 +1,6 @@
 .container {
   width: 90%;
-  background-color: aliceblue;
+  background-color: aliceblue; 
   border-radius: 20px;
   padding: 35px 5%;
   .headerContainer {
@@ -73,61 +73,6 @@
 
 
     }
-    // .teacherContainer {
-    //   background-color: burlywood;
-    //   width: 26%;
-    //   min-height: 300px;
-    //   border-radius: 20px;
-    //   margin-bottom: 30px;
-    //   .teacherBox {
-    //     margin: 10px 20px;
-    //     .imageBox {
-    //       width: 100%;
-    //       display: flex;
-    //       justify-content: center;
-    //       figure {
-    //         width: 60%;
-    //         img {
-    //           width: 100%;
-    //           border-radius: 20px;
-    //         }
-    //       }
-    //     }
-    //     .nameContainer {
-    //       margin-top: 10px;
-    //       h2 {
-    //         font-size: 1.2rem;
-    //         text-align: center;
-    //       }
-    //     }
-    //     .subjcetContainer{
-    //         margin-top: 10px;
-    //         h3{
-    //             font-size: 1rem;
-    //             font-weight: 500;
-    //         }
-    //         span{
-    //             font-size: 0.9rem;
-    //         }
-    //     }
-    //     .priceContainer{
-    //         margin-top: 10px;
-    //         h3{
-    //             font-size: 1rem;
-    //             font-weight: 500;
-    //         }
-
-    //     }
-    //     .ratingContainer{
-    //         margin-top: 10px;
-    //         h3{
-    //             font-size: 1rem;
-    //             font-weight: 500;
-    //         }
-
-    //     }
-    //   }
-    // }
   }
 }
 @media only screen and (max-width: 900px) {
