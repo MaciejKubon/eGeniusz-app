@@ -1,1 +1,30 @@
-<p>teacher-detail-day-term works!</p>
+<div class="dayContainer">
+    <div class="dayNameBox">
+      <span>{{ dayName }}</span>
+    </div>
+    <div class="hoursContainer">
+      @for(hour of hours; track hour){
+      <div class="hourBox">
+        @for(time of hour.mm; track time){
+        <div class="timeBox"></div>
+        }
+      </div>
+      } @for(term of terms.terms; track term){ @if(term.status){
+      <div
+        class="termsReservetrion"
+        [style.height.px]="term.diffTime"
+        [style.top.px]="term.posTop"
+        (click)="openDetail(term)"
+      ></div>
+      }@else{
+      <div
+        class="termsFree"
+        [style.height.px]="term.diffTime"
+        [style.top.px]="term.posTop"
+        (click)="openDetail(term)" 
+      >{{term.startTime.toString().split(' ')[4]}} - {{term.endTime.toString().split(' ')[4]}}</div>
+      } }
+    </div>
+  </div>
+  
+  

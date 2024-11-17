@@ -2,7 +2,24 @@
   <div class="headerContainer">
     <h2>Kalendarz</h2>
   </div>
-
+  <div class="calenderRangeMobile">
+    <div class="leftArrow"><app-arrow-back (click)="changeRange(-1)" /></div>
+    <div class="DataRange">
+      {{ dataRange.start_date }}
+    </div>
+    <div class="rightArrow">
+      <app-arrow-back [position]="position" (click)="changeRange(1)" />
+    </div>
+  </div>
+  <div class="calenderRange">
+    <div class="leftArrow"><app-arrow-back (click)="changeRange(-7)" /></div>
+    <div class="DataRange">
+      {{ dataRange.start_date }} - {{ dataRange.end_date }}
+    </div>
+    <div class="rightArrow">
+      <app-arrow-back [position]="position" (click)="changeRange(7)" />
+    </div>
+  </div>
   <div class="calendatContainer">
     @if (isLoadingResults) {
     <mat-spinner></mat-spinner>
@@ -16,11 +33,14 @@
     </div>
     <div class="daysContainer">
       @for(term of terms; track term){
-          <div class="dayBox">
-              <app-teacher-detail-day-term />
-          </div>
+      <div class="dayBox">
+        <app-teacher-detail-day-term [terms]="term" (refleshData)="refDate($event)"/>
+      </div>
       }
-  </div>
+      <div class="dayBoxMobile">
+        <app-teacher-detail-day-term [terms]="terms[0]" (refleshData)="refDate($event)"/>
+      </div>
+    </div>
     }
   </div>
 </div>
