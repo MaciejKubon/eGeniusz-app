@@ -11,6 +11,7 @@ import { TeacherDetailComponent } from '../calendar/teacher-detail/teacher-detai
   styleUrl: './select-teacher.component.scss',
 })
 export class SelectTeacherComponent implements OnInit {
+  teacherID:string|null = null;
   teacherData:{
     id:number;
     firstName:string;
@@ -59,8 +60,8 @@ export class SelectTeacherComponent implements OnInit {
     private teacherDetail: TeacherDetailService
   ) {}
   ngOnInit() {
-    const productId = this.route.snapshot.paramMap.get('id');
-    this.teacherDetail.getTeacherDetail(productId).subscribe((data) => {
+    this.teacherID = this.route.snapshot.paramMap.get('id');
+    this.teacherDetail.getTeacherDetail(this.teacherID).subscribe((data) => {
       this.teacherData=data;
     });
   }

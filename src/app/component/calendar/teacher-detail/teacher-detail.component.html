@@ -14,7 +14,13 @@
       </div>
       }
     </div>
-    <div class="daysContainer"></div>
+    <div class="daysContainer">
+      @for(term of terms; track term){
+          <div class="dayBox">
+              <app-teacher-detail-day-term />
+          </div>
+      }
+  </div>
     }
   </div>
 </div>
