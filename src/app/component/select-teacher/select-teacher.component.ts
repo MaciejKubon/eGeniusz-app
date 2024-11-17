@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TeacherDetailService } from '../../service/http/teacher-detail.service';
+import { TeacherDetailComponent } from '../calendar/teacher-detail/teacher-detail.component';
 
 @Component({
   selector: 'app-select-teacher',
   standalone: true,
-  imports: [],
+  imports: [TeacherDetailComponent],
   templateUrl: './select-teacher.component.html',
   styleUrl: './select-teacher.component.scss',
 })
 export class SelectTeacherComponent implements OnInit {
+  teacherID:string|null = null;
   teacherData:{
     id:number;
     firstName:string;
@@ -58,8 +60,8 @@ export class SelectTeacherComponent implements OnInit {
     private teacherDetail: TeacherDetailService
   ) {}
   ngOnInit() {
-    const productId = this.route.snapshot.paramMap.get('id');
-    this.teacherDetail.getTeacherDetail(productId).subscribe((data) => {
+    this.teacherID = this.route.snapshot.paramMap.get('id');
+    this.teacherDetail.getTeacherDetail(this.teacherID).subscribe((data) => {
       this.teacherData=data;
     });
   }
