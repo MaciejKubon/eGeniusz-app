@@ -61,6 +61,13 @@ export interface teacherFiltr {
   minPrice: number;
   maxPrice: number;
 }
+export interface classes {
+  id: number;
+  terms_id: number;
+  student_id: number;
+  lesson_id: number;
+  confirmed: boolean;
+}
 export interface term {
   id: number;
   startTime: Date;
@@ -68,25 +75,55 @@ export interface term {
   status: boolean;
   diffTime: number | null;
   posTop: number | null;
+  classes: classes | null;
 }
 
 export interface terms {
   dayTime: Date;
   terms: term[];
 }
-export interface dataRange{
-    start_date: string;
-    end_date: string;
+
+export interface dataRange {
+  start_date: string;
+  end_date: string;
 }
-export interface termRequest{
-  start_date:Date,
-  end_date: Date,
-  id: number,
+export interface termRequest {
+  start_date: Date;
+  end_date: Date;
+  id: number;
+  classes: classes | null;
 }
-export interface termsRequest{
-  dayTime:Date,
-  terms:termRequest[],
+export interface termsRequest {
+  dayTime: Date;
+  terms: termRequest[];
 }
-export interface AddNewTerm{
-  isNull:boolean, times:dataRange
+export interface AddNewTerm {
+  isNull: boolean;
+  times: dataRange;
+}
+export interface teacherData {
+  id: number;
+  firstName: string;
+  lastName: string;
+  description: string;
+  birthday: string;
+  lesson: {
+    id: number;
+    subject_id: number;
+    subject_level_id: number;
+    teacher_id: number;
+    price: number;
+    subject: {
+      id: number;
+      name: string;
+    };
+    subject_level: {
+      id: number;
+      name: string;
+    };
+  }[];
+}
+export interface newClasses{
+    terms_id:number;
+    lesson_id:number;
 }

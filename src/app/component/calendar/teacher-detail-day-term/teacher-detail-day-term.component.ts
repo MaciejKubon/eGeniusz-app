@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { term, terms } from '../../../interface/interface';
+import { SetClassesComponent } from '../set-classes/set-classes.component';
 
 @Component({
   selector: 'app-teacher-detail-day-term',
   standalone: true,
-  imports: [],
+  imports: [SetClassesComponent],
   templateUrl: './teacher-detail-day-term.component.html',
-  styleUrl: './teacher-detail-day-term.component.scss'
+  styleUrl: './teacher-detail-day-term.component.scss',
 })
 export class TeacherDetailDayTermComponent {
   @Output() refleshData = new EventEmitter<boolean>();
@@ -20,9 +21,11 @@ export class TeacherDetailDayTermComponent {
         status: true,
         diffTime: null,
         posTop: null,
+        classes: null,
       },
     ],
   };
+  isVisableTermDetail: boolean = false;
   term: term = {
     id: 0,
     startTime: new Date('2024-11-09 11:00:00'),
@@ -30,6 +33,7 @@ export class TeacherDetailDayTermComponent {
     status: true,
     diffTime: null,
     posTop: null,
+    classes: null,
   };
   dayName: string = '';
   dayTime: Date = new Date(this.dayName + ' 10:00:00');
@@ -75,7 +79,15 @@ export class TeacherDetailDayTermComponent {
   openDetail(term: term) {
     this.term = term;
     console.log(term);
-    this.refleshData.emit(true);
-    
+    this.isVisableTermDetail = true;
+  }
+  setNewClasses(ref: boolean) {
+    if (ref) {
+      this.isVisableTermDetail = false;
+      this.refleshData.emit(true);
+
+    } else {
+      this.isVisableTermDetail = false;
+    }
   }
 }

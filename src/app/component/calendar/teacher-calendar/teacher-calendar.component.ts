@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TeacherDayTermsComponent } from '../teacher-day-terms/teacher-day-terms.component';
-import { dataRange, terms, termsRequest } from '../../../interface/interface';
+import { dataRange, term, terms, termsRequest } from '../../../interface/interface';
 import { TeacherTermsService } from '../../../service/http/teacher-terms.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AddTermComponent } from '../../form/add-term/add-term.component';
@@ -53,14 +53,7 @@ export class TeacherCalendarComponent {
       .getTechersTerms(this.dataRange)
       .subscribe((data: termsRequest[]) => {
         data.forEach((e) => {
-          let term: {
-            id: number;
-            startTime: Date;
-            endTime: Date;
-            status: boolean;
-            diffTime: number | null;
-            posTop: number | null;
-          }[] = [];
+          let term:term[] = [];
           e.terms.forEach((element) => {
             term.push({
               startTime: new Date(element.start_date),
@@ -69,6 +62,7 @@ export class TeacherCalendarComponent {
               status: false,
               diffTime: null,
               posTop: null,
+              classes: element.classes
             });
           });
           this.terms.push({
@@ -95,14 +89,7 @@ export class TeacherCalendarComponent {
       .getTechersTerms(this.dataRange)
       .subscribe((data: termsRequest[]) => {
         data.forEach((e) => {
-          let term: {
-            id: number;
-            startTime: Date;
-            endTime: Date;
-            status: boolean;
-            diffTime: number | null;
-            posTop: number | null;
-          }[] = [];
+          let term:term[] = [];
           e.terms.forEach((element) => {
             term.push({
               startTime: new Date(element.start_date),
@@ -111,6 +98,7 @@ export class TeacherCalendarComponent {
               status: false,
               diffTime: null,
               posTop: null,
+              classes: element.classes,
             });
           });
           this.terms.push({
@@ -121,6 +109,7 @@ export class TeacherCalendarComponent {
         this.isLoadingResults = false;
         this.dateRangeBlocked = false;
       });
+      
   }
   addNewTerm(newTerm: boolean) {
     if (!newTerm) {

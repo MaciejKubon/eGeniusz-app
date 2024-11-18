@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="headerContainer">
+    <h2>Dodawanie terminu</h2>
+    <app-close-button (click)="close()" />
+  </div>
+  <div class="lineContainer"></div>
+  <div class="deletecontainer">
+    <div class="dataContainer">
+      <h2>Data korepetycji:</h2>
+      <h2>{{ day }}</h2>
+    </div>
+    <div class="timeContainer">
+      <h2>Czas korepetycji:</h2>
+      <h2>{{ startTime }} - {{ endTime }}</h2>
+    </div>
+    <div class="selectSubject">
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="SubjectId"
+      >
+        <table>
+          <tr>
+            <th>Przedmiot</th>
+            <th>Poziom</th>
+            <th>Cena</th>
+            <th></th>
+          </tr>
+          @for(sub of teacherData.lesson; track sub){
+
+          <tr>
+            <td>{{ sub.subject.name }}</td>
+            <td>{{ sub.subject_level.name }}</td>
+            <td>{{ sub.price }}</td>
+            <td>
+              <mat-radio-button class="example-radio-button" [value]="sub.id" />
+            </td>
+          </tr>
+          }
+        </table>
+      </mat-radio-group>
+    </div>
+    <div class="deleteButton">
+      <app-accept-button (click)="setTermFunction()" />
+    </div>
+  </div>
+</div>
