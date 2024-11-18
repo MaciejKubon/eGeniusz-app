@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TeacherDetailService } from '../../service/http/teacher-detail.service';
 import { TeacherDetailComponent } from '../calendar/teacher-detail/teacher-detail.component';
+import { teacherData } from '../../interface/interface';
 
 @Component({
   selector: 'app-select-teacher',
@@ -11,50 +12,32 @@ import { TeacherDetailComponent } from '../calendar/teacher-detail/teacher-detai
   styleUrl: './select-teacher.component.scss',
 })
 export class SelectTeacherComponent implements OnInit {
-  teacherID:string|null = null;
-  teacherData:{
-    id:number;
-    firstName:string;
-    lastName:string;
-    description:string;
-    birthday:string;
-    lesson: {
-      id:number;
-      subject_id:number;
-      subject_level_id:number;
-      teacher_id:number;
-      price:number,
-      subject:{
-        id:number;
-        name:string;
-      }
-      subject_level:{
-        id:number;
-        name:string;
-      }
-    }[];
-  }={
-    id:0,
-    firstName:'',
-    lastName:'',
-    description:'',
-    birthday:'',
-    lesson: [{
-      id:0,
-      subject_id:0,
-      subject_level_id:0,
-      teacher_id:0,
-      price:0,
-      subject:{
-        id:0,
-        name:'',
+  teacherID: string | null = null;
+  teacherData: teacherData = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    description: '',
+    birthday: '',
+    lesson: [
+      {
+        id: 0,
+        subject_id: 0,
+        subject_level_id: 0,
+        teacher_id: 0,
+        price: 0,
+        subject: {
+          id: 0,
+          name: '',
+        },
+        subject_level: {
+          id: 0,
+          name: '',
+        },
       },
-      subject_level:{
-        id:0,
-        name:'',
-      }
-    }]
-  }
+    ],
+  };
+
   constructor(
     private route: ActivatedRoute,
     private teacherDetail: TeacherDetailService
@@ -62,7 +45,7 @@ export class SelectTeacherComponent implements OnInit {
   ngOnInit() {
     this.teacherID = this.route.snapshot.paramMap.get('id');
     this.teacherDetail.getTeacherDetail(this.teacherID).subscribe((data) => {
-      this.teacherData=data;
+      this.teacherData = data;
     });
   }
 }

@@ -20,6 +20,7 @@ export class ConfirmDeleteComponent {
     status: true,
     diffTime: null,
     posTop: null,
+    classes:null,
   };
   day: string = '';
   startTime: string = '';

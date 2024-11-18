@@ -21,6 +21,7 @@ export class TeacherDayTermsComponent {
         status: true,
         diffTime: null,
         posTop: null,
+        classes:null,
       },
     ],
   };
@@ -32,6 +33,7 @@ export class TeacherDayTermsComponent {
     status: true,
     diffTime: null,
     posTop: null,
+    classes:null,
   };
   dayNameEmit: string = '';
   dayName: string = '';
@@ -85,7 +87,7 @@ export class TeacherDayTermsComponent {
     this.isVisableTermDelete = true;
   }
   deleteTerm(isDelete: boolean) {
-    console.log(isDelete);
+ 
     if (isDelete) {
       this.times.emit('id:' + ' ' + this.term.id);
       this.isVisableTermDelete = false;

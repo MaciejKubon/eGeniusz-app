@@ -9,27 +9,46 @@
       <div class="timeBox" (click)="selectTerm(hour.hh + ':' + time)"></div>
       }
     </div>
-    } @for(term of terms.terms; track term){ @if(term.status){
+    } @for(term of terms.terms; track term){ @if(term.classes!=null){
+    @if(term.classes.confirmed){
     <div
       class="termsReservetrion"
       [style.height.px]="term.diffTime"
       [style.top.px]="term.posTop"
       (click)="openDetail(term)"
-    ></div>
+    >
+      {{ term.startTime.toString().split(" ")[4] }} -
+      {{ term.endTime.toString().split(" ")[4] }}
+      confirmed
+    </div>
     }@else{
+    <div
+      class="termsReservetrion"
+      [style.height.px]="term.diffTime"
+      [style.top.px]="term.posTop"
+      (click)="openDetail(term)"
+    >
+      {{ term.startTime.toString().split(" ")[4] }} -
+      {{ term.endTime.toString().split(" ")[4] }}
+      no confirmed
+    </div>
+
+    } }@else{
     <div
       class="termsFree"
       [style.height.px]="term.diffTime"
       [style.top.px]="term.posTop"
-      (click)="openDetail(term)" 
-    >{{term.startTime.toString().split(' ')[4]}} - {{term.endTime.toString().split(' ')[4]}}</div>
+      (click)="openDetail(term)"
+    >
+      {{ term.startTime.toString().split(" ")[4] }} -
+      {{ term.endTime.toString().split(" ")[4] }}
+    </div>
     } }
   </div>
 </div>
 
 @if(isVisableTermDelete){
-  <div class="deletetTerm">
-    <app-confirm-delete  [term]="term" (deleteTerm)="deleteTerm($event)"/>
-  </div>
+<div class="deletetTerm">
+  <app-confirm-delete [term]="term" (deleteTerm)="deleteTerm($event)" />
+</div>
 }
-
