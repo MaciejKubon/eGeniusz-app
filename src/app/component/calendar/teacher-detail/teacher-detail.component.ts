@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TeacherTermsService } from '../../../service/http/teacher-terms.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { dataRange, term, terms, termsRequest } from '../../../interface/interface';
+import { dataRange, studentClasses, term, terms, termsAndClasses, termsClass, termsRequest } from '../../../interface/interface';
 import { ActivatedRoute } from '@angular/router';
 import { TeacherDetailDayTermComponent } from '../teacher-detail-day-term/teacher-detail-day-term.component';
 import { DatePipe } from '@angular/common';
@@ -21,7 +21,7 @@ export class TeacherDetailComponent implements OnInit {
   hourStart: number = 10;
   hourEnd: number = 23;
   hours: string[] = [];
-  terms: terms[] = [];
+  terms: termsAndClasses[] = [];
   dateRangeBlocked = true;
   dataRangeDate = {
     start_date: new Date(),
@@ -39,7 +39,7 @@ export class TeacherDetailComponent implements OnInit {
     }
     this.dataRangeDate.start_date = new Date();
     this.dataRangeDate.end_date.setDate(
-      this.dataRangeDate.start_date.getDate() + 7
+      this.dataRangeDate.start_date.getDate() + 6
     );
     this.setRange();
   }
@@ -47,9 +47,10 @@ export class TeacherDetailComponent implements OnInit {
   ngOnInit() {
     this.httpTerms
       .getTeachersDetailTerms(this.dataRange, this.teacherID)
-      .subscribe( (data: termsRequest[]) => {
+      .subscribe( (data: termsClass[]) => {
         data.forEach((e) => {
           let term: term[] = [];
+          let classes: studentClasses[] =[];
           e.terms.forEach((element) => {
             term.push({
               startTime: new Date(element.start_date),
@@ -61,9 +62,25 @@ export class TeacherDetailComponent implements OnInit {
               classes:element.classes,
             });
           });
+          e.classes.forEach((element)=>{
+            classes.push({
+              id: element.id,
+              lesson:element.lesson,
+              term:{
+                id:element.term.id,
+                teacher_id:element.term.teacher_id,
+                start_date:new Date(element.term.start_date),
+                end_date: new Date(element.term.end_date),
+                diffTime:null,
+                posTop:null,
+              },
+              confirmed:element.confirmed
+            })
+          })
           this.terms.push({
             dayTime: new Date(e.dayTime),
             terms: term,
+            classes:classes
           });
         });
         this.isLoadingResults = false;
@@ -76,9 +93,11 @@ export class TeacherDetailComponent implements OnInit {
     this.terms = [];
     this.httpTerms
       .getTeachersDetailTerms(this.dataRange, this.teacherID)
-      .subscribe((data: termsRequest[]) => {
+      .subscribe((data: termsClass[]) => {
         data.forEach((e) => {
           let term: term[] = [];
+          let classes: studentClasses[] =[];
+
           e.terms.forEach((element) => {
             term.push({
               startTime: new Date(element.start_date),
@@ -90,9 +109,25 @@ export class TeacherDetailComponent implements OnInit {
               classes:  element.classes,
             });
           });
+          e.classes.forEach((element)=>{
+            classes.push({
+              id: element.id,
+              lesson:element.lesson,
+              term:{
+                id:element.term.id,
+                teacher_id:element.term.teacher_id,
+                start_date:new Date(element.term.start_date),
+                end_date: new Date(element.term.end_date),
+                diffTime:null,
+                posTop:null,
+              },
+              confirmed:element.confirmed
+            })
+          })
           this.terms.push({
             dayTime: new Date(e.dayTime),
             terms: term,
+            classes:classes
           });
         });
         this.isLoadingResults = false;

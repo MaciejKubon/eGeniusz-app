@@ -42,7 +42,7 @@ export class TeacherCalendarComponent {
     }
     this.dataRangeDate.start_date = new Date();
     this.dataRangeDate.end_date.setDate(
-      this.dataRangeDate.start_date.getDate() + 7
+      this.dataRangeDate.start_date.getDate() + 6
     );
     this.setRange();
   }

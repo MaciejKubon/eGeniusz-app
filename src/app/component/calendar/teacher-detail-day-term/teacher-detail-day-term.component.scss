@@ -17,15 +17,6 @@
             height: calc($dayBoxHight / 4);
         }
     }
-    .termsReservetrion{
-        position: absolute;
-        width: 90%;
-        left: 5%;
-        top: 100px;
-        z-index: 10;
-        border-radius: 5px;
-        background-color: red;
-    }
     .termsFree{
         position: absolute;
         width: 90%;
@@ -36,6 +27,15 @@
         background-color: green;
         font-size: 1rem;
     }
+    .classesConfirm{
+      position: absolute;
+      width: 90%;
+      left: 5%;
+      top: 100px;
+      z-index: 10;
+      border-radius: 5px;
+      background-color: yellow;
+  }
   }
 }
 .setTerm {
