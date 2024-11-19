@@ -127,3 +127,31 @@ export interface newClasses{
     terms_id:number;
     lesson_id:number;
 }
+export interface studentClasses{
+  id:number,
+  lesson:{
+    id:number,
+    price:number,
+    subject:subject,
+    subject_level:subject_level,
+  }
+  term:{
+    id:number,
+    teacher_id:number,
+    start_date:Date,
+    end_date:Date,
+    diffTime: number | null;
+    posTop: number | null;
+  },
+  confirmed:boolean
+}
+export interface termsClass{
+  dayTime: Date;
+  terms: termRequest[];
+  classes: studentClasses[];
+}
+export interface termsAndClasses{
+  dayTime: Date;
+  terms: term[];
+  classes: studentClasses[];
+}

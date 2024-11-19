@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { term, terms } from '../../../interface/interface';
+import { studentClasses, term, terms, termsAndClasses } from '../../../interface/interface';
 import { SetClassesComponent } from '../set-classes/set-classes.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { SetClassesComponent } from '../set-classes/set-classes.component';
 })
 export class TeacherDetailDayTermComponent {
   @Output() refleshData = new EventEmitter<boolean>();
-  @Input() terms: terms = {
+  @Input() terms: termsAndClasses = {
     dayTime: new Date('2024-11-09 10:00:00'),
     terms: [
       {
@@ -24,6 +24,32 @@ export class TeacherDetailDayTermComponent {
         classes: null,
       },
     ],
+    classes:[
+      {
+        id:0,
+        lesson:{
+          id:0,
+          price:0,
+          subject:{
+            id:0,
+            name:''
+          },
+          subject_level:{
+            id:0,
+            name:''
+          },
+        },
+        term:{
+          id:0,
+          teacher_id:0,
+          start_date: new Date('2024-11-09 11:00:00'),
+          end_date: new Date('2024-11-09 11:00:00'),
+          diffTime:null,
+          posTop:null,
+        },
+        confirmed:false,
+      }
+    ]
   };
   isVisableTermDetail: boolean = false;
   term: term = {
@@ -35,6 +61,7 @@ export class TeacherDetailDayTermComponent {
     posTop: null,
     classes: null,
   };
+  classTerm: studentClasses[] = [];
   dayName: string = '';
   dayTime: Date = new Date(this.dayName + ' 10:00:00');
   hourStart: number = 10;
@@ -49,7 +76,15 @@ export class TeacherDetailDayTermComponent {
       this.hours.push({ hh: i.toString(), mm: minutes });
     }
   }
-  ngOnInit() {
+  ngOnInit() {  
+    this.setName();
+    this.dayTime = this.terms.dayTime;
+    this.calculateTerms();
+    this.calculateClasses();
+    console.log(this.terms);
+    
+  }
+  setName(){
     let day: string = '';
     let month: string = '';
     let year: string = this.terms.dayTime.getFullYear().toString();
@@ -60,7 +95,8 @@ export class TeacherDetailDayTermComponent {
       month = '0' + (this.terms.dayTime.getMonth() + 1).toString();
     else month = (this.terms.dayTime.getMonth() + 1).toString();
     this.dayName = day + '-' + month + '-' + year;
-    this.dayTime = this.terms.dayTime;
+  }
+  calculateTerms(){
     if (this.terms?.terms != null) {
       this.terms.terms.forEach((e) => {
         e.diffTime = Math.ceil(
@@ -76,6 +112,36 @@ export class TeacherDetailDayTermComponent {
       });
     }
   }
+  calculateClasses(){
+    if (this.terms?.classes != null) {
+      this.terms.classes.forEach((e) => {
+        e.term.diffTime = Math.ceil(
+          Math.abs(e.term.end_date.getTime() - e.term.start_date.getTime()) / (1000 * 60)
+        );
+        e.term.posTop =
+          2 +
+          Math.ceil(
+            Math.abs(e.term.start_date.getTime() - this.dayTime.getTime()) /
+              (1000 * 60)
+          ) -
+          540;
+      });
+    }
+  }
+  setTermClassesPosition(){
+    this.classTerm.forEach(e => {
+      e.term.diffTime=Math.ceil(
+        Math.abs(e.term.end_date.getTime() - e.term.start_date.getTime()) / (1000 * 60)
+      );
+      e.term.posTop =
+          2 +
+          Math.ceil(
+            Math.abs(e.term.start_date.getTime() - this.dayTime.getTime()) /
+              (1000 * 60)
+          ) -
+          540;
+    });
+  }
   openDetail(term: term) {
     this.term = term;
     console.log(term);
@@ -85,7 +151,6 @@ export class TeacherDetailDayTermComponent {
     if (ref) {
       this.isVisableTermDetail = false;
       this.refleshData.emit(true);
-
     } else {
       this.isVisableTermDetail = false;
     }

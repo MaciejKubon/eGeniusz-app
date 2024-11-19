@@ -37,6 +37,8 @@ export class TeacherTermsService {
       start_date: dateRange.start_date,
       end_date: dateRange.end_date,
       teacher_id: id,
+    },{
+      headers: this.headers,
     });
   }
 }

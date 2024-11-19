@@ -106,7 +106,7 @@ export class SetClassesComponent {
         })
         .subscribe((data) => {
           console.log(data);
-          this.setTerm.emit(false);
+          this.setTerm.emit(true);
         });
     }
   }

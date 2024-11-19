@@ -9,14 +9,7 @@
       <div class="timeBox"></div>
       }
     </div>
-    } @for(term of terms.terms; track term){ @if(term.status){
-    <div
-      class="termsReservetrion"
-      [style.height.px]="term.diffTime"
-      [style.top.px]="term.posTop"
-      (click)="openDetail(term)"
-    ></div>
-    }@else{
+    } @for(term of terms.terms; track term){
     <div
       class="termsFree"
       [style.height.px]="term.diffTime"
@@ -26,7 +19,17 @@
       {{ term.startTime.toString().split(" ")[4] }} -
       {{ term.endTime.toString().split(" ")[4] }}
     </div>
-    } }
+    }
+    @for(classes of terms.classes; track classes){
+      <div
+      class="classesConfirm"
+      [style.height.px]="classes.term.diffTime"
+      [style.top.px]="classes.term.posTop"
+      (click)="openDetail(term)"
+    >      {{ term.startTime.toString().split(" ")[4] }} -
+    {{ term.endTime.toString().split(" ")[4] }}
+  </div>
+    }
   </div>
 </div>
 
