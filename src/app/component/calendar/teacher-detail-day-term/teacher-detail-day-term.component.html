@@ -19,45 +19,47 @@
       {{ term.startTime.toString().split(" ")[4] }} -
       {{ term.endTime.toString().split(" ")[4] }}
     </div>
-    }
-    @for(classes of terms.classes; track classes){
-      @if(classes.confirmed==false){
-        <div
-        class="classesNoConfirm"
-        [style.height.px]="classes.term.diffTime"
-        [style.top.px]="classes.term.posTop"
-        (click)="openNoConfimedClasses(classes)"
-      >      {{ classes.term.start_date.toString().split(" ")[4] }} -
+    } @for(classes of terms.classes; track classes){
+    @if(classes.confirmed==false){
+    <div
+      class="classesNoConfirm"
+      [style.height.px]="classes.term.diffTime"
+      [style.top.px]="classes.term.posTop"
+      (click)="openNoConfimedClasses(classes)"
+    >
+      {{ classes.term.start_date.toString().split(" ")[4] }} -
       {{ classes.term.end_date.toString().split(" ")[4] }}
     </div>
-      }@else{
-        <div
-        class="classesConfirm"
-        [style.height.px]="classes.term.diffTime"
-        [style.top.px]="classes.term.posTop"
-        (click)="openConfimedClasses(classes)"
-      >      {{ classes.term.start_date.toString().split(" ")[4] }} -
+    }@else{
+    <div
+      class="classesConfirm"
+      [style.height.px]="classes.term.diffTime"
+      [style.top.px]="classes.term.posTop"
+      (click)="openConfimedClasses(classes)"
+    >
+      {{ classes.term.start_date.toString().split(" ")[4] }} -
       {{ classes.term.end_date.toString().split(" ")[4] }}
     </div>
-      }
-
-    }
+    } }
   </div>
 </div>
 
 @if(isVisableTermDetail){
 <div class="setTerm">
-  <app-set-classes [term]="term" (setTerm)="setNewClasses($event)"/>
+  <app-set-classes [term]="term" (setTerm)="setNewClasses($event)" />
+</div>
+} @if(isVisableNoConfirmedTetail){
+<div class="setTerm">
+  <app-student-no-confirmed-classes
+    [classes]="classes"
+    (deleteClasses)="delateClasses($event)"
+  />
+</div>
+} @if(isVisableConfirmedTetail){
+<div class="setTerm">
+  <app-student-confirmed-classes
+    [classes]="classes"
+    (DetailClasses)="detailClasses($event)"
+  />
 </div>
 }
-@if(isVisableNoConfirmedTetail){
-  <div class="setTerm">
-    <app-student-no-confirmed-classes [classes]="classes" (deleteClasses)="delateClasses($event)"/>
-  </div>
-  }
-
-  @if(isVisableConfirmedTetail){
-    <div class="setTerm">
-      <app-student-confirmed-classes [classes]="classes" (DetailClasses)="detailClasses($event)"/>
-    </div>
-    }

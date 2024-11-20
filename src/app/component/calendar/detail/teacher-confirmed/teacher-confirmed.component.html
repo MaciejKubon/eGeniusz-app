@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="headerContainer">
+    <h2>Szczegóły zajęć</h2>
+    <app-close-button (click)="close()" />
+  </div>
+  <div class="lineContainer"></div>
+  @if (isLoadingResults) {
+  <mat-spinner></mat-spinner>
+  } @else{
+
+  <div class="deletecontainer">
+    <div class="dataContainer">
+      <h2>Data korepetycji:</h2>
+      <h2>{{ day }}</h2>
+    </div>
+    <div class="timeContainer">
+      <h2>Czas korepetycji:</h2>
+      <h2>{{ startTime }} - {{ endTime }}</h2>
+    </div>
+    <div class="subjectContainer">
+      <h2>Przedmiot:</h2>
+      <h2>{{ classesDetail.lesson.subject.name }}</h2>
+    </div>
+    <div class="subjectLevelContainer">
+      <h2>Poziom:</h2>
+      <h2>{{ classesDetail.lesson.subjcet_level.name }}</h2>
+    </div>
+    <div class="priceContainer">
+      <h2>Cena:</h2>
+      <h2>{{ classesDetail.lesson.price }} zł</h2>
+    </div>
+    <div class="studentContainer">
+      <h2>Uczeń:</h2>
+      <h2>
+        {{ classesDetail.student.firstName }}
+        {{ classesDetail.student.lastName }}
+      </h2>
+    </div>
+    <div class="confirmContainer">
+      <h2>Status:</h2>
+      @if(classesDetail.confirmed==true){
+      <h2>Potwiedzono</h2>
+      }@else{
+      <h2>Nie Potwierdzono</h2>
+      }
+    </div>
+  </div>
+
+  }
+</div>

@@ -9,7 +9,7 @@ import { AcceptButtonComponent } from '../../button/accept-button/accept-button.
 import { ClassesService } from '../../../service/http/classes.service';
 
 @Component({
-  selector: 'app-set-classes',
+  selector: 'app-set-classes', 
   standalone: true,
   imports: [
     CloseButtonComponent,

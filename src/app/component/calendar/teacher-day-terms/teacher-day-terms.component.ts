@@ -1,12 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { terms, term } from '../../../interface/interface';
-import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 import { AddTermComponent } from '../../form/add-term/add-term.component';
+import { ConfirmDeleteComponent } from '../detail/confirm-delete/confirm-delete.component';
+import { TeacherConfirmedComponent } from '../detail/teacher-confirmed/teacher-confirmed.component';
 
 @Component({
   selector: 'app-teacher-day-terms',
   standalone: true,
-  imports: [ConfirmDeleteComponent, AddTermComponent],
+  imports: [
+    ConfirmDeleteComponent,
+    AddTermComponent,
+    TeacherConfirmedComponent,
+  ],
   templateUrl: './teacher-day-terms.component.html',
   styleUrl: './teacher-day-terms.component.scss',
 })
@@ -28,6 +33,7 @@ export class TeacherDayTermsComponent {
   };
   isVisableTermDelete = false;
   isVisableTermForm = false;
+  isVisableClassesConfirmed = false;
   term: term = {
     id: 0,
     startTime: new Date('2024-11-09 11:00:00'),
@@ -43,6 +49,7 @@ export class TeacherDayTermsComponent {
   hourStart: number = 10;
   hourEnd: number = 23;
   times: string = '';
+  classesID:number = 0;
   hours: {
     hh: string;
     mm: string[];
@@ -110,5 +117,15 @@ export class TeacherDayTermsComponent {
       this.refleshData.emit(true);
       this.isVisableTermDelete = false;
     } else this.isVisableTermDelete = false;
+  }
+  openConfirmedDetail(id: number) {
+    this.classesID = id;
+    this.isVisableClassesConfirmed = true;
+  }
+  closeClasses(ref:boolean){
+    this.isVisableClassesConfirmed = false;
+  }
+  openNoConfirmedDetail(id: number) {
+    console.log(id);
   }
 }

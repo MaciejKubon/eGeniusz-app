@@ -29,6 +29,10 @@ export class ClassesService {
   deleteClasses(id:number){
     return this.http.delete<any>(this.apiUrlGet+'/'+id,{headers: this.headers});
   }
+  getClasses(id:number){
+    return this.http.get<any>(this.apiUrl+'/'+id,{headers: this.headers})
+
+  }
 
 
 

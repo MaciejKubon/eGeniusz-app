@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CloseButtonComponent } from '../../button/close-button/close-button.component';
-import { DeleteButtonComponent } from '../../button/delete-button/delete-button.component';
-import { term } from '../../../interface/interface';
-import { TeacherTermsService } from '../../../service/http/teacher-terms.service';
+import { term } from '../../../../interface/interface';
+import { TeacherTermsService } from '../../../../service/http/teacher-terms.service';
+import { CloseButtonComponent } from '../../../button/close-button/close-button.component';
+import { DeleteButtonComponent } from '../../../button/delete-button/delete-button.component';
 
 @Component({
   selector: 'app-confirm-delete',
