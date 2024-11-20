@@ -68,7 +68,11 @@ export class TeacherDetailComponent implements OnInit {
               lesson:element.lesson,
               term:{
                 id:element.term.id,
-                teacher_id:element.term.teacher_id,
+                teacher: {
+                  id: element.term.teacher.id,
+                  firstName: element.term.teacher.firstName,
+                  lastName: element.term.teacher.lastName
+                },
                 start_date:new Date(element.term.start_date),
                 end_date: new Date(element.term.end_date),
                 diffTime:null,
@@ -115,8 +119,11 @@ export class TeacherDetailComponent implements OnInit {
               lesson:element.lesson,
               term:{
                 id:element.term.id,
-                teacher_id:element.term.teacher_id,
-                start_date:new Date(element.term.start_date),
+                teacher: {
+                  id: element.term.teacher.id,
+                  firstName: element.term.teacher.firstName,
+                  lastName: element.term.teacher.lastName
+                },                start_date:new Date(element.term.start_date),
                 end_date: new Date(element.term.end_date),
                 diffTime:null,
                 posTop:null,

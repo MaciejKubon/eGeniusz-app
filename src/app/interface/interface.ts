@@ -137,9 +137,13 @@ export interface studentClasses{
   }
   term:{
     id:number,
-    teacher_id:number,
     start_date:Date,
     end_date:Date,
+    teacher: {
+      id: 1,
+      firstName: string,
+      lastName: string
+  }
     diffTime: number | null;
     posTop: number | null;
   },

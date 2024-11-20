@@ -1,0 +1,44 @@
+.container {
+    width: 90%;
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 35px 5%;
+    box-shadow: 0px 0px 5px gray;
+    .headerContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 0 5%;
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+    .lineContainer {
+      margin-top: 15px;
+      border-bottom: 2px solid black;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+    .dataContainer {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .timeContainer,
+    .subjectContainer,
+    .subjectLevelContainer,
+    .priceContainer,
+    .teacherContainer {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .deleteButton {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  

@@ -26,6 +26,9 @@ export class ClassesService {
   getDayStudentClasses(date:string){
     return this.http.post<any>(this.apiUrlGet,{"start_date": date},{headers: this.headers});
   }
+  deleteClasses(id:number){
+    return this.http.delete<any>(this.apiUrlGet+'/'+id,{headers: this.headers});
+  }
 
 
 

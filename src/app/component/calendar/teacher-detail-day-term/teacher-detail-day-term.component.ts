@@ -1,11 +1,21 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { studentClasses, term, terms, termsAndClasses } from '../../../interface/interface';
+import {
+  studentClasses,
+  term,
+  termsAndClasses,
+} from '../../../interface/interface';
 import { SetClassesComponent } from '../set-classes/set-classes.component';
+import { StudentNoConfirmedClassesComponent } from '../detail/student-no-confirmed-classes/student-no-confirmed-classes.component';
+import { StudentConfirmedClassesComponent } from '../detail/student-confirmed-classes/student-confirmed-classes.component';
 
 @Component({
   selector: 'app-teacher-detail-day-term',
   standalone: true,
-  imports: [SetClassesComponent],
+  imports: [
+    SetClassesComponent,
+    StudentNoConfirmedClassesComponent,
+    StudentConfirmedClassesComponent,
+  ],
   templateUrl: './teacher-detail-day-term.component.html',
   styleUrl: './teacher-detail-day-term.component.scss',
 })
@@ -24,34 +34,40 @@ export class TeacherDetailDayTermComponent {
         classes: null,
       },
     ],
-    classes:[
+    classes: [
       {
-        id:0,
-        lesson:{
-          id:0,
-          price:0,
-          subject:{
-            id:0,
-            name:''
+        id: 0,
+        lesson: {
+          id: 0,
+          price: 0,
+          subject: {
+            id: 0,
+            name: '',
           },
-          subject_level:{
-            id:0,
-            name:''
+          subject_level: {
+            id: 0,
+            name: '',
           },
         },
-        term:{
-          id:0,
-          teacher_id:0,
+        term: {
+          id: 0,
           start_date: new Date('2024-11-09 11:00:00'),
           end_date: new Date('2024-11-09 11:00:00'),
-          diffTime:null,
-          posTop:null,
+          teacher: {
+            id: 1,
+            firstName: '',
+            lastName: '',
+          },
+          diffTime: null,
+          posTop: null,
         },
-        confirmed:false,
-      }
-    ]
+        confirmed: false,
+      },
+    ],
   };
   isVisableTermDetail: boolean = false;
+  isVisableNoConfirmedTetail: boolean = false;
+  isVisableConfirmedTetail: boolean = false;
   term: term = {
     id: 0,
     startTime: new Date('2024-11-09 11:00:00'),
@@ -61,7 +77,34 @@ export class TeacherDetailDayTermComponent {
     posTop: null,
     classes: null,
   };
-  classTerm: studentClasses[] = [];
+  classes: studentClasses = {
+    id: 0,
+    lesson: {
+      id: 0,
+      price: 0,
+      subject: {
+        id: 0,
+        name: '',
+      },
+      subject_level: {
+        id: 0,
+        name: '',
+      },
+    },
+    term: {
+      id: 0,
+      teacher: {
+        id: 1,
+        firstName: '',
+        lastName: '',
+      },
+      start_date: new Date('2024-11-09 11:00:00'),
+      end_date: new Date('2024-11-09 11:00:00'),
+      diffTime: null,
+      posTop: null,
+    },
+    confirmed: false,
+  };
   dayName: string = '';
   dayTime: Date = new Date(this.dayName + ' 10:00:00');
   hourStart: number = 10;
@@ -76,15 +119,13 @@ export class TeacherDetailDayTermComponent {
       this.hours.push({ hh: i.toString(), mm: minutes });
     }
   }
-  ngOnInit() {  
+  ngOnInit() {
     this.setName();
     this.dayTime = this.terms.dayTime;
     this.calculateTerms();
     this.calculateClasses();
-    console.log(this.terms);
-    
   }
-  setName(){
+  setName() {
     let day: string = '';
     let month: string = '';
     let year: string = this.terms.dayTime.getFullYear().toString();
@@ -96,7 +137,7 @@ export class TeacherDetailDayTermComponent {
     else month = (this.terms.dayTime.getMonth() + 1).toString();
     this.dayName = day + '-' + month + '-' + year;
   }
-  calculateTerms(){
+  calculateTerms() {
     if (this.terms?.terms != null) {
       this.terms.terms.forEach((e) => {
         e.diffTime = Math.ceil(
@@ -112,11 +153,12 @@ export class TeacherDetailDayTermComponent {
       });
     }
   }
-  calculateClasses(){
+  calculateClasses() {
     if (this.terms?.classes != null) {
       this.terms.classes.forEach((e) => {
         e.term.diffTime = Math.ceil(
-          Math.abs(e.term.end_date.getTime() - e.term.start_date.getTime()) / (1000 * 60)
+          Math.abs(e.term.end_date.getTime() - e.term.start_date.getTime()) /
+            (1000 * 60)
         );
         e.term.posTop =
           2 +
@@ -128,18 +170,19 @@ export class TeacherDetailDayTermComponent {
       });
     }
   }
-  setTermClassesPosition(){
-    this.classTerm.forEach(e => {
-      e.term.diffTime=Math.ceil(
-        Math.abs(e.term.end_date.getTime() - e.term.start_date.getTime()) / (1000 * 60)
+  setTermClassesPosition() {
+    this.terms.classes.forEach((e) => {
+      e.term.diffTime = Math.ceil(
+        Math.abs(e.term.end_date.getTime() - e.term.start_date.getTime()) /
+          (1000 * 60)
       );
       e.term.posTop =
-          2 +
-          Math.ceil(
-            Math.abs(e.term.start_date.getTime() - this.dayTime.getTime()) /
-              (1000 * 60)
-          ) -
-          540;
+        2 +
+        Math.ceil(
+          Math.abs(e.term.start_date.getTime() - this.dayTime.getTime()) /
+            (1000 * 60)
+        ) -
+        540;
     });
   }
   openDetail(term: term) {
@@ -147,12 +190,34 @@ export class TeacherDetailDayTermComponent {
     console.log(term);
     this.isVisableTermDetail = true;
   }
+  openNoConfimedClasses(classes: studentClasses) {
+    this.classes = classes;
+    this.isVisableNoConfirmedTetail = true;
+  }
+  openConfimedClasses(classes: studentClasses) {
+    this.classes = classes;
+    this.isVisableConfirmedTetail = true;
+  }
   setNewClasses(ref: boolean) {
     if (ref) {
       this.isVisableTermDetail = false;
       this.refleshData.emit(true);
     } else {
       this.isVisableTermDetail = false;
+    }
+  }
+  delateClasses(ref: boolean) {
+    if (ref) {
+      this.isVisableNoConfirmedTetail = false;
+      this.refleshData.emit(true);
+    } else {
+      this.isVisableNoConfirmedTetail = false;
+    }
+  }
+  detailClasses(ref: boolean) {
+    if (ref) {
+    } else {
+      this.isVisableConfirmedTetail = false;
     }
   }
 }
