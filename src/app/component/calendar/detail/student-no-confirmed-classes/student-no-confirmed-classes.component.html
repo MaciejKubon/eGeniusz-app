@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="headerContainer">
+      <h2>Szczegóły zajęć</h2>
+      <app-close-button (click)="close()" />
+    </div>
+    <div class="lineContainer"></div>
+    <div class="deletecontainer">
+      <div class="dataContainer">
+        <h2>Data korepetycji:</h2>
+        <h2>{{ day }}</h2>
+      </div>
+      <div class="timeContainer">
+        <h2>Czas korepetycji:</h2>
+        <h2>{{ startTime }} - {{ endTime }}</h2>
+      </div>
+      <div class="subjectContainer">
+        <h2>Przedmiot:</h2>
+        <h2>{{ classes.lesson.subject.name }}</h2>
+      </div>
+      <div class="subjectLevelContainer">
+        <h2>Poziom:</h2>
+        <h2>Dodać poziom</h2>
+      </div>
+      <div class="priceContainer">
+        <h2>Cena:</h2>
+        <h2>{{ classes.lesson.price}} zł</h2>
+      </div>
+      <div class="teacherContainer">
+        <h2>Nauczyciel:</h2>
+        <h2>{{ classes.term.teacher_id}} -dodać nauczyciela</h2>
+      </div>
+      <div class="deleteButton">
+        <app-delete-button  (click)="deleteClassesFunction()"/>
+      </div>
+    </div>
+  </div>
+  
