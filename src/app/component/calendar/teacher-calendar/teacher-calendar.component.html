@@ -35,18 +35,18 @@
     <div class="daysContainer">
       @for(term of terms; track term){
       <div class="dayBox">
-        <app-teacher-day-terms [terms]="term" (times)="setNewTerm($event)" />
+        <app-teacher-day-terms [terms]="term" (refleshData)="refDate($event)" />
       </div>
       }
       <div class="dayBoxMobile">
-        <app-teacher-day-terms [terms]="terms[0]" (times)="setNewTerm($event)" />
+        <app-teacher-day-terms [terms]="terms[0]" (refleshData)="refDate($event)" />
       </div>
     </div>
     }
   </div>
 </div>
-@if(isVisableTermForm) {
+<!-- @if(isVisableTermForm) {
 <div class="newTermForm">
   <app-add-term (newTerm)="addNewTerm($event)" [times]="times" />
 </div>
-}
+} -->

@@ -10,27 +10,25 @@
       }
     </div>
     } @for(term of terms.terms; track term){ @if(term.classes!=null){
-    @if(term.classes.confirmed){
+    @if(term.classes.confirmed==false){
     <div
-      class="termsReservetrion"
+      class="termsNoReservetrion"
       [style.height.px]="term.diffTime"
       [style.top.px]="term.posTop"
-      (click)="openDetail(term)"
+      (click)="openNoConfirmedDetail(term.classes.id)"
     >
       {{ term.startTime.toString().split(" ")[4] }} -
       {{ term.endTime.toString().split(" ")[4] }}
-      confirmed
     </div>
     }@else{
     <div
       class="termsReservetrion"
       [style.height.px]="term.diffTime"
       [style.top.px]="term.posTop"
-      (click)="openDetail(term)"
+      (click)="openConfirmedDetail(term.classes.id)"
     >
       {{ term.startTime.toString().split(" ")[4] }} -
       {{ term.endTime.toString().split(" ")[4] }}
-      no confirmed
     </div>
 
     } }@else{
@@ -47,8 +45,26 @@
   </div>
 </div>
 
-@if(isVisableTermDelete){
-<div class="deletetTerm">
-  <app-confirm-delete [term]="term" (deleteTerm)="deleteTerm($event)" />
+@if(isVisableTermForm) {
+<div class="newTermForm">
+  <app-add-term [times]="times" (newTerm)="closeModal($event)" />
 </div>
-}
+} @if(isVisableTermDelete){
+<div class="deletetTerm">
+  <app-confirm-delete [term]="term" (deleteTerm)="closeModal($event)" />
+</div>
+} @if(isVisableClassesConfirmed){
+<div class="confirmedClasses">
+  <app-teacher-confirmed
+    [classesID]="classesID"
+    (DetailClasses)="closeModal($event)"
+  />
+</div>
+}@if(isVisableNoClassesConfirmed){
+  <div class="confirmedNoClasses">
+    <app-teacher-no-confirmed
+      [classesID]="classesID"
+      (DetailClasses)="closeModal($event)"
+    />
+  </div>
+  }

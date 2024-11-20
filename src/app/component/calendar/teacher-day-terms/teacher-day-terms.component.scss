@@ -24,8 +24,17 @@
         top: 100px;
         z-index: 10;
         border-radius: 5px;
-        background-color: red;
+        background-color: green;
     }
+    .termsNoReservetrion{
+      position: absolute;
+      width: 90%;
+      left: 5%;
+      top: 100px;
+      z-index: 10;
+      border-radius: 5px;
+      background-color: yellow;
+  }
     .termsFree{
         position: absolute;
         width: 90%;
@@ -33,16 +42,15 @@
         top: 100px;
         z-index: 10;
         border-radius: 5px;
-        background-color: green;
+        background-color: white;
         font-size: 1rem;
     }
   }
 }
-.deletetTerm {
+.deletetTerm,.confirmedClasses,.newTermForm,.confirmedNoClasses {
   position: fixed;
   width: 70%;
-  height: 50svh;
-  top:25svh;
+  top:15svh;
   left: 15%;
   z-index: 200;
 }

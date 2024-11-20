@@ -123,39 +123,66 @@ export interface teacherData {
     };
   }[];
 }
-export interface newClasses{
-    terms_id:number;
-    lesson_id:number;
+export interface newClasses {
+  terms_id: number;
+  lesson_id: number;
 }
-export interface studentClasses{
-  id:number,
-  lesson:{
-    id:number,
-    price:number,
-    subject:subject,
-    subject_level:subject_level,
-  }
-  term:{
-    id:number,
-    start_date:Date,
-    end_date:Date,
+export interface studentClasses {
+  id: number;
+  lesson: {
+    id: number;
+    price: number;
+    subject: subject;
+    subject_level: subject_level;
+  };
+  term: {
+    id: number;
+    start_date: Date;
+    end_date: Date;
     teacher: {
-      id: 1,
-      firstName: string,
-      lastName: string
-  }
+      id: 1;
+      firstName: string;
+      lastName: string;
+    };
     diffTime: number | null;
     posTop: number | null;
-  },
-  confirmed:boolean
+  };
+  confirmed: boolean;
 }
-export interface termsClass{
+export interface termsClass {
   dayTime: Date;
   terms: termRequest[];
   classes: studentClasses[];
 }
-export interface termsAndClasses{
+export interface termsAndClasses {
   dayTime: Date;
   terms: term[];
   classes: studentClasses[];
+}
+export interface classesDetal {
+  id: number;
+  confirmed: boolean;
+  terms: {
+    id: number;
+    teacher_id: number;
+    start_date: Date;
+    end_date: Date;
+  };
+  lesson: {
+    id: number;
+    subject: {
+      id: number;
+      name: string;
+    };
+    subjcet_level: {
+      id: number;
+      name: string;
+    };
+    price: number;
+  };
+  student: {
+    id: number;
+    firstName: string;
+    lastName: string;
+  };
 }

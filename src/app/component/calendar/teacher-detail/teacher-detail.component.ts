@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TeacherTermsService } from '../../../service/http/teacher-terms.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { dataRange, studentClasses, term, terms, termsAndClasses, termsClass, termsRequest } from '../../../interface/interface';
-import { ActivatedRoute } from '@angular/router';
 import { TeacherDetailDayTermComponent } from '../teacher-detail-day-term/teacher-detail-day-term.component';
 import { DatePipe } from '@angular/common';
 import { ArrowBackComponent } from '../../button/arrow-back/arrow-back.component';

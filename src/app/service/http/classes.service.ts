@@ -29,6 +29,13 @@ export class ClassesService {
   deleteClasses(id:number){
     return this.http.delete<any>(this.apiUrlGet+'/'+id,{headers: this.headers});
   }
+  getClasses(id:number){
+    return this.http.get<any>(this.apiUrl+'/'+id,{headers: this.headers})
+  }
+  confirmClasses(id:number,confirmed:boolean){
+    return this.http.put<any>(this.apiUrl+'/'+id,{'confirmed':confirmed},{headers: this.headers})
+
+  }
 
 
 

@@ -60,14 +60,7 @@
     }
   }
 }
-.newTermForm {
-  position: fixed;
-  width: 70%;
-  height: 50svh;
-  top: 25svh;
-  left: 15%;
-  z-index: 200;
-}
+
 @media only screen and (max-width: 900px) {
   .container {
     .calenderRange {
