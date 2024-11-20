@@ -47,11 +47,10 @@
     }
   }
 }
-.deletetTerm,.confirmedClasses,.newTermForm {
+.deletetTerm,.confirmedClasses,.newTermForm,.confirmedNoClasses {
   position: fixed;
   width: 70%;
-  height: 50svh;
-  top:25svh;
+  top:15svh;
   left: 15%;
   z-index: 200;
 }

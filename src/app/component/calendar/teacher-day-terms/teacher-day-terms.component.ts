@@ -3,6 +3,7 @@ import { terms, term } from '../../../interface/interface';
 import { AddTermComponent } from '../../form/add-term/add-term.component';
 import { ConfirmDeleteComponent } from '../detail/confirm-delete/confirm-delete.component';
 import { TeacherConfirmedComponent } from '../detail/teacher-confirmed/teacher-confirmed.component';
+import { TeacherNoConfirmedComponent } from '../detail/teacher-no-confirmed/teacher-no-confirmed.component';
 
 @Component({
   selector: 'app-teacher-day-terms',
@@ -11,6 +12,7 @@ import { TeacherConfirmedComponent } from '../detail/teacher-confirmed/teacher-c
     ConfirmDeleteComponent,
     AddTermComponent,
     TeacherConfirmedComponent,
+    TeacherNoConfirmedComponent
   ],
   templateUrl: './teacher-day-terms.component.html',
   styleUrl: './teacher-day-terms.component.scss',
@@ -34,6 +36,8 @@ export class TeacherDayTermsComponent {
   isVisableTermDelete = false;
   isVisableTermForm = false;
   isVisableClassesConfirmed = false;
+  isVisableNoClassesConfirmed = false;
+
   term: term = {
     id: 0,
     startTime: new Date('2024-11-09 11:00:00'),
@@ -98,34 +102,32 @@ export class TeacherDayTermsComponent {
   selectTerm(times: string) {
     this.times = this.dayNameEmit + ' ' + times;
     this.isVisableTermForm = true;
-    console.log(this.times);
-  }
-  addNewTerm(ref: boolean) {
-    if (ref) {
-      this.refleshData.emit(true);
-      this.isVisableTermForm = false;
-    } else {
-      this.isVisableTermForm = false;
-    }
   }
   openDetail(term: term) {
     this.term = term;
     this.isVisableTermDelete = true;
   }
-  deleteTerm(ref: boolean) {
-    if (ref) {
-      this.refleshData.emit(true);
-      this.isVisableTermDelete = false;
-    } else this.isVisableTermDelete = false;
-  }
+
   openConfirmedDetail(id: number) {
     this.classesID = id;
     this.isVisableClassesConfirmed = true;
   }
-  closeClasses(ref:boolean){
-    this.isVisableClassesConfirmed = false;
-  }
   openNoConfirmedDetail(id: number) {
-    console.log(id);
+    this.classesID = id;
+    this.isVisableNoClassesConfirmed = true;
+  }
+  closeModal(ref:boolean){
+    if(ref){
+      this.refleshData.emit(true);
+      this.isVisableClassesConfirmed = false;
+      this.isVisableNoClassesConfirmed = false;
+      this.isVisableTermDelete = false;
+      this.isVisableTermForm = false;
+    }else{
+      this.isVisableNoClassesConfirmed = false;
+      this.isVisableClassesConfirmed = false;
+      this.isVisableTermDelete = false;
+      this.isVisableTermForm = false;
+    }
   }
 }

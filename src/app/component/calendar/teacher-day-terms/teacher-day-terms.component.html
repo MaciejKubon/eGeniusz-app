@@ -45,19 +45,26 @@
   </div>
 </div>
 
- @if(isVisableTermForm) {
-  <div class="newTermForm">
-    <app-add-term [times]="times" (newTerm)="addNewTerm($event)"  />
-  </div>
-  }
-  
-@if(isVisableTermDelete){
-<div class="deletetTerm">
-  <app-confirm-delete [term]="term" (deleteTerm)="deleteTerm($event)" />
+@if(isVisableTermForm) {
+<div class="newTermForm">
+  <app-add-term [times]="times" (newTerm)="closeModal($event)" />
 </div>
-}
-@if(isVisableClassesConfirmed){
-  <div class="confirmedClasses">
-<app-teacher-confirmed [classesID]="classesID" (DetailClasses)="closeClasses($event)"/>
+} @if(isVisableTermDelete){
+<div class="deletetTerm">
+  <app-confirm-delete [term]="term" (deleteTerm)="closeModal($event)" />
+</div>
+} @if(isVisableClassesConfirmed){
+<div class="confirmedClasses">
+  <app-teacher-confirmed
+    [classesID]="classesID"
+    (DetailClasses)="closeModal($event)"
+  />
+</div>
+}@if(isVisableNoClassesConfirmed){
+  <div class="confirmedNoClasses">
+    <app-teacher-no-confirmed
+      [classesID]="classesID"
+      (DetailClasses)="closeModal($event)"
+    />
   </div>
   }

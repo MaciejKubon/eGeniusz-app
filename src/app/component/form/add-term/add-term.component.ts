@@ -34,8 +34,6 @@ export class AddTermComponent {
 
   closeForm() {
     this.newTerm.emit(false);
-    console.log(this.start_time.value);
-    console.log(this.end_time.value);
   }
   saveForm() {
     this.dayName = this.times.split(' ')[0];
