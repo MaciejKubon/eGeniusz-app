@@ -47,6 +47,12 @@
   </div>
 </div>
 
+ @if(isVisableTermForm) {
+  <div class="newTermForm">
+    <app-add-term [times]="times" (newTerm)="addNewTerm($event)"  />
+  </div>
+  }
+  
 @if(isVisableTermDelete){
 <div class="deletetTerm">
   <app-confirm-delete [term]="term" (deleteTerm)="deleteTerm($event)" />

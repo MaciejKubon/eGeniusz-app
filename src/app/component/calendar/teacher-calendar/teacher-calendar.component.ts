@@ -21,7 +21,6 @@ import { ArrowBackComponent } from '../../button/arrow-back/arrow-back.component
 })
 export class TeacherCalendarComponent {
   position = false;
-  isVisableTermForm = false;
   isLoadingResults: boolean = true;
   hourStart: number = 10;
   hourEnd: number = 23;
@@ -74,14 +73,8 @@ export class TeacherCalendarComponent {
         this.dateRangeBlocked = false;
       });
   }
-  times: string = '';
-  setNewTerm(times: string) {
-    if (times.split(' ')[0] == 'id:') this.refreshData();
-    else {
-      this.times = times;
-      this.isVisableTermForm = true;
-    }
-  }
+
+
   refreshData() {
     this.isLoadingResults = true;
     this.terms = [];
@@ -111,14 +104,17 @@ export class TeacherCalendarComponent {
       });
       
   }
-  addNewTerm(newTerm: boolean) {
-    if (!newTerm) {
-      this.isVisableTermForm = false;
-    } else {
-      this.isVisableTermForm = false;
-      this.refreshData();
-    }
+  refDate(ref:boolean){ 
+    this.refreshData();
   }
+  // addNewTerm(newTerm: boolean) {
+  //   if (!newTerm) {
+  //     this.isVisableTermForm = false;
+  //   } else {
+  //     this.isVisableTermForm = false;
+  //     this.refreshData();
+  //   }
+  // }
   setRange() {
     this.dataRange.start_date = new DatePipe('en-US')
       .transform(this.dataRangeDate.start_date, 'yyyy-MM-dd')
