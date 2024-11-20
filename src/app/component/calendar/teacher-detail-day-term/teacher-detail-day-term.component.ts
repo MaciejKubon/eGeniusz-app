@@ -11,7 +11,11 @@ import { StudentConfirmedClassesComponent } from '../detail/student-confirmed-cl
 @Component({
   selector: 'app-teacher-detail-day-term',
   standalone: true,
-  imports: [SetClassesComponent, StudentNoConfirmedClassesComponent, StudentConfirmedClassesComponent],
+  imports: [
+    SetClassesComponent,
+    StudentNoConfirmedClassesComponent,
+    StudentConfirmedClassesComponent,
+  ],
   templateUrl: './teacher-detail-day-term.component.html',
   styleUrl: './teacher-detail-day-term.component.scss',
 })
@@ -47,9 +51,13 @@ export class TeacherDetailDayTermComponent {
         },
         term: {
           id: 0,
-          teacher_id: 0,
           start_date: new Date('2024-11-09 11:00:00'),
           end_date: new Date('2024-11-09 11:00:00'),
+          teacher: {
+            id: 1,
+            firstName: '',
+            lastName: '',
+          },
           diffTime: null,
           posTop: null,
         },
@@ -58,8 +66,8 @@ export class TeacherDetailDayTermComponent {
     ],
   };
   isVisableTermDetail: boolean = false;
-  isVisableNoConfirmedTetail:boolean = false;
-  isVisableConfirmedTetail:boolean=false;
+  isVisableNoConfirmedTetail: boolean = false;
+  isVisableConfirmedTetail: boolean = false;
   term: term = {
     id: 0,
     startTime: new Date('2024-11-09 11:00:00'),
@@ -85,7 +93,11 @@ export class TeacherDetailDayTermComponent {
     },
     term: {
       id: 0,
-      teacher_id: 0,
+      teacher: {
+        id: 1,
+        firstName: '',
+        lastName: '',
+      },
       start_date: new Date('2024-11-09 11:00:00'),
       end_date: new Date('2024-11-09 11:00:00'),
       diffTime: null,
@@ -178,13 +190,13 @@ export class TeacherDetailDayTermComponent {
     console.log(term);
     this.isVisableTermDetail = true;
   }
-  openNoConfimedClasses(classes:studentClasses){
-    this.classes=classes;
-    this.isVisableNoConfirmedTetail=true;
+  openNoConfimedClasses(classes: studentClasses) {
+    this.classes = classes;
+    this.isVisableNoConfirmedTetail = true;
   }
-  openConfimedClasses(classes:studentClasses){
-    this.classes=classes;
-    this.isVisableConfirmedTetail=true;
+  openConfimedClasses(classes: studentClasses) {
+    this.classes = classes;
+    this.isVisableConfirmedTetail = true;
   }
   setNewClasses(ref: boolean) {
     if (ref) {
@@ -194,20 +206,18 @@ export class TeacherDetailDayTermComponent {
       this.isVisableTermDetail = false;
     }
   }
-  delateClasses(ref:boolean){
-    
-    if(ref){
-      this.isVisableNoConfirmedTetail=false;
+  delateClasses(ref: boolean) {
+    if (ref) {
+      this.isVisableNoConfirmedTetail = false;
       this.refleshData.emit(true);
-    }
-    else{
-      this.isVisableNoConfirmedTetail=false;
+    } else {
+      this.isVisableNoConfirmedTetail = false;
     }
   }
-  detailClasses(ref:boolean){
-    if(ref){}
-    else{
-      this.isVisableConfirmedTetail=false;
+  detailClasses(ref: boolean) {
+    if (ref) {
+    } else {
+      this.isVisableConfirmedTetail = false;
     }
   }
 }

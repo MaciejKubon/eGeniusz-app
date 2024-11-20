@@ -28,7 +28,11 @@ export class StudentConfirmedClassesComponent implements OnInit{
     },
     term: {
       id: 0,
-      teacher_id: 0,
+      teacher: {
+        id: 1,
+        firstName: '',
+        lastName: '',
+      },
       start_date: new Date('2024-11-09 11:00:00'),
       end_date: new Date('2024-11-09 11:00:00'),
       diffTime: null,
