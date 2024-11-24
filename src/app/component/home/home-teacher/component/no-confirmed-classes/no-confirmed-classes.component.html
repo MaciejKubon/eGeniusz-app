@@ -1,1 +1,42 @@
-<p>no-confirmed-classes works!</p>
+<div class="container">
+  <div class="noConfirmedClasses">
+    <h2>Niepotwiedzone zajęcia</h2>
+  </div>
+  <div class="lineContainer"></div>
+  <div class="noConfirmedClassesContainer">
+    @if (isLoadingResults) {
+    <mat-spinner></mat-spinner>
+    }@else{@if(classes.length == 0){
+    <app-no-data />
+    }@else{ @for(class of classes; track class){
+    <div class="classContainer">
+      <div class="lesson">
+        <h2>{{ class.classes.lesson.subject.name | uppercase }}</h2>
+        <h3>{{ class.classes.lesson.subject_level.name }}</h3>
+      </div>
+      <div class="date">
+        <h2>
+          {{ class.start_date.split(" ")[0].split("-")[2] }}-{{
+            class.start_date.split(" ")[0].split("-")[1]
+          }}-{{ class.start_date.split(" ")[0].split("-")[0] }}
+        </h2>
+        <h3>
+          {{ class.start_date.split(" ")[1] }} -
+          {{ class.end_date.split(" ")[1] }}
+        </h3>
+      </div>
+      <div class="price">
+        <h2>
+          {{ class.classes.student.firstName }}
+          {{ class.classes.student.lastName }}
+        </h2>
+        <h3>{{ class.classes.lesson.price }} PLN</h3>
+      </div>
+      <div class="deleteContainer">
+        <app-accept-button (click)="confirmClasses(class.classes.id)"/>
+        <app-delete-button  (click)="deleteClasses(class.classes.id)"/>
+      </div>
+    </div>
+    } }}
+  </div>
+</div>

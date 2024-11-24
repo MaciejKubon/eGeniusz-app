@@ -25,34 +25,6 @@ import { DeleteButtonComponent } from '../../../../button/delete-button/delete-b
 export class NoConfirmedClassesComponent implements OnInit {
   isLoadingResults = true;
   classes: classes[] = [];
-  classe: studentClasses = {
-    id: 0,
-    lesson: {
-      id: 0,
-      price: 0,
-      subject: {
-        id: 0,
-        name: '',
-      },
-      subject_level: {
-        id: 0,
-        name: '',
-      },
-    },
-    term: {
-      id: 0,
-      teacher: {
-        id: 1,
-        firstName: '',
-        lastName: '',
-      },
-      start_date: new Date('2024-11-09 11:00:00'),
-      end_date: new Date('2024-11-09 11:00:00'),
-      diffTime: null,
-      posTop: null,
-    },
-    confirmed: false,
-  };
   dataRangeDate = {
     start_date: new Date(),
     end_date: new Date(),
