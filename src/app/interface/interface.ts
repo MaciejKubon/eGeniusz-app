@@ -174,7 +174,7 @@ export interface classesDetal {
       id: number;
       name: string;
     };
-    subjcet_level: {
+    subject_level: {
       id: number;
       name: string;
     };
@@ -196,7 +196,7 @@ export interface classes {
       id: number;
       name: string;
     };
-    subjcet_level: {
+    subject_level: {
       id: number;
       name: string;
     };
