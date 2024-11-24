@@ -1,43 +1,57 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { newClasses } from '../../interface/interface';
+import { classesRange, newClasses } from '../../interface/interface';
 import { AuthService } from '../session/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClassesService {
-
   constructor(private token: AuthService) {
     this.headers = new HttpHeaders({
       Authorization: `Bearer ${this.token.getToken()}`,
     });
   }
 
-  private apiUrl ='http://127.0.0.1:8000/api/Classes';
-  private apiUrlGet='http://127.0.0.1:8000/api/StudentClasses'
+  private apiUrl = 'http://127.0.0.1:8000/api/Classes';
+  private apiUrlGet = 'http://127.0.0.1:8000/api/StudentClasses';
   http = inject(HttpClient);
   headers: HttpHeaders;
 
-
-  setLessons(newClasses:newClasses){
-    return this.http.post<any>(this.apiUrl,newClasses,{headers: this.headers})
+  setLessons(newClasses: newClasses) {
+    return this.http.post<any>(this.apiUrl, newClasses, {
+      headers: this.headers,
+    });
   }
-  getDayStudentClasses(date:string){
-    return this.http.post<any>(this.apiUrlGet,{"start_date": date},{headers: this.headers});
+  getDayStudentClasses(date: string) {
+    return this.http.post<any>(
+      this.apiUrlGet,
+      { start_date: date },
+      { headers: this.headers }
+    );
   }
-  deleteClasses(id:number){
-    return this.http.delete<any>(this.apiUrlGet+'/'+id,{headers: this.headers});
+  deleteClasses(id: number) {
+    return this.http.delete<any>(this.apiUrlGet + '/' + id, {
+      headers: this.headers,
+    });
   }
-  getClasses(id:number){
-    return this.http.get<any>(this.apiUrl+'/'+id,{headers: this.headers})
+  getClasses(id: number) {
+    return this.http.get<any>(this.apiUrl + '/' + id, {
+      headers: this.headers,
+    });
   }
-  confirmClasses(id:number,confirmed:boolean){
-    return this.http.put<any>(this.apiUrl+'/'+id,{'confirmed':confirmed},{headers: this.headers})
-
+  confirmClasses(id: number, confirmed: boolean) {
+    return this.http.put<any>(
+      this.apiUrl + '/' + id,
+      { confirmed: confirmed },
+      { headers: this.headers }
+    );
   }
-
-
-
+  getStudnetClasses(range:classesRange) {
+    return this.http.post<any>(
+      this.apiUrlGet,
+      range,
+      { headers: this.headers }
+    );
+  }
 }
- 

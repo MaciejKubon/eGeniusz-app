@@ -17,6 +17,7 @@ import { TeachersListComponent } from './component/teachers-list/teachers-list.c
 import { LessonsComponent } from './component/teacher/lessons/lessons.component';
 import { UserDetailsComponent } from './component/details/user-details/user-details.component';
 import { SelectTeacherComponent } from './component/select-teacher/select-teacher.component';
+import { HomeStudentComponent } from './component/home/home-student/home-student.component';
 
 export const routes: Routes = [
   { path: 'mainpage', component: MainPageComponent },
@@ -28,6 +29,7 @@ export const routes: Routes = [
   { path: 'level', component: LevelComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'student', component: StudentPageComponent, children:[
+    {path:'',component:HomeStudentComponent},
     {path:'details', component: UserDetailsComponent},
     {path:'teacher', component: TeachersListComponent},
     {path: 'teacher/:id', component: SelectTeacherComponent}
