@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { lessonSet, select, teacherLesson } from '../../../interface/interface';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { CommonModule } from '@angular/common';
 import { TeacherLessonsHttpService } from '../../../service/http/teacher-lessons-http.service';
 import { CloseButtonComponent } from '../../button/close-button/close-button.component';
 import { AddButtonComponent } from '../../button/add-button/add-button.component';

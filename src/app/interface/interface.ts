@@ -186,3 +186,35 @@ export interface classesDetal {
     lastName: string;
   };
 }
+export interface classes {
+  id: number;
+  date: string;
+  confirmed: boolean;
+  lesson: {
+    id: number;
+    subject: {
+      id: number;
+      name: string;
+    };
+    subjcet_level: {
+      id: number;
+      name: string;
+    };
+    price: number;
+  };
+  term: {
+    id: number;
+    teacher: {
+      id: number;
+      firstName: string;
+      lastName: string;
+    };
+    start_date: string;
+    end_date: string;
+  };
+}
+export interface classesRange {
+  start_date: string;
+  end_date: string;
+  confirmed: boolean;
+}
