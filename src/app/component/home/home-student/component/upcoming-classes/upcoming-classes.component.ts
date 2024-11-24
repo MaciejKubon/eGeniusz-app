@@ -3,11 +3,12 @@ import { classes, classesRange } from '../../../../../interface/interface';
 import { ClassesService } from '../../../../../service/http/classes.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule, DatePipe } from '@angular/common';
+import { NoDataComponent } from '../../../../data/no-data/no-data.component';
 
 @Component({
   selector: 'app-upcoming-classes',
   standalone: true,
-  imports: [MatProgressSpinnerModule, CommonModule],
+  imports: [MatProgressSpinnerModule, CommonModule, NoDataComponent],
   templateUrl: './upcoming-classes.component.html',
   styleUrl: './upcoming-classes.component.scss',
 })
@@ -34,11 +35,7 @@ export class UpcomingClassesComponent implements OnInit {
         (a, b) =>
           new Date(a.term.start_date).getDate() -
           new Date(b.term.end_date).getDate()
-      );
-
-      console.log(this.range);
-      
-
+      );    
       this.isLoadingResults = false;
     });
   }

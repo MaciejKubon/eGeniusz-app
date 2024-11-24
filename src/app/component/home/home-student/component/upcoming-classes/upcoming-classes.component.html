@@ -2,11 +2,15 @@
   <div class="confirmedClasses">
     <h2>Zbliżające się zajęcia</h2>
   </div>
-  <div class="lineContainer"></div>
+  <div class="lineContainer"></div> 
   <div class="upcomingClassesContainer">
     @if (isLoadingResults) {
     <mat-spinner></mat-spinner>
-    }@else{ @for(class of classes; track class){
+    }@else{ @if(classes.length == 0){
+      <app-no-data/>
+    }@else{
+      
+      @for(class of classes; track class){
     <div class="classContainer">
       <div class="lesson">
         <h2>{{ class.lesson.subject.name | uppercase }}</h2>
@@ -24,6 +28,6 @@
         <h3>{{class.lesson.price}} PLN</h3>
       </div>
     </div>
-    } }
+    } }}
   </div>
 </div>

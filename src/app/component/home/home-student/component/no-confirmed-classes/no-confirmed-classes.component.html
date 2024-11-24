@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="noConfirmedClasses">
+    <h2>Niepotwiedzone zajęcia</h2>
+  </div>
+  <div class="lineContainer"></div>
+  <div class="noConfirmedClassesContainer">
+    @if (isLoadingResults) {
+    <mat-spinner></mat-spinner>
+    }@else{@if(classes.length == 0){
+    <app-no-data />
+    }@else{ @for(class of classes; track class){
+    <div class="classContainer" (click)="deleteClasses(class.id)">
+      <div class="lesson">
+        <h2>{{ class.lesson.subject.name | uppercase }}</h2>
+        <h3>{{ class.lesson.subjcet_level.name }}</h3>
+      </div>
+      <div class="date">
+        <h2>
+          {{ class.date.split("-")[2] }}-{{ class.date.split("-")[1] }}-{{
+            class.date.split("-")[0]
+          }}
+        </h2>
+        <h3>
+          {{ class.term.start_date.split(" ")[1] }} -
+          {{ class.term.end_date.split(" ")[1] }}
+        </h3>
+      </div>
+      <div class="price">
+        <h2>
+          {{ class.term.teacher.firstName }} {{ class.term.teacher.lastName }}
+        </h2>
+        <h3>{{ class.lesson.price }} PLN</h3>
+      </div>
+      <div class="deleteContainer">
+        <app-delete-button/>
+      </div>
+    </div>
+    } }}
+  </div>
+</div>
