@@ -1,0 +1,53 @@
+.container {
+    .lineContainer {
+      margin-top: 25px;
+      border-bottom: 2px solid black;
+    }
+    .noConfirmedClasses {
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+    .noConfirmedClassesContainer {
+      width: 100%;
+      margin-top: 15px;
+      .classContainer {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-radius: 20px;
+        padding: 15px 5%;
+        background-color: aquamarine;
+        width: 90%;
+        .lesson,
+        .date,
+        .price {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: stretch;
+          text-align: center;
+          h2 {
+            width: 100%;
+          }
+          h3 {
+            margin-top: 10px;
+            width: 100%;
+          }
+        }
+        .lesson {
+          width: 35%;
+        }
+        .date {
+          width: 25%;
+        }
+        .price {
+          width: 35%;
+        }
+      }
+    }
+  }
+  

@@ -31,7 +31,7 @@ export class TeacherConfirmedComponent {
         id: 0,
         name: '',
       },
-      subjcet_level: {
+      subject_level: {
         id: 0,
         name: '',
       },
@@ -65,9 +65,9 @@ export class TeacherConfirmedComponent {
             id: data.lesson.subject.id,
             name: data.lesson.subject.name,
           },
-          subjcet_level: {
-            id: data.lesson.subjcet_level.id,
-            name: data.lesson.subjcet_level.name,
+          subject_level: {
+            id: data.lesson.subject_level.id,
+            name: data.lesson.subject_level.name,
           },
           price: data.lesson.price,
         },

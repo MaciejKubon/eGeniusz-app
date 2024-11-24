@@ -1,30 +1,23 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {
-  classes,
-  classesRange,
-  studentClasses,
-} from '../../../../../interface/interface';
+import { teacherClasses, classesRange } from '../../../../../interface/interface';
 import { ClassesService } from '../../../../../service/http/classes.service';
 import { NoDataComponent } from '../../../../data/no-data/no-data.component';
-import { DeleteButtonComponent } from '../../../../button/delete-button/delete-button.component';
 
 @Component({
-  selector: 'app-no-confirmed-classes',
+  selector: 'app-confirmed-classes',
   standalone: true,
-  imports: [
-    MatProgressSpinnerModule,
+  imports: [    MatProgressSpinnerModule,
     CommonModule,
-    NoDataComponent,
-    DeleteButtonComponent,
-  ],
-  templateUrl: './no-confirmed-classes.component.html',
-  styleUrl: './no-confirmed-classes.component.scss',
+    NoDataComponent],
+  templateUrl: './confirmed-classes.component.html',
+  styleUrl: './confirmed-classes.component.scss'
 })
-export class NoConfirmedClassesComponent implements OnInit {
+export class ConfirmedClassesComponent implements OnInit{
   isLoadingResults = true;
-  classes: classes[] = [];
+  classes: teacherClasses[] = [];
+  classesDate:string='';
   dataRangeDate = {
     start_date: new Date(),
     end_date: new Date(),
@@ -32,9 +25,8 @@ export class NoConfirmedClassesComponent implements OnInit {
   range: classesRange = {
     start_date: '',
     end_date: '',
-    confirmed: false,
+    confirmed: true,
   };
-
   constructor(private studentClasses: ClassesService) {
     this.setDate();
   }
@@ -43,14 +35,16 @@ export class NoConfirmedClassesComponent implements OnInit {
   }
   refreshData() {
     this.isLoadingResults = true;
-    this.studentClasses.getStudnetClasses(this.range).subscribe((data) => {
+    this.studentClasses.getTeacherClasses(this.range).subscribe((data) => {
       this.classes = data;
       this.classes.sort(
         (a, b) =>
-          new Date(a.term.start_date).getDate() -
-          new Date(b.term.end_date).getDate()
+          new Date(a.start_date).getDate() -
+          new Date(b.start_date).getDate()
       );
       this.isLoadingResults = false;
+      console.log(this.classes);
+      
     });
   }
   addDaysToDate(date: Date, days: number): Date {
@@ -69,10 +63,5 @@ export class NoConfirmedClassesComponent implements OnInit {
       .transform(this.dataRangeDate.end_date, 'yyyy-MM-dd')
       ?.toString()!;
   }
-  deleteClasses(id: number) {
-    this.studentClasses.deleteClasses(id).subscribe((data) => {
-      console.log(data);
-    });
-    this.refreshData();
-  }
+ 
 }

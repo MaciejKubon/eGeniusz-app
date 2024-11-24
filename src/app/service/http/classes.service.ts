@@ -15,8 +15,9 @@ export class ClassesService {
 
   private apiUrl = 'http://127.0.0.1:8000/api/Classes';
   private apiUrlGet = 'http://127.0.0.1:8000/api/StudentClasses';
-  http = inject(HttpClient);
-  headers: HttpHeaders;
+  private apiUrlGetTeacher = 'http://127.0.0.1:8000/api/TeacherClasses';
+  private http = inject(HttpClient);
+  private headers: HttpHeaders;
 
   setLessons(newClasses: newClasses) {
     return this.http.post<any>(this.apiUrl, newClasses, {
@@ -52,6 +53,11 @@ export class ClassesService {
       this.apiUrlGet,
       range,
       { headers: this.headers }
+    );
+  }
+  getTeacherClasses(range:classesRange){
+    return this.http.post<any>(
+      this.apiUrlGetTeacher, range, {headers:this.headers}
     );
   }
 }

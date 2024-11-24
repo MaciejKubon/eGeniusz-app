@@ -174,7 +174,7 @@ export interface classesDetal {
       id: number;
       name: string;
     };
-    subjcet_level: {
+    subject_level: {
       id: number;
       name: string;
     };
@@ -196,7 +196,7 @@ export interface classes {
       id: number;
       name: string;
     };
-    subjcet_level: {
+    subject_level: {
       id: number;
       name: string;
     };
@@ -211,6 +211,32 @@ export interface classes {
     };
     start_date: string;
     end_date: string;
+  };
+}
+export interface teacherClasses {
+  id: number;
+  start_date: string;
+  end_date: string;
+  classes: {
+    id: number;
+    student: {
+      id: number;
+      firstName: string;
+      lastName: string;
+    };
+    lesson: {
+      id: number;
+      subject: {
+        id: number;
+        name: string;
+      };
+      subject_level: {
+        id: number;
+        name: string;
+      };
+      price: number;
+    };
+    confirmed: boolean;
   };
 }
 export interface classesRange {

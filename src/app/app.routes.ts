@@ -18,6 +18,7 @@ import { LessonsComponent } from './component/teacher/lessons/lessons.component'
 import { UserDetailsComponent } from './component/details/user-details/user-details.component';
 import { SelectTeacherComponent } from './component/select-teacher/select-teacher.component';
 import { HomeStudentComponent } from './component/home/home-student/home-student.component';
+import { HomeTeacherComponent } from './component/home/home-teacher/home-teacher.component';
 
 export const routes: Routes = [
   { path: 'mainpage', component: MainPageComponent },
@@ -35,6 +36,7 @@ export const routes: Routes = [
     {path: 'teacher/:id', component: SelectTeacherComponent}
   ]},
   { path: 'teacher', component: TeacherPageComponent, children: [
+    {path:'',component:HomeTeacherComponent},
     {path: 'details', component:TeacherDetailsComponent},
     {path: 'calender', component:TeacherCalendarComponent},
     {path: 'subject', component:LessonsComponent}
