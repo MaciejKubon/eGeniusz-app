@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="headerContainer">
+    <h2>Kalendarz</h2>
+  </div>
+  <div class="lineContainer"></div>
+  <div class="calenderRangeMobile">
+    <div class="leftArrow"><app-arrow-back (click)="changeRange(-1)" /></div>
+    <div class="DataRange">
+      {{ dataRange.start_date }}
+    </div>
+    <div class="rightArrow">
+      <app-arrow-back [position]="position" (click)="changeRange(1)" />
+    </div>
+  </div>
+  <div class="calenderRange">
+    <div class="leftArrow"><app-arrow-back (click)="changeRange(-7)" /></div>
+    <div class="DataRange">
+      {{ dataRange.start_date }} - {{ dataRange.end_date }}
+    </div>
+    <div class="rightArrow">
+      <app-arrow-back [position]="position" (click)="changeRange(7)" />
+    </div>
+  </div>
+  <div class="calendatContainer">
+    @if (isLoadingResults) {
+    <mat-spinner></mat-spinner>
+    } @else{
+        <div class="hoursContainer">
+            @for(hour of hours; track hour){
+            <div class="hourBox">
+              <span>{{ hour }}</span>
+            </div>
+            }
+          </div>
+          <div class="daysContainer">
+            @for(class of classes; track class){
+                <div class="dayBox">
+                    <app-student-day [classes]="class" (refleshData)="refDate($event)"/>
+                  </div>
+            }
+            <div class="dayBoxMobile">
+                <app-student-day  [classes]="classes[0]" (refleshData)="refDate($event)"/> />
+              </div>
+          </div>
+    }
+    </div>
+</div>
