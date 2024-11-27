@@ -47,7 +47,7 @@ export class LoginUserComponent {
   };
   navForgot: linkButton = { path: 'forgot-password', text: 'Przypomnij hasło' };
   navRegiester: linkButton = {
-    path: '',
+    path: 'studentRegister',
     text: 'Nie posiadasz konta? Zarejestruj się.',
   };
   hide = signal(true);
