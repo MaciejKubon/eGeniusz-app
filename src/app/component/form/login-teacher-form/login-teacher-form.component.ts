@@ -42,7 +42,7 @@ export class LoginTeacherFormComponent {
   };
   navForgot: linkButton = { path: 'forgot-password', text: 'Przypomnij hasło' };
   navRegiester: linkButton = {
-    path: '',
+    path: 'teacherRegister',
     text: 'Nie posiadasz konta? Zarejestruj się.',
   };
   myForm = new FormGroup({
