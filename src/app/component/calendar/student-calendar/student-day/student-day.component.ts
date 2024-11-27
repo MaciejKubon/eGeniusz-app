@@ -18,7 +18,7 @@ export class StudentDayComponent {
   dayName: string = '';
   hourStart: number = 10;
   hourEnd: number = 23;
-  dayTime: Date = new Date();
+  dayTime: Date = new Date(this.dayName + ' 10:00:00');
 
   times: string = '';
   classesID: number = 0;
@@ -31,12 +31,11 @@ export class StudentDayComponent {
       let minutes: string[] = ['00', '15', '30', '45'];
       this.hours.push({ hh: i.toString(), mm: minutes });
     }
+
   }
 
   ngOnInit() {
-    this.setName();
-    this.calculateTerms();
-    console.log(this.classes);
+    this.setName();    
   }
 
   setName() {
@@ -46,12 +45,14 @@ export class StudentDayComponent {
     let year: string = date[0];
     this.dayName = day + '-' + month + '-' + year;
     this.dayNameEmit = year + '-' + month + '-' + day;
-    this.dayTime = new Date(this.dayName + ' 10:00:00');
+    this.dayTime = new Date(this.dayName + ' 10:00:00');      
   }
 
   calculateTerms() {
     if (this.classes.classes != null) {
       this.classes.classes.forEach((e) => {
+        
+        
         e.classes.diffTime = Math.ceil(
           Math.abs(
             e.classes.end_date.getTime() - e.classes.start_date.getTime()
@@ -66,6 +67,8 @@ export class StudentDayComponent {
           ) -
           540;
       });
+
+      
     }
   }
 }
