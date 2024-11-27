@@ -1,0 +1,24 @@
+<div class="dayContainer">
+  <div class="dayNameBox">
+    <span>{{ dayName }}</span>
+  </div>
+  <div class="hoursContainer">
+    @for(hour of hours; track hour){
+    <div class="hourBox">
+      @for(time of hour.mm; track time){
+      <div class="timeBox"></div>
+      }
+    </div>
+    }
+    @for(class of classes.classes; track class){
+
+            <div
+            class="termsNoReservetrion"
+            [style.height.px]="class.classes.diffTime"
+            [style.top.px]="class.classes.posTop"
+            
+          ></div>
+
+    }
+  </div>
+</div>

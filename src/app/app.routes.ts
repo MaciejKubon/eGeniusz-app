@@ -19,6 +19,7 @@ import { UserDetailsComponent } from './component/details/user-details/user-deta
 import { SelectTeacherComponent } from './component/select-teacher/select-teacher.component';
 import { HomeStudentComponent } from './component/home/home-student/home-student.component';
 import { HomeTeacherComponent } from './component/home/home-teacher/home-teacher.component';
+import { StudentCalendarComponent } from './component/calendar/student-calendar/student-calendar.component';
 
 export const routes: Routes = [
   { path: 'mainpage', component: MainPageComponent },
@@ -31,6 +32,7 @@ export const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'student', component: StudentPageComponent, children:[
     {path:'',component:HomeStudentComponent},
+  {path:'calendar',component:StudentCalendarComponent},
     {path:'details', component: UserDetailsComponent},
     {path:'teacher', component: TeachersListComponent},
     {path: 'teacher/:id', component: SelectTeacherComponent}

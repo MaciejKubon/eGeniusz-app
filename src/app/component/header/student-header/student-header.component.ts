@@ -16,6 +16,7 @@ import { NavButtonComponent } from '../../button/nav-button/nav-button.component
 export class StudentHeaderComponent {
   nav:linkButton[] = [
     {path:'student', text: 'home'},
+    {path:'student/calendar',text:'kalendarz'},
     {path:'student/teacher', text: 'nauczyciele'},
     {path:'student/details', text: 'ustawienia'}
   ];

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { classesRange, newClasses } from '../../interface/interface';
+import { classesRange, dataRange, newClasses } from '../../interface/interface';
 import { AuthService } from '../session/auth.service';
 
 @Injectable({
@@ -16,11 +16,17 @@ export class ClassesService {
   private apiUrl = 'http://127.0.0.1:8000/api/Classes';
   private apiUrlGet = 'http://127.0.0.1:8000/api/StudentClasses';
   private apiUrlGetTeacher = 'http://127.0.0.1:8000/api/TeacherClasses';
+  private apiUrlGetStudent = 'http://127.0.0.1:8000/api/StudentClassesGet';
   private http = inject(HttpClient);
   private headers: HttpHeaders;
 
   setLessons(newClasses: newClasses) {
     return this.http.post<any>(this.apiUrl, newClasses, {
+      headers: this.headers,
+    });
+  }
+  getStudentCalendar(range: dataRange) {
+    return this.http.post<any>(this.apiUrlGetStudent, range, {
       headers: this.headers,
     });
   }
@@ -48,16 +54,14 @@ export class ClassesService {
       { headers: this.headers }
     );
   }
-  getStudnetClasses(range:classesRange) {
-    return this.http.post<any>(
-      this.apiUrlGet,
-      range,
-      { headers: this.headers }
-    );
+  getStudnetClasses(range: classesRange) {
+    return this.http.post<any>(this.apiUrlGet, range, {
+      headers: this.headers,
+    });
   }
-  getTeacherClasses(range:classesRange){
-    return this.http.post<any>(
-      this.apiUrlGetTeacher, range, {headers:this.headers}
-    );
+  getTeacherClasses(range: classesRange) {
+    return this.http.post<any>(this.apiUrlGetTeacher, range, {
+      headers: this.headers,
+    });
   }
 }

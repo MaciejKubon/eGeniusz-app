@@ -244,3 +244,29 @@ export interface classesRange {
   end_date: string;
   confirmed: boolean;
 }
+export interface ClassesStudent{
+    classDate: string;
+    classes: {
+      diffTime?: number | null;
+      posTop?: number | null;
+      start_date:Date;
+      end_date:Date;
+      teacher: {
+        id: number
+        firstName: string;
+        lastName: string;
+      };
+      lesson: {
+        id: number;
+        subject: subject
+        subject_level: subject_level
+        price: 0;
+      };
+      confirmed: 0;
+    }
+}
+export interface studentClass{
+  classDate: string;
+  classes:ClassesStudent[];
+ 
+}
