@@ -27,24 +27,24 @@ import { RegisterHttpService } from '../../../../service/http/register-http.serv
     LinkWithoutbackgroundButtonComponent,
   ],
   templateUrl: './teacher-form.component.html',
-  styleUrl: './teacher-form.component.scss'
+  styleUrl: './teacher-form.component.scss',
 })
 export class TeacherFormComponent {
   readonly email = new FormControl('', [Validators.required, Validators.email]);
   readonly password = new FormControl('', [Validators.required]);
-  readonly Repassword  = new FormControl('', [Validators.required]);
+  readonly Repassword = new FormControl('', [Validators.required]);
   errorEmailMessage = signal('');
   errorPasswordMessage = signal('');
   errorRePasswordMessage = signal('');
   hide = signal(true);
-  
+
   navTeacher: linkButton = {
-    path: 'studentLogin',
-    text: 'Jesteś nauczycielem? Zarejestruj się.',
+    path: 'teacherLogin',
+    text: 'Posiadasz konto? Zaloguj się',
   };
   navRegiester: linkButton = {
-    path: 'studentLogin',
-    text: 'Posiadasz konto? Zaloguj się',
+    path: 'studentRegister',
+    text: 'Jesteś uczniem? Zarejestruj się.',
   };
   navForgot: linkButton = { path: 'forgot-password', text: 'Przypomnij hasło' };
 
@@ -60,7 +60,7 @@ export class TeacherFormComponent {
       .subscribe(() => this.updatePasswordErrorMessage());
   }
 
-  clickEvent(event: MouseEvent) { 
+  clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
@@ -80,14 +80,14 @@ export class TeacherFormComponent {
       this.errorPasswordMessage.set('');
     }
   }
-  updateRePasswordErrorMessage(){
+  updateRePasswordErrorMessage() {
     if (this.Repassword.hasError('required')) {
       this.errorRePasswordMessage.set('You must enter a value');
     } else {
       this.errorRePasswordMessage.set('');
     }
   }
-  creatUser(){
+  creatUser() {
     this.updateEmailErrorMessage();
     this.updatePasswordErrorMessage();
     this.updateRePasswordErrorMessage();
@@ -106,7 +106,6 @@ export class TeacherFormComponent {
         )
         .subscribe((data: { token: string }) => {
           console.log(data);
-          
         });
     }
   }
