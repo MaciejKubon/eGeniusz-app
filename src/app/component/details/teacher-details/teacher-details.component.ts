@@ -51,6 +51,10 @@ export class TeacherDetailsComponent {
         this.userDetails.description = data.description;
       this.isLoadingResults = false;
     });
+    this.httpuserDetail.getTeacherImage().subscribe((data)=>{
+      console.log(data);
+      
+    })
   }
 
   setDefoult() {

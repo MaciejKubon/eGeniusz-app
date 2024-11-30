@@ -15,6 +15,7 @@ export class UserDetailsService {
   private apiUrlStudent ='http://127.0.0.1:8000/api/studentProfile';
   private apiUrlTeacher = 'http://127.0.0.1:8000/api/teacherProfile';
 
+
   headers: HttpHeaders; 
   http = inject(HttpClient);
   getUserDetails(){
@@ -28,6 +29,9 @@ export class UserDetailsService {
   }
   setTeacherDetails(userDetail:userDetail){
     return this.http.put<any>(this.apiUrlTeacher, userDetail, {headers:this.headers})
+  }
+  getTeacherImage(){
+    return this.http.get(this.apiUrlTeacher+'/image',{headers:this.headers})
   }
 
 }
