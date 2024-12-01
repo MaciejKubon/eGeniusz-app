@@ -5,8 +5,22 @@
   <div class="lineContainer"></div>
   @if (isLoadingResults) {
   <mat-spinner></mat-spinner>
-  } @else{ @if(showDetail){ 
+  } @else{ @if(showDetail){
   <div class="detailsContainer">
+    <div class="dataContainer">
+      <div class="avatarContainer">
+        <figure>
+          <img [src]="avatarLink" alt="photo" />
+        </figure>
+        <div class="uploadImage"> 
+          <form (submit)="onSubmit()">
+            <input type="file" (change)="onFileSelected($event)" />
+          </form>
+          <button (click)="przslij()">Prześlij</button>
+        </div>
+      </div>
+
+    </div>
     <div class="dataContainer">
       <div class="label"><span>Imie:</span></div>
       <div class="data">
@@ -34,7 +48,7 @@
         <input
           matInput
           #input
-          value="{{userDetails.firstName}}"
+          value="{{ userDetails.firstName }}"
           [formControl]="firstName"
         />
       </mat-form-field>
@@ -43,17 +57,17 @@
         <input
           matInput
           #input
-          value="{{userDetails.lastName}}"
+          value="{{ userDetails.lastName }}"
           [formControl]="lastName"
         />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Name:</mat-label>
         <input
-        type="date"
+          type="date"
           matInput
           #input
-          value="{{userDetails.birthday}}"
+          value="{{ userDetails.birthday }}"
           [formControl]="birthday"
         />
       </mat-form-field>
@@ -64,7 +78,7 @@
   <div class="buttonContainer">
     @if(showDetail){
     <app-edit-button (click)="changeToEdit()" />} @else{
-    <app-save-button (click)="saveEdit()"/>
+    <app-save-button (click)="saveEdit()" />
     <app-close-button (click)="changetoDetail()" />
     }
   </div>

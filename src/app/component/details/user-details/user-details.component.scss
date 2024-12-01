@@ -33,6 +33,37 @@
           font-weight: 600;
         }
       }
+      .avatarContainer {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        figure {
+          display: flex;
+          justify-content: center;
+          img {
+            width: 30%;
+            border-radius: 25px;
+          }
+        }
+        .uploadImage {
+          margin-top: 25px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          form {
+            min-width: 30%;
+            display: flex;
+            align-items: center;
+          }
+          button {
+            width: 25%;
+            height: 40px;
+            border-radius: 20px;
+          }
+        }
+      }
+      
     }
   }
   .formContainer{
