@@ -54,6 +54,7 @@ export interface teacherList {
   lastName: string;
   subjects: string[];
   price: number[];
+  imageLink:string;
 }
 export interface teacherFiltr {
   subjects_id: string[];
@@ -269,4 +270,7 @@ export interface studentClass{
   classDate: string;
   classes:ClassesStudent[];
  
+}
+export interface imageLink{
+  imageUrl:string;
 }

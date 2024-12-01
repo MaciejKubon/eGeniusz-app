@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AuthService } from '../session/auth.service';
-import { userDetail } from '../../interface/interface';
+import { imageLink, userDetail } from '../../interface/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,16 @@ export class UserDetailsService {
     return this.http.put<any>(this.apiUrlTeacher, userDetail, {headers:this.headers})
   }
   getTeacherImage(){
-    return this.http.get(this.apiUrlTeacher+'/image',{headers:this.headers})
+    return this.http.get<any>(this.apiUrlTeacher+'/image',{headers:this.headers});
+  }
+  uploadTeacherAvatar(uploadFile:FormData){
+    return this.http.post<any>(this.apiUrlTeacher+'/image',uploadFile,{headers:this.headers})
+  }
+  getStudentImage(){
+    return this.http.get<any>(this.apiUrlStudent+'/image',{headers:this.headers});
+  }
+  uploadStudentAvatar(uploadFile:FormData){
+    return this.http.post<any>(this.apiUrlStudent+'/image',uploadFile,{headers:this.headers})
   }
 
 }
