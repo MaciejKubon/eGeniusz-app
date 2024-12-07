@@ -61,6 +61,12 @@ html {
 }
 
 //COLOR
+//
+$blueColorPrimary: #1C52E8;
+$blueColorSecond:#000033;
+$bgblueColorPrimary: RGBA(0, 0, 50 ,0.2);
+
+///
 $darkGreenColor: #003017;
 $lightGreenColor: #009F4D;
 $navBarColor: #00FFFF;
@@ -70,9 +76,41 @@ $textFontColor:#009F4D;
 $textFontColorWhite: #bbbbbb;
 
 //FONT
-$headerFontSize: 2em;
+//HEDER
+$headerFontSize: 2rem;
+$fontHederSizeBig:4rem;
+$fontHederSizeMid:2.5rem;
+//p
+$fontSizeMidium:1.2rem;
+
+
+//MOBILE FONT
+//HEDER
+$fontHederSizeBig-Mobile:2rem;
+$fontHederSizeMid-Mobile:1.5rem;
+//p
+$fontSizeMidium-Mobile:1rem;
+
+
+
+//Font weight
+$fontBold:600;
+$fontMedium:400;
+$fontLight:200;
+
 
 //hight
 $dayBoxHight: 60px;
 $dayBoxNameHight: 50px;
+
+//border
+$borderPrimary: 1px solid $blueColorPrimary;
+
+//borderRadius
+$radiusMid: 25px;
+
+
+
+
+
 

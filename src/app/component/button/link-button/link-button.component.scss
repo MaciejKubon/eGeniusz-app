@@ -1,3 +1,16 @@
+.linkButtonBox{
+  a{
+    background-color: #1C52E8;
+    color: white;
+    transition: 500ms;
+    border: 1px solid #1C52E8;
+  }
+  a:hover{
+    background-color: white;
+    color: #1C52E8;
+    transition: 500ms;
+  }
+}
 
   @media only screen and (max-width: 900px) {
 
