@@ -11,11 +11,11 @@ section {
 .logoBox {
   height: 25vh;
   width: 100%;
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   h1 {
-    font-size:$fontHederSizeBig;
+    font-size: $fontHederSizeBig;
     color: $blueColorSecond;
   }
 }
@@ -101,7 +101,7 @@ section {
     height: 10vh;
     width: 100%;
     h1 {
-      font-size:$fontHederSizeBig-Mobile;
+      font-size: $fontHederSizeBig-Mobile;
     }
   }
   .descriptionBox {
@@ -137,10 +137,9 @@ section {
     .textBox {
       margin-top: 10px;
       font-size: 0.6em;
-      p{
+      p {
         font-size: $fontSizeMidium-Mobile;
       }
-      
     }
     .teacherLogin,
     .studentLogin {
