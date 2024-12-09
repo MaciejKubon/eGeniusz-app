@@ -6,11 +6,12 @@ import { DeleteButtonComponent } from '../../../../button/delete-button/delete-b
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NoDataComponent } from '../../../../data/no-data/no-data.component';
 import { AcceptButtonComponent } from '../../../../button/accept-button/accept-button.component';
+import { SpinnerComponent } from '../../../../spinner/spinner.component';
 
 @Component({
   selector: 'app-no-confirmed-classes',
   standalone: true,
-  imports: [    MatProgressSpinnerModule,
+  imports: [    SpinnerComponent,
     CommonModule,
     NoDataComponent,
     DeleteButtonComponent, AcceptButtonComponent],

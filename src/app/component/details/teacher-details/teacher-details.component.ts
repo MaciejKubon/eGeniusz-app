@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { imageLink, teacherDetail } from '../../../interface/interface';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { UserDetailsService } from '../../../service/http/user-details.service';
@@ -10,12 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { CloseButtonComponent } from '../../button/close-button/close-button.component';
 import { EditButtonComponent } from '../../button/edit-button/edit-button.component';
 import { SaveButtonComponent } from '../../button/save-button/save-button.component';
+import { SpinnerComponent } from '../../spinner/spinner.component';
 
 @Component({
   selector: 'app-teacher-details',
   standalone: true,
   imports: [    ReactiveFormsModule,
-    MatProgressSpinnerModule,
+    SpinnerComponent,
     MatFormFieldModule,
     MatInputModule,
     EditButtonComponent,

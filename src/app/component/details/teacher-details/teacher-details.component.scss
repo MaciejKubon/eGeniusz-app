@@ -1,72 +1,41 @@
+@import "../../../../styles.scss";
 .container {
   width: 90%;
-  background-color: aliceblue;
-  border-radius: 20px;
+  border-radius: $radiusMid;
+  border: $borderPrimary;
   padding: 35px 5%;
   .headerContainer {
     display: flex;
     align-items: center;
-    padding: 0 10%;
+    padding: 0 5%;
     h2 {
-      font-size: 2rem;
+      font-size: $headerFontSize;
+      color: $blueColorSecond;
     }
   }
   .lineContainer {
     margin-top: 25px;
-    border-bottom: 2px solid black;
+    border-bottom: $borderBottomPrimary;
   }
   .detailsContainer {
     margin-top: 35px;
     .dataContainer {
       display: flex;
-      margin-bottom: 30px;
-      .label {
+      padding: 20px 0px;
+      border-bottom: $borderPrimary;
+      .label,
+      .data {
         width: 50%;
         span {
           font-size: 1.2rem;
           font-weight: 600;
-        }
-      }
-      .avatarContainer {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        figure {
-          display: flex;
-          justify-content: center;
-          img {
-            width: 30%;
-            border-radius: 25px;
-          }
-        }
-        .uploadImage {
-          margin-top: 25px;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          form {
-            min-width: 30%;
-            display: flex;
-            align-items: center;
-          }
-          button {
-            width: 25%;
-            height: 40px;
-            border-radius: 20px;
-          }
-        }
-      }
-
-      .data {
-        span {
-          font-size: 1.2rem;
-          font-weight: 600;
+          color: $blueColorSecond;
         }
       }
     }
   }
   .formContainer {
+
     display: flex;
     flex-wrap: wrap;
     mat-form-field {
@@ -77,7 +46,13 @@
     margin-top: 35px;
   }
   .buttonContainer {
+    margin-top: 25px;
     display: flex;
     justify-content: flex-end;
+    .activeForms{
+      width: 150px;
+      display: flex;
+      justify-content: space-around;
+    }
   }
 }

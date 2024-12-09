@@ -13,7 +13,7 @@
 
 <div class="tableBox">
   @if (isLoadingResults) {
-  <mat-spinner></mat-spinner>
+    <app-spinner/>
   }@else{
   <table mat-table [dataSource]="dataLessons" class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="przedmiot">
@@ -26,7 +26,7 @@
           <mat-select [formControl]="subjectValue">
             <mat-option></mat-option>
             @for (e of subject; track e) {
-            <mat-option [value]="e.id">{{ e.name }}</mat-option>
+            <mat-option [value]="e.id">{{ e.name  }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
@@ -64,13 +64,16 @@
       </td>
     </ng-container>
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let e">
-        @if(e.id != activeForm){
-        <app-edit-button (click)="editElement(e.id)" />
-        <app-delete-button (click)="removeElement(e.id)" />} @else{
-        <app-save-button (click)="saveElement(e.id)" />
-        <app-close-button (click)="closeElement()" />}
+      <th mat-header-cell *matHeaderCellDef class="actiobButton"></th>
+      <td mat-cell *matCellDef="let e" class="actiobButton">
+        <div>
+          @if(e.id != activeForm){
+            <app-edit-button (click)="editElement(e.id)" />
+            <app-delete-button (click)="removeElement(e.id)" />} @else{
+            <app-save-button (click)="saveElement(e.id)" />
+            <app-close-button (click)="closeElement()" />}
+        </div>
+
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

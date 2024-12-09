@@ -1,12 +1,14 @@
+@import '../../../../styles.scss';
 header {
   width: 100%;
-  min-height: 60px;
+  min-height: 70px;
   position: fixed;
   top: 0px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
-  background-color: burlywood;
+  align-items: center;
+  background-color: $blueColorPrimary;
   .logo {
     width: 30%;
   }
@@ -15,7 +17,6 @@ header {
   }
   .navigation {
     width: 70%;
-
     nav {
       margin-right: 5%;
       display: flex;
@@ -47,21 +48,22 @@ header {
         display: block;
     }
     .navigation {
-      background-color: yellow;
       width: 100%;
       nav {
         width: 100%;
         display: flex;
         align-items: flex-start;
         justify-content: flex-end;
-        height: 85svh;
+        height: 100svh;
         ul {
+          padding: 0px 0px;
           flex-wrap: wrap;
           li {
             padding: 10px 0%;
             width: 100%;
             align-items: flex-start;
             justify-content: center;
+            
             app-nav-button, app-logout-button {
               width: 100%;
             }

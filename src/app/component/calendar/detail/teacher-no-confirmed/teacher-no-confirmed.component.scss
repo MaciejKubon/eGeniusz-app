@@ -1,29 +1,35 @@
+@import '../../../../../styles.scss';
 .container {
     width: 90%;
-    background-color: aliceblue;
+    background-color: $bgblueColorPrimary;
     border-radius: 20px;
+    height: 70svh;
     padding: 35px 5%;
     box-shadow: 0px 0px 5px gray;
+    overflow-y: auto;
     .headerContainer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 0 0 5%;
       h2 {
-        font-size: 1.5rem;
+        font-size: $headerFontSizeMedium;
+        color: $blueColorSecond;
       }
     }
     .lineContainer {
       margin-top: 15px;
-      border-bottom: 2px solid black;
+      border-bottom:  $borderBottomPrimary;
     }
     h2 {
-      font-size: 1.2rem; 
+      font-size: $headerFontSizeSmall; 
+      color: $blueColorSecond;
     }
     .dataContainer {
       margin-top: 25px;
       display: flex;
       justify-content: space-between;
+      border-bottom:$borderPrimary;
     }
     .timeContainer,
     .subjectContainer,
@@ -34,6 +40,7 @@
       margin-top: 15px;
       display: flex;
       justify-content: space-between;
+      border-bottom:$borderPrimary;
     }
     .actionButton{
       margin-top: 25px;

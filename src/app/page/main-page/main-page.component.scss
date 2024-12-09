@@ -1,40 +1,46 @@
+@import "../../../styles.scss";
+
 section {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  background-color: aqua;
   justify-content: center;
+  width: 100%;
+  background-color: $bgblueColorPrimary;
 }
 
 .logoBox {
-  height: 20vh;
+  height: 25vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   h1 {
-    font-size: 4em;
+    font-size: $fontHederSizeBig;
+    color: $blueColorSecond;
   }
 }
 .descriptionBox {
-  min-height: 70vh;
+  min-height: 65vh;
   padding: 0% 10%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  width: 100%;
   .descriptionTextBox {
+    font-size: $fontSizeMidium;
+    font-weight: $fontMedium;
     width: 50%;
-    font-size: 1.2em;
     line-height: 1.5em;
-    font-weight: 400;
-
     p {
-      background-color: bisque;
+      border: $borderPrimary;
+      color: $blueColorSecond;
+      border-radius: $radiusMid;
       padding: 40px;
-      border-radius: 25px;
     }
   }
   .imageBox {
+    display: flex;
+    align-items: center;
     width: 30%;
     img {
       width: 100%;
@@ -59,13 +65,14 @@ section {
     margin-top: 100px;
     width: 40%;
     border-radius: 25px;
-    padding: 20px 3%;
+    padding: 20px 0%;
     .tipBox {
-      background-color: antiquewhite;
-      border-radius: 25px;
+      border: $borderPrimary;
+      border-radius: $radiusMid;
+      color: $blueColorSecond;
       padding: 20px;
       h2 {
-        font-size: 2.5em;
+        font-size: $fontHederSizeMid;
         margin-top: 50px;
         width: 100%;
         text-align: center;
@@ -75,6 +82,7 @@ section {
         margin-top: 50px;
         font-size: 1.1em;
         width: 100%;
+        font-size: $fontSizeMidium;
       }
       .teacherLogin,
       .studentLogin {
@@ -93,7 +101,7 @@ section {
     height: 10vh;
     width: 100%;
     h1 {
-      font-size: 2em;
+      font-size: $fontHederSizeBig-Mobile;
     }
   }
   .descriptionBox {
@@ -104,8 +112,8 @@ section {
     align-items: center;
     .descriptionTextBox {
       width: 100%;
-      font-size: 1em;
       line-height: 1.2em;
+      font-size: $fontSizeMidium-Mobile;
     }
     .imageBox {
       width: 40%;
@@ -122,14 +130,16 @@ section {
       width: 100%;
     }
     h2 {
-      font-size: 2em;
+      font-size: $fontHederSizeMid-Mobile;
       margin-top: 5px;
       height: 2vh;
-      background-color: aquamarine;
     }
     .textBox {
       margin-top: 10px;
       font-size: 0.6em;
+      p {
+        font-size: $fontSizeMidium-Mobile;
+      }
     }
     .teacherLogin,
     .studentLogin {
@@ -138,152 +148,3 @@ section {
     }
   }
 }
-
-// .descriptionBox {
-//   height: 65vh;
-//   padding: 0% 10%;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   .imageBox {
-//     width: 30%;
-//     img {
-//       width: 100%;
-//     }
-//   }
-//   .textBox {
-//     width: 60%;
-//     font-size: 1.2em;
-//     line-height: 1.5em;
-//     font-weight: 400;
-//     border-radius: 25px;
-//     background-color: bisque;
-//     padding: 40px;
-//   }
-// }
-// .nextArrow {
-//   width: 100%;
-//   height: 100px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-// .userBox {
-//   min-height: 100vh;
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   padding: 0px 10%;
-
-//   .teacherBox,
-//   .studentBox {
-//     margin-top: 100px;
-//     height: 60vh;
-//     width: 40%;
-//     display: flex;
-//     justify-content: center;
-//     flex-wrap: wrap;
-//     border-radius: 25px;
-//     h2 {
-//       font-size: 2.5em;
-//       margin-top: 50px;
-//       width: 100%;
-//       text-align: center;
-//       height: 10vh;
-//     }
-//     .textBox {
-//       height: 25vh;
-//       width: 75%;
-//     }
-//     .teacherLogin,
-//     .studentLogin {
-//       margin-top: 30px;
-//       height: 20vh;
-//     }
-//   }
-//   .teacherBox {
-//     background-color: aquamarine;
-//   }
-//   .studentBox {
-//     background-color: blanchedalmond;
-//   }
-// }
-// @media only screen and (max-width: 900px) {
-//   .logoBox {
-//     height: 10vh;
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     h1 {
-//       font-size: 3em;
-//     }
-//   }
-//   .descriptionBox {
-
-//     height: 80vh;
-//     flex-direction: column-reverse;
-//     flex-wrap: wrap;
-//     justify-content: flex-end;
-//     .imageBox,
-//     .textBox {
-//       margin-top: 50px;
-//       width: 100%;
-//     }
-//     .imageBox {
-//       width: 50%;
-//       img {
-//         width: 100%;
-//       }
-//     }
-//     .textBox {
-//       font-size: 1em;
-//       line-height: 1.3em;
-//       font-weight: 400;
-//       border-radius: 25px;
-//       background-color: bisque;
-//       padding: 10px;
-//     }
-//   }
-//   .nextArrow {
-//     height: 10vh;
-//   }
-//   .userBox {
-
-//     flex-wrap: wrap;
-//     justify-content: space-between;
-//     .teacherBox,
-//     .studentBox {
-//       margin-top: 10px;
-//       height: 50vh;
-//       width: 100%;
-//       display: flex;
-//       justify-content: center;
-//       align-items: flex-start;
-//       flex-wrap: wrap;
-//       border-radius: 25px;
-//       h2 {
-//         font-size: 2em;
-//         margin-top: 25px;
-//         width: 100%;
-//         text-align: center;
-//         height: 4vh;
-//         background-color: azure;
-//       }
-//       .textBox {
-//         margin-top: 20px;
-//         width: 75%;
-//         background-color: aqua;
-//         height: 30vh;
-//       }
-//       .teacherLogin,
-//       .studentLogin {
-//         background-color: bisque;
-//         margin-top: 15px;
-//         height: 4vh;
-//       }
-//     }
-//   }
-// }

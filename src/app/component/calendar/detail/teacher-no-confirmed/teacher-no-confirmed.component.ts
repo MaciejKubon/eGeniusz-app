@@ -2,14 +2,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { classesDetal, studentClasses } from '../../../../interface/interface';
 import { CloseButtonComponent } from '../../../button/close-button/close-button.component';
 import { ClassesService } from '../../../../service/http/classes.service';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AcceptButtonComponent } from '../../../button/accept-button/accept-button.component';
 import { DeleteButtonComponent } from '../../../button/delete-button/delete-button.component';
+import { SpinnerComponent } from '../../../spinner/spinner.component';
 
 @Component({
   selector: 'app-teacher-no-confirmed',
   standalone: true,
-  imports: [CloseButtonComponent, MatProgressSpinnerModule, AcceptButtonComponent, DeleteButtonComponent],
+  imports: [CloseButtonComponent, SpinnerComponent, AcceptButtonComponent, DeleteButtonComponent],
   templateUrl: './teacher-no-confirmed.component.html',
   styleUrl: './teacher-no-confirmed.component.scss'
 })

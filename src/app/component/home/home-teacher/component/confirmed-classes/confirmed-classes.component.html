@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container"> 
     <div class="noConfirmedClasses">
       <h2>Najbliższe zajęcia</h2>
     </div>
     <div class="lineContainer"></div>
     <div class="noConfirmedClassesContainer">
       @if (isLoadingResults) {
-      <mat-spinner></mat-spinner>
+        <app-spinner/>
       }@else{@if(classes.length == 0){
       <app-no-data />
       }@else{ @for(class of classes; track class){

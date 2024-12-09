@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { TeacherDayTermsComponent } from '../teacher-day-terms/teacher-day-terms.component';
 import { dataRange, term, terms, termsRequest } from '../../../interface/interface';
 import { TeacherTermsService } from '../../../service/http/teacher-terms.service';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AddTermComponent } from '../../form/add-term/add-term.component';
 import { DatePipe } from '@angular/common';
 import { ArrowBackComponent } from '../../button/arrow-back/arrow-back.component';
+import { SpinnerComponent } from '../../spinner/spinner.component';
 
 @Component({
   selector: 'app-teacher-calendar',
   standalone: true,
   imports: [
     TeacherDayTermsComponent,
-    MatProgressSpinnerModule,
+    SpinnerComponent,
     AddTermComponent,
     ArrowBackComponent,
   ],

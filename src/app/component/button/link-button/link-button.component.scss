@@ -1,3 +1,17 @@
+@import '../../../../styles.scss';
+.linkButtonBox{
+  a{
+    background-color: $blueColorPrimary;
+    color: $whiteColorPrimary;
+    transition: 500ms;
+    border: $borderPrimary;
+  }
+  a:hover{
+    background-color: $bgColorNone;
+    color: $blueColorPrimary;
+    transition: 500ms;
+  }
+}
 
   @media only screen and (max-width: 900px) {
 
