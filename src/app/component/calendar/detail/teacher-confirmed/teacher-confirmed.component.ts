@@ -2,12 +2,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { classesDetal, studentClasses } from '../../../../interface/interface';
 import { CloseButtonComponent } from '../../../button/close-button/close-button.component';
 import { ClassesService } from '../../../../service/http/classes.service';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from '../../../spinner/spinner.component';
 
 @Component({
   selector: 'app-teacher-confirmed',
   standalone: true,
-  imports: [CloseButtonComponent, MatProgressSpinnerModule],
+  imports: [CloseButtonComponent, SpinnerComponent],
   templateUrl: './teacher-confirmed.component.html',
   styleUrl: './teacher-confirmed.component.scss',
 })

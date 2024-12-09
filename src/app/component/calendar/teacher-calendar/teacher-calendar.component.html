@@ -23,7 +23,7 @@
   </div>
   <div class="calendatContainer">
     @if (isLoadingResults) {
-    <mat-spinner></mat-spinner>
+    <app-spinner/>
     } @else{
     <div class="hoursContainer">
       @for(hour of hours; track hour){
@@ -45,8 +45,3 @@
     }
   </div>
 </div>
-<!-- @if(isVisableTermForm) {
-<div class="newTermForm">
-  <app-add-term (newTerm)="addNewTerm($event)" [times]="times" />
-</div>
-} -->

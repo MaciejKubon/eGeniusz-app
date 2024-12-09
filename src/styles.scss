@@ -74,6 +74,11 @@ $bgblueColorSecond: RGBA(28, 82, 232,0.8);
 $bgblueColorThird:RGBA(28, 82, 232,0.2);
 $bgColorNone:RGBA(0,0,0,0);
 
+$colorFree: #666666;
+$termReservation: #009f4d;
+$termnoReservation:#ecf249;
+
+
 ///
 $darkGreenColor: #003017;
 $lightGreenColor: #009f4d;
@@ -86,6 +91,8 @@ $textFontColorWhite: #bbbbbb;
 //FONT
 //HEDER
 $headerFontSize: 2rem;
+$headerFontSizeMedium:1.5rem;
+$headerFontSizeSmall:1.2rem;
 $fontHeaderSizeBBig:5rem;
 $fontHederSizeBig: 4rem;
 $fontHederSizeMid: 2.5rem;
@@ -112,5 +119,19 @@ $dayBoxNameHight: 50px;
 $borderPrimary: 1px solid $blueColorPrimary;
 $borderBottomPrimary: 2px solid $blueColorPrimary;
 //borderRadius
+$radiusSmall:10px;
 $radiusMid: 25px;
 $radiusBig: 50px;
+$radiuVSmall:5px;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bgblueColorPrimary;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $blueColorSecond;
+}
