@@ -1,13 +1,14 @@
+@import '../../../../styles.scss';
 .linkButtonBox{
   a{
-    background-color: #1C52E8;
-    color: white;
+    background-color: $blueColorPrimary;
+    color: $whiteColorPrimary;
     transition: 500ms;
-    border: 1px solid #1C52E8;
+    border: $borderPrimary;
   }
   a:hover{
-    background-color: white;
-    color: #1C52E8;
+    background-color: $bgColorNone;
+    color: $blueColorPrimary;
     transition: 500ms;
   }
 }

@@ -72,16 +72,16 @@ export class LoginTeacherFormComponent {
   }
   updateEmailErrorMessage() {
     if (this.email.hasError('required')) {
-      this.errorEmailMessage.set('You must enter a value');
+      this.errorEmailMessage.set('Pole email nie może być puste');
     } else if (this.email.hasError('email')) {
-      this.errorEmailMessage.set('Not a valid email');
+      this.errorEmailMessage.set('Nieprawidłowy email');
     } else {
       this.errorEmailMessage.set('');
     }
   }
   updatePasswordErrorMessage() {
     if (this.password.hasError('required')) {
-      this.errorPasswordMessage.set('You must enter a value');
+      this.errorPasswordMessage.set('Pole hasło nie możę być puste');
     } else {
       this.errorPasswordMessage.set('');
     }
