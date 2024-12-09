@@ -15,11 +15,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { LevelHttpService } from '../../../service/http/level-http.service';
 import { SubjectHttpService } from '../../../service/http/subject-http.service';
 import { MatSelectModule } from '@angular/material/select';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-lessons-table',
   standalone: true,
   imports: [
+    CommonModule,
     MatProgressSpinnerModule,
     MatTableModule,
     CloseButtonComponent,

@@ -1,3 +1,4 @@
+@import '../../../../styles.scss';
 .toggleButonContainer{
   display: flex;
   width: 100%;
@@ -19,4 +20,22 @@
   }
   table {
     width: 100%;
+    background-color: $bgColorNone;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.0);
+    border: $borderPrimary;
+    //box-shadow: 0px 0px 0px $bgColorNone;
+    th, td{
+      border-bottom: $borderPrimary;
+      padding: 10px auto;
+    }
+    .actiobButton{
+      width: 10%;
+      padding: 0px;
+      div{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content:space-around;
+      }
+    }
+
   }
