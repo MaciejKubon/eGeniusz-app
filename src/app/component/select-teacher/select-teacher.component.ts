@@ -19,6 +19,7 @@ export class SelectTeacherComponent implements OnInit {
     lastName: '',
     description: '',
     birthday: '',
+    imgPath:'',
     lesson: [
       {
         id: 0,
@@ -44,8 +45,21 @@ export class SelectTeacherComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.teacherID = this.route.snapshot.paramMap.get('id');
-    this.teacherDetail.getTeacherDetail(this.teacherID).subscribe((data) => {
+    this.teacherDetail.getTeacherDetail(this.teacherID).subscribe((data:teacherData) => {
       this.teacherData = data;
+      data.imgPath = this.setAvatar(data.imgPath);
+     
     });
+  }
+  setAvatar(link:string):string{
+
+    
+    link = link.slice(16,link.length);
+    link = 'http://localhost:8000/storage/images/'+link;
+    console.log(link);
+    return link;
+    
+    
+    
   }
 }

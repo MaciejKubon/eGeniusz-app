@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TeacherTermsService } from '../../../service/http/teacher-terms.service';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { dataRange, studentClasses, term, terms, termsAndClasses, termsClass, termsRequest } from '../../../interface/interface';
 import { TeacherDetailDayTermComponent } from '../teacher-detail-day-term/teacher-detail-day-term.component';
 import { DatePipe } from '@angular/common';
 import { ArrowBackComponent } from '../../button/arrow-back/arrow-back.component';
+import { SpinnerComponent } from '../../spinner/spinner.component';
 
 @Component({
   selector: 'app-teacher-detail',
   standalone: true,
-  imports: [MatProgressSpinnerModule, ArrowBackComponent,TeacherDetailDayTermComponent],
+  imports: [SpinnerComponent, ArrowBackComponent,TeacherDetailDayTermComponent],
   templateUrl: './teacher-detail.component.html',
   styleUrl: './teacher-detail.component.scss',
 })

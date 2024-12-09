@@ -39,6 +39,7 @@ export class SetClassesComponent {
     lastName: '',
     description: '',
     birthday: '',
+    imgPath:'',
     lesson: [
       {
         id: 0,

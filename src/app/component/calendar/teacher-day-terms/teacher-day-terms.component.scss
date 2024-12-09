@@ -26,7 +26,8 @@
       top: 100px;
       z-index: 10;
       border-radius: $radiuVSmall;
-      background-color: $colorFree;
+      font-size: $fontSizeSmall;
+      
     }
     .termsReservetrion{
         background-color: $termReservation;
@@ -35,7 +36,7 @@
       background-color: $termnoReservation;
   }
     .termsFree{
-        font-size: 1rem;
+      background-color: $colorFree;
     }
   }
 }
