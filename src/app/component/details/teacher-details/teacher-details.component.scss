@@ -1,54 +1,58 @@
+@import "../../../../styles.scss";
 .container {
-    width: 90%;
-    background-color: aliceblue;
-    border-radius: 20px;
-    padding: 35px 5%;
-    .headerContainer {
-      display: flex;
-      align-items: center;
-      padding: 0 10%;
-      h2 {
-        font-size: 2rem;
-      }
-    }
-    .lineContainer {
-      margin-top: 25px;
-      border-bottom: 2px solid black;
-    }
-    .detailsContainer {
-      margin-top: 35px;
-      .dataContainer {
-        display: flex;
-        margin-bottom: 30px;
-        .label {
-          width: 50%;
-          span {
-            font-size: 1.2rem;
-            font-weight: 600;
-          }
-        }
-        .data {
-          span {
-            font-size: 1.2rem;
-            font-weight: 600;
-          }
-        }
-      }
-    }
-    .formContainer{
-      display: flex;
-      flex-wrap: wrap;
-      mat-form-field{
-        width: 100%;
-      }
-    }
-    .editContainer{
-      margin-top: 35px;
-  
-    }
-    .buttonContainer {
-      display: flex;
-      justify-content: flex-end;
+  width: 90%;
+  border-radius: $radiusMid;
+  border: $borderPrimary;
+  padding: 35px 5%;
+  .headerContainer {
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    h2 {
+      font-size: $headerFontSize;
+      color: $blueColorSecond;
     }
   }
-  
+  .lineContainer {
+    margin-top: 25px;
+    border-bottom: $borderBottomPrimary;
+  }
+  .detailsContainer {
+    margin-top: 35px;
+    .dataContainer {
+      display: flex;
+      padding: 20px 0px;
+      border-bottom: $borderPrimary;
+      .label,
+      .data {
+        width: 50%;
+        span {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: $blueColorSecond;
+        }
+      }
+    }
+  }
+  .formContainer {
+
+    display: flex;
+    flex-wrap: wrap;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  .editContainer {
+    margin-top: 35px;
+  }
+  .buttonContainer {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    .activeForms{
+      width: 150px;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

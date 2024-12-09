@@ -4,7 +4,7 @@
   </div>
   <div class="lineContainer"></div>
   @if (isLoadingResults) {
-  <mat-spinner></mat-spinner>
+ <app-spinner/>
   } @else{ @if(showDetail){
 
   <div class="detailsContainer">
@@ -80,8 +80,11 @@
   <div class="buttonContainer">
     @if(showDetail){
     <app-edit-button (click)="changeToEdit()" />} @else{
-    <app-save-button (click)="saveEdit()" />
-    <app-close-button (click)="changetoDetail()" />
+      <div class="activeForms">
+        <app-save-button (click)="saveEdit()" />
+        <app-close-button (click)="changetoDetail()" />
+      </div>
+
     }
   </div>
   }
