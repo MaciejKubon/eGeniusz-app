@@ -9,6 +9,21 @@
 
   <div class="detailsContainer">
     <div class="dataContainer">
+      <div class="avatarContainer">
+        <figure>
+           <img [src]="avatarLink" alt="photo" />
+        </figure>
+        <div class="uploadImage">
+          <form (submit)="onSubmit()">
+            <input type="file" (change)="onFileSelected($event)" />
+          </form>
+          <button (click)="przslij()">Prześlij</button>
+        </div>
+        
+      </div>
+     
+    </div>
+    <div class="dataContainer">
       <div class="label"><span>Imie:</span></div>
       <div class="data">
         <span>{{ userDetails.firstName }}</span>
@@ -27,11 +42,11 @@
       </div>
     </div>
     <div class="dataContainer">
-        <div class="label"><span>Opis:</span></div>
-        <div class="data">
-          <span>{{ userDetails.description }}</span>
-        </div>
+      <div class="label"><span>Opis:</span></div>
+      <div class="data">
+        <span>{{ userDetails.description }}</span>
       </div>
+    </div>
   </div>
   } @else{
   <div class="editContainer">
@@ -67,7 +82,8 @@
       <mat-form-field>
         <mat-label>Name:</mat-label>
         <input
-          type="text"          matInput
+          type="text"
+          matInput
           #input
           value="{{ userDetails.description }}"
           [formControl]="description"

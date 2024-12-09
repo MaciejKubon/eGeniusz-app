@@ -28,10 +28,22 @@ export class TeachersListComponent {
     private teachersList: TeachersListHttpService,
     private router: Router  ) {}
   ngOnInit() {
-    this.teachersList.getTechersList(this.teacherFiltr).subscribe((data) => {
+    this.teachersList.getTechersList(this.teacherFiltr).subscribe((data:teacherList[]) => {
       this.teacherList = data;
+      data.forEach((e:teacherList) => {
+        e.imageLink = this.setAvatar(e.imageLink);
+      });
+      console.log(this.teacherList);
+      
       this.isLoadingResults = false;
     });
+  }
+  setAvatar(link:string):string{
+    link = link.slice(16,link.length);
+    link = 'http://localhost:8000'+link;
+    return link;
+    
+    
   }
 
   useFilter(filtr: teacherFiltr) {

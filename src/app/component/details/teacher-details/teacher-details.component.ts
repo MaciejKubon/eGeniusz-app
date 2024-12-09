@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { teacherDetail } from '../../../interface/interface';
+import { imageLink, teacherDetail } from '../../../interface/interface';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { UserDetailsService } from '../../../service/http/user-details.service';
 import { catchError, throwError } from 'rxjs';
@@ -25,6 +25,7 @@ import { SpinnerComponent } from '../../spinner/spinner.component';
   styleUrl: './teacher-details.component.scss'
 })
 export class TeacherDetailsComponent {
+  avatarLink:string = '';
   isLoadingResults: boolean = true;
   showDetail: boolean = true;
   userDetails: teacherDetail = {
@@ -37,9 +38,15 @@ export class TeacherDetailsComponent {
   readonly lastName = new FormControl();
   readonly birthday = new FormControl();
   readonly description = new FormControl();
-
+  selectedFile:File|null = null;
   constructor(private httpuserDetail: UserDetailsService) {}
   ngOnInit() {
+    this.loadData();
+
+  }
+  loadData()
+  {
+    this.isLoadingResults = true;
     this.httpuserDetail.getTeacherDetails().subscribe((data) => {
       if (data.firstName != null && data.firstName != '')
         this.userDetails.firstName = data.firstName;
@@ -49,10 +56,43 @@ export class TeacherDetailsComponent {
         this.userDetails.birthday = data.birthday;
       if (data.description != null && data.description != '')
         this.userDetails.description = data.description;
-      this.isLoadingResults = false;
+      this.httpuserDetail.getTeacherImage().subscribe((data:imageLink)=>{
+        this.setAvatar(data.imageUrl);
+        this.isLoadingResults = false;
+      })
     });
   }
-
+  setAvatar(link:string){
+    link = link.slice(16,link.length);
+    link = 'http://localhost:8000'+link;
+    this.avatarLink=link;
+    
+    
+  }
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    
+  }
+  przslij(){
+    if(this.selectedFile!=null){
+      const formData = new FormData();
+      formData.append('image', this.selectedFile);
+      this.httpuserDetail.uploadTeacherAvatar(formData).subscribe((data)=>{
+        this.loadData();
+        
+      });
+    }
+  }
+  onSubmit(){
+    if(this.selectedFile!=null){
+      const formData = new FormData();
+      formData.append('image', this.selectedFile);
+      this.httpuserDetail.uploadTeacherAvatar(formData).subscribe((data)=>{
+        console.log(data);
+        
+      });
+    }
+  }
   setDefoult() {
     this.userDetails = {
       firstName: '-',
