@@ -4,7 +4,7 @@
   </div>
   <div class="lineContainer"></div>
   @if (isLoadingResults) {
-  <mat-spinner></mat-spinner>
+  <app-spinner/>
   } @else{ @if(showDetail){
   <div class="detailsContainer">
     <div class="dataContainer">
@@ -16,7 +16,8 @@
           <form (submit)="onSubmit()">
             <input type="file" (change)="onFileSelected($event)" />
           </form>
-          <button (click)="przslij()">Prześlij</button>
+          <button mat-raised-button (click)="przslij()">Prześlij</button>
+
         </div>
       </div>
 
@@ -78,8 +79,9 @@
   <div class="buttonContainer">
     @if(showDetail){
     <app-edit-button (click)="changeToEdit()" />} @else{
+      <div class="activeForms">
     <app-save-button (click)="saveEdit()" />
-    <app-close-button (click)="changetoDetail()" />
+    <app-close-button (click)="changetoDetail()" /></div>
     }
   </div>
   }

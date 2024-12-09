@@ -27,8 +27,8 @@
       .data {
         width: 50%;
         span {
-          font-size: 1.2rem;
-          font-weight: 600;
+          font-size:$headerFontSizeSmall;
+          font-weight: $fontBold;
           color: $blueColorSecond;
         }
       }

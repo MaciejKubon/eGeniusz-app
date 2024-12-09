@@ -5,7 +5,7 @@
   <div class="lineContainer"></div> 
   <div class="upcomingClassesContainer">
     @if (isLoadingResults) {
-    <mat-spinner></mat-spinner>
+    <app-spinner/>
     }@else{ @if(classes.length == 0){
       <app-no-data/>
     }@else{
