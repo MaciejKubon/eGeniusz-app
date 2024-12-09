@@ -10,6 +10,7 @@ import { CloseButtonComponent } from '../../button/close-button/close-button.com
 import { EditButtonComponent } from '../../button/edit-button/edit-button.component';
 import { SaveButtonComponent } from '../../button/save-button/save-button.component';
 import { SpinnerComponent } from '../../spinner/spinner.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-teacher-details',
@@ -20,7 +21,8 @@ import { SpinnerComponent } from '../../spinner/spinner.component';
     MatInputModule,
     EditButtonComponent,
     SaveButtonComponent,
-    CloseButtonComponent,],
+    CloseButtonComponent,
+    MatButtonModule],
   templateUrl: './teacher-details.component.html',
   styleUrl: './teacher-details.component.scss'
 })
