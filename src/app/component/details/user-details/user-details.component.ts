@@ -10,17 +10,20 @@ import { MatInputModule } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { SpinnerComponent } from '../../spinner/spinner.component';
 @Component({
   selector: 'app-user-details',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    MatProgressSpinnerModule,
+    SpinnerComponent,
     MatFormFieldModule,
     MatInputModule,
     EditButtonComponent,
     SaveButtonComponent,
     CloseButtonComponent,
+    MatButtonModule
   ],
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.scss',

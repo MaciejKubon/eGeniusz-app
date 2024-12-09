@@ -41,6 +41,8 @@ export class TeachersListComponent {
   setAvatar(link:string):string{
     link = link.slice(16,link.length);
     link = 'http://localhost:8000'+link;
+    console.log(link);
+    
     return link;
     
     
@@ -51,6 +53,9 @@ export class TeachersListComponent {
     this.isLoadingResults = true;
     this.teachersList.getTechersList(this.teacherFiltr).subscribe((data) => {
       this.teacherList = data;
+      data.forEach((e:teacherList) => {
+        e.imageLink = this.setAvatar(e.imageLink);
+      });
       this.isLoadingResults = false;
     });
   }

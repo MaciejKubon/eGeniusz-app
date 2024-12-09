@@ -9,12 +9,13 @@ import {
 import { ClassesService } from '../../../../../service/http/classes.service';
 import { NoDataComponent } from '../../../../data/no-data/no-data.component';
 import { DeleteButtonComponent } from '../../../../button/delete-button/delete-button.component';
+import { SpinnerComponent } from '../../../../spinner/spinner.component';
 
 @Component({
   selector: 'app-no-confirmed-classes',
   standalone: true,
   imports: [
-    MatProgressSpinnerModule,
+    SpinnerComponent,
     CommonModule,
     NoDataComponent,
     DeleteButtonComponent,

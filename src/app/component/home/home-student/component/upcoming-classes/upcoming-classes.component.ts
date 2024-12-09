@@ -4,11 +4,12 @@ import { ClassesService } from '../../../../../service/http/classes.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NoDataComponent } from '../../../../data/no-data/no-data.component';
+import { SpinnerComponent } from '../../../../spinner/spinner.component';
 
 @Component({
   selector: 'app-upcoming-classes',
   standalone: true,
-  imports: [MatProgressSpinnerModule, CommonModule, NoDataComponent],
+  imports: [SpinnerComponent, CommonModule, NoDataComponent],
   templateUrl: './upcoming-classes.component.html',
   styleUrl: './upcoming-classes.component.scss',
 })

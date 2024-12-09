@@ -22,7 +22,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between; 
-        border-radius: 20px;
+        border-radius: $radiusMid;
         padding: 15px 5%;
         border: $borderPrimary;
         width: 90%;
@@ -37,13 +37,11 @@
           h2 {
             width: 100%;
             color: $blueColorSecond;
-
           }
           h3 {
             margin-top: 10px;
             width: 100%;
             color: $blueColorSecond;
-
           }
         }
         .lesson {

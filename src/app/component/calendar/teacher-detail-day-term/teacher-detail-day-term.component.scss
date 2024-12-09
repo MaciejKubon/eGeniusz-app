@@ -1,57 +1,50 @@
 @import "../../../../styles.scss";
 
 .dayContainer {
-  border-right: 1px solid black;
+  border-right: $borderPrimary;
   .dayNameBox {
     text-align: center;
     height: $dayBoxNameHight;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: $whiteColorPrimary;
   }
   .hoursContainer {
     position: relative;
     .hourBox {
-      border-top: 1px solid black;
+      border-top: $borderPrimary;
+        background-color: $bgcCalnedar;
       .timeBox {
         height: calc($dayBoxHight / 4);
       }
     }
-    .termsFree {
+    .classesNoConfirm,.termsFree,.classesConfirm{
       position: absolute;
       width: 90%;
       left: 5%;
       top: 100px;
       z-index: 10;
-      border-radius: 5px;
-      background-color: white;
-      font-size: 1rem;
+      border-radius: $radiuVSmall;
+      font-size: $fontSizeSmall;
+    }
+    .termsFree {
+      background-color: $colorFree;
     }
     .classesNoConfirm {
-      position: absolute;
-      width: 90%;
-      left: 10%;
-      top: 100px;
-      z-index: 10;
-      border-radius: 5px;
-      background-color: yellow;
+      background-color:  $termnoReservation;
     }
     .classesConfirm {
-      position: absolute;
-      width: 90%;
-      left: 10%;
-      top: 100px;
-      z-index: 10;
-      border-radius: 5px;
-      background-color: green;
+      background-color:$termReservation;
     }
   }
 }
 .setTerm {
   position: fixed;
   width: 70%;
-  height: 50svh;
   top: 15svh;
   left: 15%;
   z-index: 200;
+  background-color: $whiteColorPrimary;
+  border-radius: $radiusMid;
 }

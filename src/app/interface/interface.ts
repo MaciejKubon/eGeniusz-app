@@ -108,6 +108,7 @@ export interface teacherData {
   lastName: string;
   description: string;
   birthday: string;
+  imgPath:string;
   lesson: {
     id: number;
     subject_id: number;

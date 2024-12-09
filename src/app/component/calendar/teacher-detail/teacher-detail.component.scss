@@ -8,12 +8,13 @@
     align-items: center;
     padding: 0 10%;
     h2 {
-      font-size: 2rem;
+      font-size: $headerFontSize;
+      color: $blueColorSecond;
     }
   }
   .lineContainer {
     margin-top: 25px;
-    border-bottom: 2px solid black;
+    border-bottom: $borderBottomPrimary;
   }
   .calenderRangeMobile {
     display: none;
@@ -22,31 +23,37 @@
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    border: $borderPrimary;
+    border-radius: $radiusSmall;
     width: 100%;
     .DataRange {
       display: flex;
       align-items: center;
-      font-size: 1.5rem;
+      font-size: $headerFontSizeMedium;
+      color: $blueColorSecond;
     }
   }
   .calendatContainer {
     width: 100%;
     margin-top: 25px;
-    background-color: gray;
+    background-color: $blueColorSecond;
     display: flex;
+    app-spinner{
+      width: 100%;
+    }
     .hoursContainer {
       margin-top: $dayBoxNameHight;
       width: 50px;
-      background-color: aquamarine;
+      background-color: $blueColorSecond;
       text-align: center;
       .hourBox {
+        color: $whiteColorPrimary;
         height: $dayBoxHight;
-        border-top: 1px solid black;
+        border-top: $borderPrimary;
       }
     }
     .daysContainer {
-      border-left: 1px solid black;
+      border-left: $borderPrimary;
       width: calc(100% - 50px);
       display: flex;
       .dayBox {
@@ -67,12 +74,12 @@
       margin-top: 25px;
       display: flex;
       justify-content: space-between;
-      border: 1px solid black;
+      border: $borderPrimary;
       width: 100%;
       .DataRange {
         display: flex;
         align-items: center;
-        font-size: 1.5rem;
+        font-size: $headerFontSizeMedium;
       }
     }
     .calendatContainer {

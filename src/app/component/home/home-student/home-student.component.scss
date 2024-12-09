@@ -1,11 +1,10 @@
+@import '../../../../styles.scss';
 .container {
     width: 90%;
-    background-color: aliceblue;
+    border: $borderPrimary;
     border-radius: 20px;
     padding: 35px 5%;
     .noConfirmed{
-      margin-top: 50px;
-  }
-    
-  }
-  
+        margin-top: 50px;
+    }
+}

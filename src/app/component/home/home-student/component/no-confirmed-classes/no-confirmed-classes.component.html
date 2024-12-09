@@ -5,11 +5,11 @@
   <div class="lineContainer"></div>
   <div class="noConfirmedClassesContainer">
     @if (isLoadingResults) {
-    <mat-spinner></mat-spinner>
+    <app-spinner/>
     }@else{@if(classes.length == 0){
     <app-no-data />
     }@else{ @for(class of classes; track class){
-    <div class="classContainer" (click)="deleteClasses(class.id)">
+    <div class="classContainer" >
       <div class="lesson">
         <h2>{{ class.lesson.subject.name | uppercase }}</h2>
         <h3>{{ class.lesson.subject_level.name }}</h3>
@@ -32,7 +32,7 @@
         <h3>{{ class.lesson.price }} PLN</h3>
       </div>
       <div class="deleteContainer">
-        <app-delete-button/>
+        <app-delete-button (click)="deleteClasses(class.id)"/>
       </div>
     </div>
     } }}

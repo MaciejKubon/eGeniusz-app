@@ -1,14 +1,16 @@
+@import '../../../../../../styles.scss';
 .container {
     .lineContainer {
       margin-top: 25px;
-      border-bottom: 2px solid black;
+      border-bottom:$borderBottomPrimary;
     }
     .noConfirmedClasses {
       display: flex;
       align-items: center;
       padding: 0 5%;
       h2 {
-        font-size: 1.6rem;
+        font-size: $headerFontSize;
+        color: $blueColorSecond;
       }
     }
     .noConfirmedClassesContainer {
@@ -19,10 +21,11 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        border-radius: 20px;
+        border-radius: $radiusMid;
         padding: 15px 5%;
-        background-color: aquamarine;
+        border: $borderPrimary;
         width: 90%;
+        background-color: $blueColorThird;
         .lesson,
         .date,
         .price {
@@ -32,10 +35,12 @@
           text-align: center;
           h2 {
             width: 100%;
+            color: $blueColorSecond;
           }
           h3 {
             margin-top: 10px;
             width: 100%;
+            color: $blueColorSecond;
           }
         }
         .lesson {
