@@ -4,11 +4,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { teacherClasses, classesRange } from '../../../../../interface/interface';
 import { ClassesService } from '../../../../../service/http/classes.service';
 import { NoDataComponent } from '../../../../data/no-data/no-data.component';
+import { SpinnerComponent } from '../../../../spinner/spinner.component';
 
 @Component({
   selector: 'app-confirmed-classes',
   standalone: true,
-  imports: [    MatProgressSpinnerModule,
+  imports: [    SpinnerComponent,
     CommonModule,
     NoDataComponent],
   templateUrl: './confirmed-classes.component.html',

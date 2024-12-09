@@ -16,13 +16,14 @@ import { LevelHttpService } from '../../../service/http/level-http.service';
 import { SubjectHttpService } from '../../../service/http/subject-http.service';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { SpinnerComponent } from '../../spinner/spinner.component';
 
 @Component({
   selector: 'app-lessons-table',
   standalone: true,
   imports: [
     CommonModule,
-    MatProgressSpinnerModule,
+    SpinnerComponent,
     MatTableModule,
     CloseButtonComponent,
     AddButtonComponent,

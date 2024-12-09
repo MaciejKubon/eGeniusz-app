@@ -13,7 +13,7 @@
 
 <div class="tableBox">
   @if (isLoadingResults) {
-  <mat-spinner></mat-spinner>
+    <app-spinner/>
   }@else{
   <table mat-table [dataSource]="dataLessons" class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="przedmiot">
