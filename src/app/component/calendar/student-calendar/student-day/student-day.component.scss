@@ -1,38 +1,39 @@
 @import "../../../../../styles.scss";
 .dayContainer {
-  border-right: 1px solid black;
-  .dayNameBox {
+    border-right: $borderPrimary;
+    .dayNameBox {
     text-align: center;
     height: $dayBoxNameHight;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: $whiteColorPrimary;
+
   }
   .hoursContainer{
     position: relative;
     .hourBox{
-        border-top: 1px solid black;
+        border-top: $borderPrimary;
+        background-color: $bgcCalnedar;
         .timeBox{
             height: calc($dayBoxHight / 4);
         }
     }
-    .termsNoReservetrion{
+    .termsNoReservetrion,.termsReservetrion{
         position: absolute;
         width: 90%;
         left: 5%;
         top: 100px;
         z-index: 10;
         border-radius: 5px;
-        background-color: yellow;
+        border-radius: $radiuVSmall;
+        font-size: $fontSizeSmall;
+    }
+    .termsNoReservetrion{
+        background-color: $termnoReservation;
     }
     .termsReservetrion{
-        position: absolute;
-        width: 90%;
-        left: 5%;
-        top: 100px;
-        z-index: 10;
-        border-radius: 5px;
-        background-color: green;
+        background-color: $termReservation;
     }
 }
 }

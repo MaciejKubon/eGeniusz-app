@@ -21,27 +21,32 @@
       <app-arrow-back [position]="position" (click)="changeRange(7)" />
     </div>
   </div>
+  <app-legends />
   <div class="calendatContainer">
     @if (isLoadingResults) {
-    <mat-spinner></mat-spinner>
+    <app-spinner />
     } @else{
-        <div class="hoursContainer">
-            @for(hour of hours; track hour){
-            <div class="hourBox">
-              <span>{{ hour }}</span>
-            </div>
-            }
-          </div>
-          <div class="daysContainer">
-            @for(class of classes; track class){
-                <div class="dayBox">
-                    <app-student-day [classes]="class" (refleshData)="refDate($event)"/>
-                  </div>
-            }
-            <div class="dayBoxMobile">
-                <app-student-day  [classes]="classes[0]" (refleshData)="refDate($event)"/> />
-              </div>
-          </div>
-    }
+    <div class="hoursContainer">
+      @for(hour of hours; track hour){
+      <div class="hourBox">
+        <span>{{ hour }}</span>
+      </div>
+      }
     </div>
+    <div class="daysContainer">
+      @for(class of classes; track class){
+      <div class="dayBox">
+        <app-student-day [classes]="class" (refleshData)="refDate($event)" />
+      </div>
+      }
+      <div class="dayBoxMobile">
+        <app-student-day
+          [classes]="classes[0]"
+          (refleshData)="refDate($event)"
+        />
+        />
+      </div>
+    </div>
+    }
+  </div>
 </div>

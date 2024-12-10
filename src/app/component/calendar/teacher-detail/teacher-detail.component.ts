@@ -5,11 +5,12 @@ import { TeacherDetailDayTermComponent } from '../teacher-detail-day-term/teache
 import { DatePipe } from '@angular/common';
 import { ArrowBackComponent } from '../../button/arrow-back/arrow-back.component';
 import { SpinnerComponent } from '../../spinner/spinner.component';
+import { LegendsComponent } from '../../legends/legends.component';
 
 @Component({
   selector: 'app-teacher-detail',
   standalone: true,
-  imports: [SpinnerComponent, ArrowBackComponent,TeacherDetailDayTermComponent],
+  imports: [SpinnerComponent, ArrowBackComponent,TeacherDetailDayTermComponent, LegendsComponent],
   templateUrl: './teacher-detail.component.html',
   styleUrl: './teacher-detail.component.scss',
 })
