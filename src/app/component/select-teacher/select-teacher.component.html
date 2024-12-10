@@ -1,4 +1,7 @@
 <div class="container">
+  @if(isLoadingResults){
+<app-spinner/>
+  }@else{
   <div class="headerContainer">
     <h2>{{ teacherData.firstName }} {{ teacherData.lastName }}</h2>
   </div>
@@ -6,7 +9,7 @@
   <div class="detailContainer">
     <div class="imageBox">
       <figure>
-        <img src="./assets/image/photo.jpg" alt="photo" />
+        <img [src]="teacherData.imgPath" alt="photo" />
       </figure>
     </div>
     <div class="detialBox">
@@ -39,5 +42,5 @@
   <div class="lineContainer"></div>
   <div class="calendarContainer">
     <app-teacher-detail [teacherID]="teacherID"/>
-  </div>
+  </div>}
 </div>

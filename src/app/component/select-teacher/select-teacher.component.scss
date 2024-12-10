@@ -1,8 +1,8 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 .container {
   width: 90%;
   border: $borderPrimary;
-  border-radius:$radiusMid;
+  border-radius: $radiusMid;
   padding: 35px 5%;
   .headerContainer {
     display: flex;
@@ -10,12 +10,12 @@
     padding: 0 5%;
     h2 {
       font-size: $headerFontSize;
-      color:$blueColorSecond ;
+      color: $blueColorSecond;
     }
   }
   .lineContainer {
     margin-top: 25px;
-    border-bottom:$borderBottomPrimary;
+    border-bottom: $borderBottomPrimary;
   }
   .detailContainer {
     margin-top: 30px;
@@ -24,9 +24,13 @@
     display: flex;
     justify-content: space-between;
     .imageBox {
-      width: 40%;
+      width: 30%;
+      display: flex;
+      align-items: center;
       figure {
         width: 100%;
+        padding: 0px;
+        margin: 0px;
         img {
           width: 100%;
           border-radius: $radiusMid;
@@ -37,7 +41,7 @@
       width: 55%;
       h2 {
         font-size: $headerFontSizeMedium;
-        color:$blueColorSecond ;
+        color: $blueColorSecond;
       }
       .subjectContainer {
         table {
@@ -47,25 +51,41 @@
         table,
         th,
         td {
-          border:$borderPrimary;
+          border: $borderPrimary;
           border-collapse: collapse;
           text-align: center;
           padding: 10px 0px;
         }
       }
-      .descriptionContainer{
+      .descriptionContainer {
         margin-top: 20px;
       }
-      .ratingContainer{
+      .ratingContainer {
         margin-top: 20px;
-        span{
+        span {
           font-size: $headerFontSizeMedium;
-          color:$blueColorSecond ;
+          color: $blueColorSecond;
         }
       }
     }
   }
-  .calendarContainer{
+  .calendarContainer {
     margin-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    .detailContainer {
+      flex-wrap: wrap;
+      justify-content: center;
+      .imageBox {
+        width: 40%;
+        min-width: 200px;
+      }
+      .detialBox {
+        width: 100%;
+      }
+    }
   }
 }
