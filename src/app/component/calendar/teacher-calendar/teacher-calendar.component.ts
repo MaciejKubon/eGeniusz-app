@@ -6,6 +6,7 @@ import { AddTermComponent } from '../../form/add-term/add-term.component';
 import { DatePipe } from '@angular/common';
 import { ArrowBackComponent } from '../../button/arrow-back/arrow-back.component';
 import { SpinnerComponent } from '../../spinner/spinner.component';
+import { LegendsComponent } from '../../legends/legends.component';
 
 @Component({
   selector: 'app-teacher-calendar',
@@ -15,6 +16,7 @@ import { SpinnerComponent } from '../../spinner/spinner.component';
     SpinnerComponent,
     AddTermComponent,
     ArrowBackComponent,
+    LegendsComponent
   ],
   templateUrl: './teacher-calendar.component.html',
   styleUrl: './teacher-calendar.component.scss',

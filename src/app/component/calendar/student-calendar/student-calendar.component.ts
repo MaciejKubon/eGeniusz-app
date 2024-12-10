@@ -5,15 +5,16 @@ import {
   studentClass,
 } from '../../../interface/interface';
 import { DatePipe } from '@angular/common';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ArrowBackComponent } from '../../button/arrow-back/arrow-back.component';
 import { ClassesService } from '../../../service/http/classes.service';
 import { StudentDayComponent } from './student-day/student-day.component';
+import { LegendsComponent } from '../../legends/legends.component';
+import { SpinnerComponent } from '../../spinner/spinner.component';
 
 @Component({
   selector: 'app-student-calendar',
   standalone: true,
-  imports: [MatProgressSpinnerModule, ArrowBackComponent, StudentDayComponent],
+  imports: [SpinnerComponent, ArrowBackComponent, StudentDayComponent, LegendsComponent],
   templateUrl: './student-calendar.component.html',
   styleUrl: './student-calendar.component.scss',
 })
